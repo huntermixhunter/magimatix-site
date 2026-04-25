@@ -199,7 +199,7 @@ export default function Home() {
           </button>
         </div>
         {/* Mobile menu */}
-        <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3">
+        <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3" onClick={() => document.getElementById("mobile-menu")?.classList.add("hidden")}>
           <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Do</a>
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#web-design" className="block text-sm text-zinc-400 hover:text-white transition-colors">Web Design</a>
