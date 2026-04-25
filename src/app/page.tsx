@@ -163,6 +163,9 @@ export default function Home() {
             />
           </a>
           <div className="hidden md:flex items-center gap-8">
+            <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              What We Do
+            </a>
             <a href="#portfolio" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Portfolio
             </a>
@@ -197,6 +200,7 @@ export default function Home() {
         </div>
         {/* Mobile menu */}
         <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3">
+          <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Do</a>
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#web-design" className="block text-sm text-zinc-400 hover:text-white transition-colors">Web Design</a>
           <a href="#ai-services" className="block text-sm text-zinc-400 hover:text-white transition-colors">AI Services</a>
@@ -619,6 +623,9 @@ export default function Home() {
                 />
               </div>
               <div className="flex items-center gap-8">
+                <a href="#services" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                  What We Do
+                </a>
                 <a href="#web-design" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   Web Design
                 </a>
