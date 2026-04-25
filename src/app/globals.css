@@ -13,7 +13,7 @@
   --color-aurora-cyan: #00e5ff;
   --color-aurora-blue: #5b7fff;
   --color-aurora-purple: #a855f7;
-  --color-aurora-pink: #ec4899;
+  --color-aurora-pink: #7c6fff;
   --color-aurora-green: #34d399;
   --color-glass-bg: rgba(255, 255, 255, 0.04);
   --color-glass-border: rgba(255, 255, 255, 0.08);
@@ -59,12 +59,30 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Aurora gradient text */
+/* Aurora gradient text with shimmer */
 .gradient-text {
-  background: linear-gradient(135deg, #00e5ff, #5b7fff, #a855f7, #ec4899);
+  background: linear-gradient(
+    90deg,
+    #00e5ff 0%,
+    #5b7fff 15%,
+    #a855f7 30%,
+    #7c6fff 45%,
+    #00e5ff 60%,
+    #5b7fff 75%,
+    #a855f7 90%,
+    #7c6fff 100%
+  );
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: shimmer 25s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 /* Aurora gradient border */
@@ -77,7 +95,7 @@ html {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #00e5ff, #5b7fff, #a855f7, #ec4899);
+  background: linear-gradient(135deg, #00e5ff, #5b7fff, #a855f7, #7c6fff);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;

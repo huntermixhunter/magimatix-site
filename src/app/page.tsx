@@ -160,8 +160,8 @@ export default function Home() {
             />
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              Services
+            <a href="#portfolio" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              Portfolio
             </a>
             <a href="#web-design" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Web Design
@@ -194,7 +194,7 @@ export default function Home() {
         </div>
         {/* Mobile menu */}
         <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3">
-          <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">Services</a>
+          <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#web-design" className="block text-sm text-zinc-400 hover:text-white transition-colors">Web Design</a>
           <a href="#ai-services" className="block text-sm text-zinc-400 hover:text-white transition-colors">AI Services</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
@@ -307,6 +307,101 @@ export default function Home() {
                   </svg>
                 </span>
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Portfolio Section */}
+        <section id="portfolio" className="py-32 relative">
+          <div className="section-divider max-w-4xl mx-auto mb-32" />
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20 reveal">
+              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
+                Our Work
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                Projects We&apos;ve{" "}
+                <span className="gradient-text">Built</span>
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                Real results for real businesses. Here are some of the websites we&apos;ve designed and developed.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 reveal">
+              {[
+                {
+                  title: "Dusk 2 Dawn Lighting",
+                  description: "Professional landscape lighting company. Custom design with elegant dark theme and immersive hero imagery.",
+                  image: "/portfolio-dusk2dawn.jpg",
+                  url: "https://dusk2dawnlighting.com/",
+                  tags: ["Web Design", "Business"],
+                },
+                {
+                  title: "Elixir Keys",
+                  description: "Premium wholesale botanicals brand. Rich, organic aesthetic with a luxurious dark-green palette.",
+                  image: "/portfolio-elixirkeys.jpg",
+                  url: "https://elixirkeys.com/",
+                  tags: ["Web Design", "E-Commerce"],
+                },
+                {
+                  title: "TrueSum",
+                  description: "Precision bookkeeping service. Clean, modern design with warm earth tones and professional feel.",
+                  image: "/portfolio-truesum.jpg",
+                  url: "https://truesum.vercel.app/",
+                  tags: ["Web Design", "SaaS"],
+                },
+                {
+                  title: "Selkirk Sprinklers",
+                  description: "Local sprinkler system specialists. Bold, trustworthy design with strong calls to action.",
+                  image: "/portfolio-selkirk.jpg",
+                  url: "https://selkirksprinklers.com/",
+                  tags: ["Web Design", "Business"],
+                },
+              ].map((project) => (
+                <a
+                  key={project.title}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass service-card rounded-2xl overflow-hidden group block"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={800}
+                      height={450}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="p-8">
+                    <div className="flex gap-2 mb-3">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-mono text-aurora-cyan/70 border border-aurora-cyan/20 rounded-full px-3 py-1"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-aurora-cyan transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-sm text-aurora-cyan font-medium">
+                      Visit Site
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -501,9 +596,6 @@ export default function Home() {
                 />
               </div>
               <div className="flex items-center gap-8">
-                <a href="#services" className="text-sm text-zinc-500 hover:text-white transition-colors">
-                  Services
-                </a>
                 <a href="#web-design" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   Web Design
                 </a>
