@@ -29,7 +29,7 @@ body {
 /* Smooth scrolling with offset for fixed navbar */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 0px;
 }
 
 /* Video background */
