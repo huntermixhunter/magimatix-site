@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 const webDesignServices = [
   {
@@ -128,6 +129,8 @@ export default function Home() {
     reveals.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  const [formState, handleSubmit] = useForm("xlgavrod");
 
   return (
     <>
@@ -534,52 +537,70 @@ export default function Home() {
             </p>
 
             <div className="glass-strong rounded-2xl p-10 md:p-14 max-w-2xl mx-auto">
-              <form
-                className="space-y-6"
-                action="https://formspree.io/f/hunterthomasmix@gmail.com"
-                method="POST"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    required
-                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    required
-                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
-                  />
+              {formState.succeeded ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 rounded-full bg-aurora-green/20 flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Message Sent!</h3>
+                  <p className="text-zinc-400">Thank you for reaching out. We&apos;ll be in touch soon.</p>
                 </div>
-                <select
-                  name="service"
-                  className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-zinc-400 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all appearance-none"
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    What are you interested in?
-                  </option>
-                  <option value="web-design">Web Design</option>
-                  <option value="ai-services">AI Services</option>
-                  <option value="both">Both</option>
-                </select>
-                <textarea
-                  name="message"
-                  placeholder="Tell us about your project..."
-                  rows={4}
-                  className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all resize-none"
-                />
-                <button
-                  type="submit"
-                  className="btn-glow w-full text-base font-medium px-8 py-4 rounded-full text-white"
-                >
-                  Send Message
-                </button>
-              </form>
+              ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                        className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
+                      />
+                      <ValidationError field="name" errors={formState.errors} className="text-red-400 text-sm mt-1" />
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        required
+                        className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
+                      />
+                      <ValidationError field="email" errors={formState.errors} className="text-red-400 text-sm mt-1" />
+                    </div>
+                  </div>
+                  <select
+                    name="service"
+                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-zinc-400 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all appearance-none"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      What are you interested in?
+                    </option>
+                    <option value="web-design">Web Design</option>
+                    <option value="ai-services">AI Services</option>
+                    <option value="both">Both</option>
+                  </select>
+                  <div>
+                    <textarea
+                      name="message"
+                      placeholder="Tell us about your project..."
+                      rows={4}
+                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all resize-none"
+                    />
+                    <ValidationError field="message" errors={formState.errors} className="text-red-400 text-sm mt-1" />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={formState.submitting}
+                    className="btn-glow w-full text-base font-medium px-8 py-4 rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {formState.submitting ? "Sending..." : "Send Message"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </section>
