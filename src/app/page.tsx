@@ -536,26 +536,27 @@ export default function Home() {
             <div className="glass-strong rounded-2xl p-10 md:p-14 max-w-2xl mx-auto">
               <form
                 className="space-y-6"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("Thank you! We'll be in touch soon.");
-                }}
+                action="https://formspree.io/f/hunterthomasmix@gmail.com"
+                method="POST"
               >
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
                     required
                     className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
                   />
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email Address"
                     required
                     className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
                   />
                 </div>
                 <select
+                  name="service"
                   className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-zinc-400 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all appearance-none"
                   defaultValue=""
                 >
@@ -567,6 +568,7 @@ export default function Home() {
                   <option value="both">Both</option>
                 </select>
                 <textarea
+                  name="message"
                   placeholder="Tell us about your project..."
                   rows={4}
                   className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all resize-none"
