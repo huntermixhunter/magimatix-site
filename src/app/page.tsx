@@ -247,8 +247,8 @@ export default function Home() {
         </section>
 
         {/* Services Overview */}
-        <section id="services" className="py-32 relative">
-          <div className="section-divider max-w-4xl mx-auto mb-32" />
+        <div id="services" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20 reveal">
               <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
@@ -319,8 +319,8 @@ export default function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className="py-32 relative">
-          <div className="section-divider max-w-4xl mx-auto mb-32" />
+        <div id="portfolio" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20 reveal">
               <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
@@ -414,8 +414,8 @@ export default function Home() {
         </section>
 
         {/* Web Design Section */}
-        <section id="web-design" className="py-32 relative">
-          <div className="section-divider max-w-4xl mx-auto mb-32" />
+        <div id="web-design" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20 reveal">
               <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
@@ -451,8 +451,8 @@ export default function Home() {
         </section>
 
         {/* AI Services Section */}
-        <section id="ai-services" className="py-32 relative">
-          <div className="section-divider max-w-4xl mx-auto mb-32" />
+        <div id="ai-services" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20 reveal">
               <p className="text-sm font-mono text-aurora-purple tracking-widest uppercase mb-4">
@@ -488,8 +488,8 @@ export default function Home() {
         </section>
 
         {/* Process Section */}
-        <section id="process" className="py-32 relative">
-          <div className="section-divider max-w-4xl mx-auto mb-32" />
+        <div id="process" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20 reveal">
               <p className="text-sm font-mono text-aurora-blue tracking-widest uppercase mb-4">
@@ -525,8 +525,8 @@ export default function Home() {
         </section>
 
         {/* CTA / Contact Section */}
-        <section id="contact" className="py-32 relative">
-          <div className="section-divider max-w-4xl mx-auto mb-32" />
+        <div id="contact" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
           <div className="max-w-4xl mx-auto px-6 text-center reveal">
             <p className="text-sm font-mono text-aurora-pink tracking-widest uppercase mb-4">
               Let&apos;s Work Together
