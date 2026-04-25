@@ -143,7 +143,7 @@ export default function Home() {
         playsInline
         preload="auto"
       >
-        <source src="/bg-video.mp4" type="video/mp4" />
+        <source src="https://b8jw7ogdgygurez6.public.blob.vercel-storage.com/bg-video-4k.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay for readability */}
