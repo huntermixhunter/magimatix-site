@@ -32,13 +32,28 @@ html {
   scroll-padding-top: 70px;
 }
 
+/* Loading screen */
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.2); }
+}
+
+.loading-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(91, 127, 255, 0.6);
+  animation: dotPulse 1.4s ease-in-out infinite;
+}
+
 /* Video background */
 .video-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  height: 100lvh;
   object-fit: cover;
   z-index: 0;
   opacity: 0.4;
@@ -47,17 +62,17 @@ html {
 
 /* Glass card */
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-strong {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* Aurora gradient text with shimmer */

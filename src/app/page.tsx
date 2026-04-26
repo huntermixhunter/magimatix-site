@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
 const webDesignServices = [
@@ -114,6 +114,18 @@ const processSteps = [
 ];
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -130,12 +142,69 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  // Force video playback — some browsers block autoplay even when muted
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryPlay = () => {
+      video.play().catch(() => {});
+    };
+
+    const onReady = () => setVideoLoaded(true);
+    video.addEventListener("canplaythrough", onReady);
+    if (video.readyState >= 4) setVideoLoaded(true);
+
+    tryPlay();
+
+    const onInteraction = () => {
+      tryPlay();
+      document.removeEventListener("touchstart", onInteraction);
+      document.removeEventListener("click", onInteraction);
+    };
+    document.addEventListener("touchstart", onInteraction, { once: true });
+    document.addEventListener("click", onInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener("touchstart", onInteraction);
+      document.removeEventListener("click", onInteraction);
+      video.removeEventListener("canplaythrough", onReady);
+    };
+  }, [isDesktop]);
+
   const [formState, handleSubmit] = useForm("xlgavrod");
 
   return (
     <>
-      {/* Background Video */}
+      {/* Loading Screen */}
+      {!videoLoaded && (
+        <div className="fixed inset-0 z-[200] bg-black flex items-center justify-center">
+          <div className="flex flex-col items-center gap-6">
+            <Image
+              src="/logo.png"
+              alt="Magimatix"
+              width={200}
+              height={57}
+              className="h-10 md:h-14 w-auto"
+              priority
+            />
+            <div className="flex items-center gap-3">
+              <div className="flex gap-1">
+                <span className="loading-dot" />
+                <span className="loading-dot" style={{ animationDelay: "0.2s" }} />
+                <span className="loading-dot" style={{ animationDelay: "0.4s" }} />
+              </div>
+              <p className="text-sm text-zinc-500 tracking-widest uppercase font-mono">
+                Loading your experience
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Background Video — 1080p on mobile, 4K on desktop */}
       <video
+        ref={videoRef}
         className="video-bg"
         autoPlay
         muted
@@ -143,29 +212,33 @@ export default function Home() {
         playsInline
         preload="auto"
       >
-        <source src="https://b8jw7ogdgygurez6.public.blob.vercel-storage.com/bg-video-4k.mp4" type="video/mp4" />
+        <source
+          src={
+            isDesktop
+              ? "https://b8jw7ogdgygurez6.public.blob.vercel-storage.com/bg-video-qhd.mp4"
+              : "https://b8jw7ogdgygurez6.public.blob.vercel-storage.com/bg-video-1080p.mp4"
+          }
+          type="video/mp4"
+        />
       </video>
 
       {/* Dark overlay for readability */}
-      <div className="fixed inset-0 bg-black/40 z-[1] pointer-events-none" />
+      <div className="fixed inset-0 bg-black/40 z-[1] pointer-events-none h-[100vh] h-[100lvh]" />
 
       {/* Navigation */}
       <nav className="nav-blur fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-1 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-0.5 md:px-6 md:py-1 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-3">
             <Image
               src="/logo.png"
-              alt="Auramatix"
+              alt="Magimatix"
               width={140}
               height={40}
-              className="h-16 w-auto"
+              className="h-8 md:h-10 w-auto"
               priority
             />
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              What We Do
-            </a>
             <a href="#portfolio" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Portfolio
             </a>
@@ -200,7 +273,6 @@ export default function Home() {
         </div>
         {/* Mobile menu */}
         <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3" onClick={() => document.getElementById("mobile-menu")?.classList.add("hidden")}>
-          <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Do</a>
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#web-design" className="block text-sm text-zinc-400 hover:text-white transition-colors">Web Design</a>
           <a href="#ai-services" className="block text-sm text-zinc-400 hover:text-white transition-colors">AI Services</a>
@@ -616,16 +688,13 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <Image
                   src="/logo.png"
-                  alt="Auramatix"
-                  width={120}
-                  height={34}
-                  className="h-6 w-auto"
+                  alt="Magimatix"
+                  width={200}
+                  height={57}
+                  className="h-8 md:h-10 w-auto"
                 />
               </div>
               <div className="flex items-center gap-8">
-                <a href="#services" className="text-sm text-zinc-500 hover:text-white transition-colors">
-                  What We Do
-                </a>
                 <a href="#web-design" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   Web Design
                 </a>
@@ -637,7 +706,7 @@ export default function Home() {
                 </a>
               </div>
               <p className="text-sm text-zinc-600">
-                &copy; 2026 Auramatix. All rights reserved.
+                &copy; 2026 Magimatix. All rights reserved.
               </p>
             </div>
           </div>

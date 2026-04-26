@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Auramatix | Web Design & AI Automations",
+  title: "Magimatix | Web Design & AI Automations",
   description:
     "Premium web design and AI automation solutions that transform your business. Modern, high-performance digital experiences crafted with precision.",
 };
