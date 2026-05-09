@@ -424,14 +424,14 @@ export default function Home() {
                   tags: ["Web Design", "E-Commerce"],
                 },
                 {
-                  title: "TrueSum",
+                  title: "TRUESUM",
                   description: "Precision bookkeeping service. Clean, modern design with warm earth tones and professional feel.",
                   image: "/portfolio-truesum.jpg",
                   url: "https://truesum.vercel.app/",
                   tags: ["Web Design", "SaaS"],
                 },
                 {
-                  title: "SaiSaiPro",
+                  title: "SAISAIPRO",
                   description: "Modern professional platform with a clean, polished design built for impact.",
                   image: "/portfolio-saisaipro.jpg",
                   url: "https://saisaipro-site.vercel.app/",
