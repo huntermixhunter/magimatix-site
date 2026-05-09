@@ -430,6 +430,13 @@ export default function Home() {
                   url: "https://truesum.vercel.app/",
                   tags: ["Web Design", "SaaS"],
                 },
+                {
+                  title: "SaiSaiPro",
+                  description: "Modern professional platform with a clean, polished design built for impact.",
+                  image: "/portfolio-saisaipro.jpg",
+                  url: "https://saisaipro-site.vercel.app/",
+                  tags: ["Web Design", "Business"],
+                },
               ].map((project) => (
                 <a
                   key={project.title}
