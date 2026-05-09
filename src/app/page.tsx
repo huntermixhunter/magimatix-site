@@ -431,7 +431,7 @@ export default function Home() {
                   tags: ["Web Design", "SaaS"],
                 },
                 {
-                  title: "SAISAIPRO",
+                  title: "SAISAI PRO",
                   description: "Modern professional platform with a clean, polished design built for impact.",
                   image: "/portfolio-saisaipro.jpg",
                   url: "https://saisaipro-site.vercel.app/",
