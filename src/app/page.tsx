@@ -430,13 +430,6 @@ export default function Home() {
                   url: "https://truesum.vercel.app/",
                   tags: ["Web Design", "SaaS"],
                 },
-                {
-                  title: "Selkirk Sprinklers",
-                  description: "Local sprinkler system specialists. Bold, trustworthy design with strong calls to action.",
-                  image: "/portfolio-selkirk.jpg",
-                  url: "https://selkirksprinklers.com/",
-                  tags: ["Web Design", "Business"],
-                },
               ].map((project) => (
                 <a
                   key={project.title}
