@@ -26,22 +26,7 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  async redirects() {
-    return [
-      {
-        // Redirect www to non-www (permanent 308)
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.magimatix.com",
-          },
-        ],
-        destination: "https://magimatix.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // www → non-www redirect handled in middleware.ts (edge, faster)
 };
 
 export default nextConfig;

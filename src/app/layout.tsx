@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     creator: "@magimatix",
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: "/",
   },
 };
 
