@@ -433,6 +433,13 @@ export default function HomeClient() {
                   url: "https://saisaipro-site.vercel.app/",
                   tags: ["Web Design", "Business"],
                 },
+                {
+                  title: "Selkirk Sprinklers",
+                  description: "Irrigation and sprinkler services company in northern Idaho. Clean, conversion-focused design built to drive local leads.",
+                  image: "/portfolio-selkirk.jpg",
+                  url: "https://selkirksprinklers.com/",
+                  tags: ["Web Design", "Business"],
+                },
               ].map((project) => (
                 <a
                   key={project.title}

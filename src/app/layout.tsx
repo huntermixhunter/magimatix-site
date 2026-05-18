@@ -23,18 +23,24 @@ export const metadata: Metadata = {
   description:
     "Magimatix builds premium websites and AI automations that transform businesses. Custom web design, e-commerce, UI/UX, workflow automation, AI chatbots, and data analytics — all crafted with precision.",
   keywords: [
-    "web design",
-    "AI automation",
-    "custom websites",
-    "e-commerce",
-    "UI UX design",
+    "web design agency",
+    "AI automation agency",
+    "custom website design",
+    "e-commerce website",
+    "UI UX design services",
     "workflow automation",
-    "AI chatbots",
+    "AI chatbots for business",
     "digital agency",
     "Magimatix",
-    "web development",
+    "web development services",
     "business automation",
-    "Next.js",
+    "small business website",
+    "landing page design",
+    "AI solutions for business",
+    "web design Idaho",
+    "website design services",
+    "business website",
+    "AI powered websites",
   ],
   authors: [{ name: "Magimatix", url: siteUrl }],
   creator: "Magimatix",
@@ -67,21 +73,204 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  other: {
+    "geo.region": "US-ID",
+    "geo.placename": "Coeur d'Alene, Idaho",
+    "geo.position": "47.6777;-116.7805",
+    ICBM: "47.6777, -116.7805",
+  },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Magimatix",
-  url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
-  description:
-    "Magimatix builds premium websites and AI automations that transform businesses.",
-  foundingDate: "2025",
-  serviceType: ["Web Design", "AI Automation", "E-Commerce", "UI/UX Design"],
-  areaServed: "Worldwide",
-  sameAs: [],
-};
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Magimatix",
+    url: siteUrl,
+    description: "Premium web design and AI automation agency. Custom websites, e-commerce, AI chatbots, and workflow automation for businesses worldwide.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteUrl}/?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Magimatix",
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    image: `${siteUrl}/opengraph-image`,
+    description:
+      "Magimatix builds premium websites and AI automations that transform businesses. We specialize in custom web design, e-commerce, UI/UX design, workflow automation, AI chatbots, and data analytics for businesses worldwide.",
+    foundingDate: "2025",
+    foundingLocation: {
+      "@type": "Place",
+      name: "Coeur d'Alene, Idaho, USA",
+    },
+    priceRange: "$$",
+    serviceType: [
+      "Web Design",
+      "AI Automation",
+      "E-Commerce",
+      "UI/UX Design",
+      "Workflow Automation",
+      "AI Chatbots",
+      "Data Analytics",
+      "SEO Optimization",
+    ],
+    areaServed: [
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "Canada" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Australia" },
+      {
+        "@type": "AdministrativeArea",
+        name: "Coeur d'Alene, Idaho",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Spokane, Washington",
+      },
+    ],
+    knowsAbout: [
+      "Web Design",
+      "AI Automation",
+      "Machine Learning",
+      "UI/UX Design",
+      "E-Commerce",
+      "Search Engine Optimization",
+      "Business Automation",
+      "Chatbot Development",
+      "Data Analytics",
+      "React",
+      "Next.js",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      url: `${siteUrl}/#contact`,
+      areaServed: "Worldwide",
+      availableLanguage: "English",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Magimatix Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom Websites",
+            description: "Bespoke websites built from the ground up to reflect your brand and convert visitors into customers.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "E-Commerce",
+            description: "High-converting online stores with seamless checkout flows and payment integrations.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "UI/UX Design",
+            description: "Research-driven interfaces optimized for engagement, usability, and conversions.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "SEO & Performance",
+            description: "Core Web Vitals optimization and search engine visibility built into every project.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Workflow Automation",
+            description: "Intelligent AI workflows that eliminate repetitive tasks and streamline operations.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "AI Chatbots & Agents",
+            description: "Custom AI that handles customer support, sales, and scheduling 24/7 across all channels.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Data & Analytics",
+            description: "AI-powered dashboards and predictive analytics that turn raw data into actionable insights.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom AI Solutions",
+            description: "Tailored machine learning models and AI integrations built for your specific business processes.",
+          },
+        },
+      ],
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What web design services does Magimatix offer?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Magimatix offers custom website design, e-commerce development, UI/UX design, SEO and performance optimization, and complete brand identity for businesses of all sizes.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What AI automation services does Magimatix provide?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Magimatix builds workflow automation systems, AI chatbots and agents, data analytics dashboards, and custom machine learning integrations tailored to your specific business processes.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does it take to build a custom website?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most Magimatix websites are completed in 2–6 weeks depending on complexity. The process includes discovery, design, development, and launch — with your input at every stage.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Magimatix work with small businesses?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes — Magimatix works with small businesses, startups, and established companies. Every project is custom-built to fit your specific goals and budget.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can Magimatix help my business with AI automation?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolutely. Magimatix designs and implements AI automations for customer support, lead generation, workflow management, and data processing — reducing manual work and increasing operational efficiency.",
+        },
+      },
+    ],
+  },
+];
 
 export default function RootLayout({
   children,
@@ -94,10 +283,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {jsonLd.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
       </head>
       <body className="min-h-full flex flex-col bg-black text-white">
         {children}
