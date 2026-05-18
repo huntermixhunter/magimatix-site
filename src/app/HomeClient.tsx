@@ -94,22 +94,22 @@ const processSteps = [
   {
     step: "01",
     title: "Discovery",
-    description: "We learn your business, goals, and audience to craft a tailored strategy.",
+    description: "A 30-minute call to learn your business, your goals, and your bottlenecks.",
   },
   {
     step: "02",
-    title: "Design",
-    description: "Concepts and prototypes refined until the vision is pixel-perfect.",
+    title: "AI Solutions",
+    description: "Your call feeds our AI workflow to engineer solutions specific to you — never templated.",
   },
   {
     step: "03",
-    title: "Build",
-    description: "Clean, performant code brought to life with modern frameworks.",
+    title: "Proposal",
+    description: "A custom deck mapping the recommended build and the price. You decide from there.",
   },
   {
     step: "04",
-    title: "Launch & Scale",
-    description: "Deployed, optimized, and continuously improved as your business grows.",
+    title: "Build & Launch",
+    description: "We ship it clean and fast, then optimize as your business grows.",
   },
 ];
 
@@ -172,7 +172,7 @@ const pricingTiers = [
 const pricingAddOns = [
   { label: "Additional AI automation", price: "$1,500 + $97/mo" },
   { label: "Logo + brand identity", price: "$1,500" },
-  { label: "Photo / video day", price: "$1,200" },
+  { label: "Photo / video day (local only)", price: "$1,200" },
   { label: "Blog + social content", price: "$497/mo" },
   { label: "Google Ads management", price: "15% of spend ($497/mo min)" },
 ];
@@ -216,7 +216,7 @@ const faqItems = [
   },
   {
     q: "What happens on the free discovery call?",
-    a: "30 minutes. We learn your business, your goals, and your current bottlenecks. You leave with a clear recommendation — even if that recommendation is that you do not need us yet. No pitch deck, no high-pressure close.",
+    a: "30 minutes to learn your business, your goals, and your bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. You decide from there — no pressure, no templated solutions.",
   },
 ];
 
@@ -1080,7 +1080,7 @@ export default function HomeClient() {
                 </a>
               </div>
               <p className="text-sm text-zinc-600">
-                &copy; 2026 Magimatix. All rights reserved.
+                &copy; 2026 Magimatix LLC. All rights reserved.
               </p>
             </div>
           </div>

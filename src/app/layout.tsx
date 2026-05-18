@@ -398,7 +398,7 @@ const jsonLd = [
         name: "How do I get started working with Magimatix?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Getting started is simple. Reach out through the contact form or book a free discovery call. We will learn about your business, discuss your goals, and put together a clear proposal with timeline and pricing — no pressure, no jargon.",
+          text: "Book a free 30-minute discovery call so we can learn your business, goals, and bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. No pressure, no templated solutions.",
         },
       },
     ],
