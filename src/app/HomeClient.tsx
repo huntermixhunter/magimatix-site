@@ -358,6 +358,9 @@ export default function HomeClient() {
             <a href="#process" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Process
             </a>
+            <a href="/blog" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              Blog
+            </a>
             <a href="#faq" className="text-sm text-zinc-400 hover:text-white transition-colors">
               FAQ
             </a>
@@ -388,6 +391,7 @@ export default function HomeClient() {
           <a href="#ai-services" className="block text-sm text-zinc-400 hover:text-white transition-colors">AI Services</a>
           <a href="#pricing" className="block text-sm text-zinc-400 hover:text-white transition-colors">Pricing</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
+          <a href="/blog" className="block text-sm text-zinc-400 hover:text-white transition-colors">Blog</a>
           <a href="#faq" className="block text-sm text-zinc-400 hover:text-white transition-colors">FAQ</a>
           <a href="#contact" className="block text-sm text-zinc-400 hover:text-white transition-colors">Contact</a>
         </div>
@@ -1071,6 +1075,9 @@ export default function HomeClient() {
                 </a>
                 <a href="#ai-services" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   AI Services
+                </a>
+                <a href="/blog" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                  Blog
                 </a>
                 <a href="#faq" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   FAQ

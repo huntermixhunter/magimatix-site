@@ -208,6 +208,91 @@ html {
   background: linear-gradient(90deg, transparent, rgba(91, 127, 255, 0.3), rgba(168, 85, 247, 0.3), transparent);
 }
 
+/* Blog post body — long-form prose styling */
+.post-body {
+  color: #d4d4d8;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.post-body > * + * { margin-top: 1.25rem; }
+.post-body h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fafafa;
+}
+.post-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fafafa;
+}
+.post-body p { color: #d4d4d8; }
+.post-body a {
+  color: #7c9cff;
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 156, 255, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.post-body a:hover {
+  color: #a5bfff;
+  text-decoration-color: rgba(165, 191, 255, 0.7);
+}
+.post-body strong { color: #fafafa; font-weight: 600; }
+.post-body em { color: #e4e4e7; }
+.post-body ul, .post-body ol {
+  padding-left: 1.5rem;
+  color: #d4d4d8;
+}
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+.post-body li { margin-top: 0.5rem; }
+.post-body li::marker { color: rgba(168, 85, 247, 0.7); }
+.post-body blockquote {
+  border-left: 3px solid rgba(91, 127, 255, 0.5);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  color: #e4e4e7;
+  font-style: italic;
+  background: rgba(91, 127, 255, 0.05);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.post-body code {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.4rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  color: #f4f4f5;
+}
+.post-body pre {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+.post-body pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.post-body hr {
+  border: none;
+  height: 1px;
+  margin: 3rem 0;
+  background: linear-gradient(90deg, transparent, rgba(91, 127, 255, 0.3), rgba(168, 85, 247, 0.3), transparent);
+}
+.post-body img {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
