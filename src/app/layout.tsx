@@ -353,6 +353,54 @@ const jsonLd = [
           text: "No — while Magimatix is based in Sandpoint, Idaho and serves North Idaho businesses, we work with clients across the United States and internationally. Everything is handled remotely with clear communication at every stage.",
         },
       },
+      {
+        "@type": "Question",
+        name: "How much does a website cost from Magimatix?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Website pricing at Magimatix depends on your goals, features, and complexity. Most small business websites start around $1,500–$3,500. E-commerce stores, booking systems, and custom web apps are priced per project. Contact us for a free estimate — we work to fit real budgets.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Magimatix offer website maintenance and ongoing support?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Magimatix offers post-launch support, content updates, performance monitoring, and ongoing maintenance. Whether you need a quick fix or a monthly retainer, we keep your site fast, secure, and up to date.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can Magimatix redesign my existing website?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Absolutely. Magimatix specializes in website redesigns — taking outdated or underperforming sites and rebuilding them with modern design, faster load times, and better SEO. We can work with your existing content or help you start fresh.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Magimatix help with SEO and Google search rankings?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Every Magimatix website is built with on-page SEO from the start — structured data, meta tags, fast load times, and local business schema. We also offer SEO strategy for businesses in Sandpoint, Coeur d'Alene, and across North Idaho who want to rank higher in local search.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Magimatix build e-commerce websites?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Magimatix builds custom e-commerce stores with product catalogs, payment processing, inventory management, and mobile-optimized checkout. Whether you are selling products locally in North Idaho or shipping nationwide, we build stores that convert.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do I get started working with Magimatix?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Getting started is simple. Reach out through the contact form or book a free discovery call. We will learn about your business, discuss your goals, and put together a clear proposal with timeline and pricing — no pressure, no jargon.",
+        },
+      },
     ],
   },
 ];
