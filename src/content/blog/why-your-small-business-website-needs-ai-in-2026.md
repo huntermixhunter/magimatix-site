@@ -1,9 +1,16 @@
 ---
-title: "Why Your Small Business Website Needs AI in 2026"
-description: "Most small business websites still feel like brochures. Here is how AI is quietly turning them into the most productive employee on payroll."
-date: "2026-05-17"
-author: "Magimatix"
-tags: ["AI", "Small Business", "Web Design"]
+title: Why Your Small Business Website Needs AI in 2026
+description: >-
+  Most small business websites still feel like brochures. Here is how AI is
+  quietly turning them into the most productive employee on payroll.
+date: '2026-05-17'
+author: Magimatix
+tags:
+  - AI
+  - Small Business
+  - Web Design
+image: /blog/why-your-small-business-website-needs-ai-in-2026.jpg
+imageAlt: 'Editorial image illustrating: Why Your Small Business Website Needs AI in 2026'
 ---
 
 For most of the last decade, a small business website was a polite digital business card. A logo, a phone number, a list of services, maybe a contact form that emailed somebody once a week. It was a thing you owned because everyone owned one.
