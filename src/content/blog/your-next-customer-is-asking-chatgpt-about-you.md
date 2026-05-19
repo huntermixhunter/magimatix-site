@@ -1,9 +1,20 @@
 ---
-title: "Your Next Customer Is Asking ChatGPT About You. Here Is What They See."
-description: "People are not just Googling local businesses anymore — they are asking AI. Here is how to see what AI tells them about you, and how to fix it if you do not like the answer."
-date: "2026-05-18"
-author: "Magimatix"
-tags: ["SEO", "AI", "GEO", "Small Business"]
+title: Your Next Customer Is Asking ChatGPT About You. Here Is What They See.
+description: >-
+  People are not just Googling local businesses anymore — they are asking AI.
+  Here is how to see what AI tells them about you, and how to fix it if you do
+  not like the answer.
+date: '2026-05-18'
+author: Magimatix
+tags:
+  - SEO
+  - AI
+  - GEO
+  - Small Business
+image: /blog/your-next-customer-is-asking-chatgpt-about-you.jpg
+imageAlt: >-
+  Editorial image illustrating: Your Next Customer Is Asking ChatGPT About You.
+  Here Is What They See.
 ---
 
 Open a fresh ChatGPT window right now. Type: *"What are the best [your service] companies in [your town]?"* Hit enter.

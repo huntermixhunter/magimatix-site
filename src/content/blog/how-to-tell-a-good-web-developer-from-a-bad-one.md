@@ -1,9 +1,19 @@
 ---
-title: "How to Tell a Good Web Developer from a Bad One in Five Minutes"
-description: "Most small business owners cannot evaluate a developer's work before they have already wired the deposit. Here are five questions that change that."
-date: "2026-05-18"
-author: "Magimatix"
-tags: ["Web Design", "Small Business", "Hiring", "Performance"]
+title: How to Tell a Good Web Developer from a Bad One in Five Minutes
+description: >-
+  Most small business owners cannot evaluate a developer's work before they have
+  already wired the deposit. Here are five questions that change that.
+date: '2026-05-18'
+author: Magimatix
+tags:
+  - Web Design
+  - Small Business
+  - Hiring
+  - Performance
+image: /blog/how-to-tell-a-good-web-developer-from-a-bad-one.jpg
+imageAlt: >-
+  Editorial image illustrating: How to Tell a Good Web Developer from a Bad One
+  in Five Minutes
 ---
 
 Hiring a web developer is one of the few purchases where the buyer cannot evaluate the product. You see a portfolio of pretty screenshots, you get a price, you wire a deposit, and then you wait three months to find out whether you bought a Ferrari or a fiberglass shell painted to look like one.
