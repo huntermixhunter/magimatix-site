@@ -9,6 +9,12 @@ tags:
   - AI
   - Small Business
   - Web Design
+scene: >-
+  A craftsman's workbench at dawn with neatly arranged hand tools laid out in
+  precise rows on weathered oak, a brass measuring tape extended across the
+  surface and a leather-bound ledger open at one edge, soft window light from
+  one side and a single tungsten desk lamp casting warm pooled light on brushed
+  steel and worn wood grain.
 image: /blog/why-your-small-business-website-needs-ai-in-2026.jpg
 imageAlt: 'Editorial image illustrating: Why Your Small Business Website Needs AI in 2026'
 ---

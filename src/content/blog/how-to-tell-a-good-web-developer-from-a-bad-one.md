@@ -10,6 +10,12 @@ tags:
   - Small Business
   - Hiring
   - Performance
+scene: >-
+  A watchmaker's bench at golden hour with brass loupes, tiny precision
+  screwdrivers, and a half-disassembled mechanical watch movement laid on dark
+  green felt, a single tungsten task lamp casting focused warm light over
+  polished gears and pinions, the surrounding workshop dissolving into soft
+  shadow.
 image: /blog/how-to-tell-a-good-web-developer-from-a-bad-one.jpg
 imageAlt: >-
   Editorial image illustrating: How to Tell a Good Web Developer from a Bad One
