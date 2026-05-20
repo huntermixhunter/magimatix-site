@@ -533,25 +533,18 @@ export default function HomeClient() {
                   tags: ["Web Design", "Business"],
                 },
                 {
+                  title: "Truesum Bookkeeping",
+                  description: "Precision bookkeeping service. Clean, modern design with warm earth tones and professional feel.",
+                  image: "/portfolio-truesum.jpg",
+                  url: "https://truesumbookkeeping.com/",
+                  tags: ["Web Design", "SaaS"],
+                },
+                {
                   title: "Elixir Keys",
                   description: "Premium wholesale botanicals brand. Rich, organic aesthetic with a luxurious dark-green palette.",
                   image: "/portfolio-elixirkeys.jpg",
                   url: "https://elixirkeys.com/",
                   tags: ["Web Design", "E-Commerce"],
-                },
-                {
-                  title: "TRUESUM",
-                  description: "Precision bookkeeping service. Clean, modern design with warm earth tones and professional feel.",
-                  image: "/portfolio-truesum.jpg",
-                  url: "https://truesum.vercel.app/",
-                  tags: ["Web Design", "SaaS"],
-                },
-                {
-                  title: "SAISAI PRO",
-                  description: "Modern professional platform with a clean, polished design built for impact.",
-                  image: "/portfolio-saisaipro.jpg",
-                  url: "https://saisaipro-site.vercel.app/",
-                  tags: ["Web Design", "Business"],
                 },
                 {
                   title: "Selkirk Sprinklers",
