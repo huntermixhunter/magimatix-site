@@ -10,11 +10,12 @@ tags:
   - Small Business
   - Web Design
 scene: >-
-  A craftsman's workbench at dawn with neatly arranged hand tools laid out in
-  precise rows on weathered oak, a brass measuring tape extended across the
-  surface and a leather-bound ledger open at one edge, soft window light from
-  one side and a single tungsten desk lamp casting warm pooled light on brushed
-  steel and worn wood grain.
+  A small independent retail shop counter at closing time — a vintage brass
+  register on the left, and on the right a sleek tablet glowing with a live
+  website analytics dashboard showing visitor graphs and chat bubbles; warm
+  Edison bulb light overhead mixing with the cool blue screen glow; glass
+  display cases reflecting both light sources; the street visible through plate
+  glass at dusk, no people visible.
 image: /blog/why-your-small-business-website-needs-ai-in-2026.jpg
 imageAlt: 'Editorial image illustrating: Why Your Small Business Website Needs AI in 2026'
 ---

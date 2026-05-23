@@ -8,7 +8,7 @@
  * Usage:
  *   node scripts/generate-post-image.mjs <slug>
  *   node scripts/generate-post-image.mjs <slug> --prompt "custom prompt override"
- *   node scripts/generate-post-image.mjs <slug> --model schnell|dev|pro
+ *   node scripts/generate-post-image.mjs <slug> --model schnell|dev|pro|ultra   (default: ultra)
  *   node scripts/generate-post-image.mjs <slug> --force          # overwrite existing image
  *   node scripts/generate-post-image.mjs <slug> --dry-run        # print prompt, do not call FAL
  *
@@ -39,12 +39,12 @@ const PUBLIC_BLOG_DIR = path.join(SITE_ROOT, "public", "blog");
 
 const args = process.argv.slice(2);
 if (args.length === 0 || args[0].startsWith("--")) {
-  console.error("Usage: node scripts/generate-post-image.mjs <slug> [--prompt \"...\"] [--model schnell|dev|pro] [--force] [--dry-run]");
+  console.error("Usage: node scripts/generate-post-image.mjs <slug> [--prompt \"...\"] [--model schnell|dev|pro|ultra] [--force] [--dry-run]");
   process.exit(1);
 }
 const slug = args[0];
 let customPrompt = null;
-let modelChoice = "dev";
+let modelChoice = "ultra";
 let force = false;
 let dryRun = false;
 
@@ -61,13 +61,14 @@ for (let i = 1; i < args.length; i++) {
 }
 
 const MODEL_ENDPOINTS = {
-  schnell: "https://fal.run/fal-ai/flux/schnell",     // fastest, lower quality, ~$0.003/image
-  dev:     "https://fal.run/fal-ai/flux/dev",          // balanced, ~$0.025/image
-  pro:     "https://fal.run/fal-ai/flux-pro/v1.1",     // highest quality, ~$0.04/image
+  schnell: "https://fal.run/fal-ai/flux/schnell",            // fastest, lower quality, ~$0.003/image
+  dev:     "https://fal.run/fal-ai/flux/dev",                // balanced, ~$0.025/image
+  pro:     "https://fal.run/fal-ai/flux-pro/v1.1",           // high quality, ~$0.04/image
+  ultra:   "https://fal.run/fal-ai/flux-pro/v1.1-ultra",     // highest quality + 2K, ~$0.06/image (default)
 };
 const endpoint = MODEL_ENDPOINTS[modelChoice];
 if (!endpoint) {
-  console.error(`Unknown model '${modelChoice}'. Choose from: schnell, dev, pro`);
+  console.error(`Unknown model '${modelChoice}'. Choose from: schnell, dev, pro, ultra`);
   process.exit(1);
 }
 
@@ -100,28 +101,47 @@ const publicImageUrl = `/blog/${slug}.jpg`;
 // even when those nouns are preceded by "no" or "avoid". Writing "no robots" reliably
 // produces a robot. The fix is to NEVER mention forbidden subjects at all and to
 // describe a concrete physical scene we *do* want.
-function buildPrompt({ title, description, tags, scene }) {
-  // `scene` (optional frontmatter field) lets the author pre-specify the literal
-  // visual concept. If absent we fall back to a generic but safe editorial scene
-  // anchored on "small business / craft / workplace" since this blog is for a
-  // web-and-AI agency that builds for small businesses.
-  const tagLine = Array.isArray(tags) && tags.length > 0 ? ` Loose topic tags: ${tags.join(", ")}.` : "";
-  const literalScene = scene && typeof scene === "string"
-    ? scene
-    : "An empty independent storefront at dusk with warm interior lighting spilling onto a quiet sidewalk; reflections of soft cyan-and-violet ambient glow from nearby signage; a wooden door slightly ajar; no people visible.";
-
+//
+// Relevance strategy:
+//   1. If the post frontmatter has a `scene` field, use it verbatim — the author chose it.
+//   2. If not, derive a concrete physical scene from the post's title, description, and tags
+//      so every image is topically connected to the article rather than a generic placeholder.
+function buildPhotographyDirection(aspectRatio = "16:9") {
   return [
-    // Lead with the literal scene — what FLUX should actually draw.
-    literalScene,
-    // Photography direction.
     "Editorial magazine photograph in the style of The Verge, Monocle, or Kinfolk feature imagery.",
     "Shot on a medium-format camera, 50mm prime lens, shallow depth of field, natural ambient light with a single soft cool accent.",
-    "Cinematic, restrained, premium, quiet.",
+    "Cinematic, restrained, premium, quiet. No people visible.",
     "Color grading: muted warm midtones, subtle aurora-like cool cyan and violet ambient glow in the background only, never on the main subject.",
-    "16:9 landscape composition with strong negative space on one side suitable for a website hero crop.",
-    // Loose topical context (for thematic flavor, not literal rendering).
-    description ? `Thematic context (do not render literally): ${description}` : "",
+    aspectRatio === "16:9"
+      ? "16:9 landscape composition with strong negative space on one side suitable for a website hero crop."
+      : "Landscape composition with strong negative space on one side suitable for a website hero crop.",
+  ].join(" ");
+}
+
+function buildPrompt({ title, description, tags, scene }) {
+  const photoDir = buildPhotographyDirection("16:9");
+
+  // Author-specified scene: trust it completely.
+  if (scene && typeof scene === "string") {
+    return [scene, photoDir].join(" ");
+  }
+
+  // Derive a concrete, topic-specific scene from the post's own content.
+  // Goal: the image should immediately signal the article's subject to a first-time reader.
+  const tagLine = Array.isArray(tags) && tags.length > 0 ? `Topic tags: ${tags.join(", ")}.` : "";
+  const contextLine = [
+    title ? `Article title: "${title}".` : "",
+    description ? `Article summary: ${description}` : "",
     tagLine,
+  ].filter(Boolean).join(" ");
+
+  return [
+    // Lead with the explicit mandate so FLUX anchors on it.
+    `A premium editorial photograph whose subject directly and specifically illustrates the following article: ${contextLine}`,
+    // Force FLUX to commit to a concrete scene rather than drifting abstract.
+    "Choose one specific, tangible object or setting that best embodies this article's core idea and render it as the hero of the frame.",
+    "The visual must be immediately legible as connected to the article topic to a first-time viewer.",
+    photoDir,
   ].filter(Boolean).join(" ");
 }
 
@@ -161,21 +181,34 @@ if (!FAL_KEY) {
 
 console.log(`[generate-post-image] calling FAL...`);
 const startedAt = Date.now();
+
+// Build request body — ultra uses aspect_ratio and manages inference internally;
+// schnell/dev/pro use image_size + explicit inference/guidance params.
+const requestBody =
+  modelChoice === "ultra"
+    ? {
+        prompt,
+        aspect_ratio: "16:9",
+        num_images: 1,
+        enable_safety_checker: true,
+        output_format: "jpeg",
+      }
+    : {
+        prompt,
+        image_size: "landscape_16_9",
+        num_images: 1,
+        enable_safety_checker: true,
+        num_inference_steps: modelChoice === "schnell" ? 4 : 28,
+        guidance_scale: 3.5,
+      };
+
 const falRes = await fetch(endpoint, {
   method: "POST",
   headers: {
     "Authorization": `Key ${FAL_KEY}`,
     "Content-Type": "application/json",
   },
-  body: JSON.stringify({
-    prompt,
-    image_size: "landscape_16_9",
-    num_images: 1,
-    enable_safety_checker: true,
-    // FLUX dev / pro accept guidance_scale + num_inference_steps; schnell ignores them
-    num_inference_steps: modelChoice === "schnell" ? 4 : 28,
-    guidance_scale: 3.5,
-  }),
+  body: JSON.stringify(requestBody),
 });
 
 if (!falRes.ok) {

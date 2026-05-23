@@ -11,11 +11,11 @@ tags:
   - Hiring
   - Performance
 scene: >-
-  A watchmaker's bench at golden hour with brass loupes, tiny precision
-  screwdrivers, and a half-disassembled mechanical watch movement laid on dark
-  green felt, a single tungsten task lamp casting focused warm light over
-  polished gears and pinions, the surrounding workshop dissolving into soft
-  shadow.
+  Two open laptops side by side on a clean oak desk — one displaying a crisp,
+  fast-loading website with generous whitespace and confident typography, the
+  other showing a cluttered, slow page with misaligned elements and dense walls
+  of text; a steel ruler and a red pen laid between them; soft north window
+  light from one side, the rest of the desk dissolving into warm shadow.
 image: /blog/how-to-tell-a-good-web-developer-from-a-bad-one.jpg
 imageAlt: >-
   Editorial image illustrating: How to Tell a Good Web Developer from a Bad One
