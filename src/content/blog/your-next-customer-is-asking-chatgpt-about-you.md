@@ -12,12 +12,13 @@ tags:
   - GEO
   - Small Business
 scene: >-
-  An antique wooden library card catalog drawer pulled half-open revealing
-  hand-lettered index cards, placed beside a modern sleek tablet lying flat on
-  the oak surface and glowing with a minimalist AI chat interface showing a
-  question about a local business; warm afternoon light from a tall arched
-  window catches the brass drawer handles; dust motes drift in a slanted shaft
-  of sun; the rest of the room recedes into soft warm shadow.
+  A matte-black smartphone lying flat on a polished white oak desk, its screen
+  active with a minimalist AI chat interface — the typed query reads "best
+  landscape company in Sandpoint" and a clean paragraph response glows below it
+  naming two local businesses; beside the phone rests a worn business card from
+  a local shop and a small ceramic espresso cup; cool diffused afternoon light
+  enters from a tall window at left and falls across the device; the room behind
+  recedes into warm blurred shadow.
 image: /blog/your-next-customer-is-asking-chatgpt-about-you.jpg
 imageAlt: >-
   Editorial image illustrating: Your Next Customer Is Asking ChatGPT About You.
