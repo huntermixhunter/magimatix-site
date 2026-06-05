@@ -321,7 +321,7 @@ export default function HomeClient() {
         preload="auto"
       >
         <source
-          src="https://cdn.magimatix.com/bg-video-720p-v4.mp4"
+          src="/bg-video-0605.mp4"
           type="video/mp4"
         />
       </video>
