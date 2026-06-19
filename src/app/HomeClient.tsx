@@ -197,70 +197,6 @@ const processSteps = [
   },
 ];
 
-const pricingTiers = [
-  {
-    name: "Launch",
-    tagline: "For solo operators and brand-new businesses",
-    setup: "2,500",
-    monthly: "297",
-    accent: "cyan",
-    featured: false,
-    features: [
-      "1-page custom site (no templates)",
-      "Local SEO setup — Google Business Profile, schema, sitemap",
-      "Mobile-optimized, Core Web Vitals tuned",
-      "Hosting, SSL, security, uptime monitoring",
-      "1 revision round during build",
-      "1 content update per month",
-      "Email support",
-    ],
-  },
-  {
-    name: "Growth",
-    tagline: "For established businesses ready to make the phone ring",
-    setup: "4,997",
-    monthly: "497",
-    accent: "purple",
-    featured: true,
-    guarantee: "90-day rank-or-refund guarantee",
-    features: [
-      "Up to 5 pages, fully custom design",
-      "Full on-page + technical SEO",
-      "Lead capture forms with email integration",
-      "Google Business Profile optimization",
-      "2 content updates per month",
-      "Monthly SEO performance report",
-      "Keyword ranking tracking",
-      "Priority email support",
-    ],
-  },
-  {
-    name: "Scale",
-    tagline: "For businesses ready to dominate with AI leverage",
-    setup: "9,997",
-    monthly: "997",
-    accent: "pink",
-    featured: false,
-    features: [
-      "Everything in Growth",
-      "E-commerce or online booking integration",
-      "Custom AI chatbot trained on your business",
-      "1 AI automation built and deployed",
-      "Priority phone + email support",
-      "1 automation iteration per quarter",
-      "Quarterly 60-min strategy call",
-    ],
-  },
-];
-
-const pricingAddOns = [
-  { label: "Additional AI automation", price: "$1,500 + $97/mo" },
-  { label: "Logo + brand identity", price: "$1,500" },
-  { label: "Photo / video day (local only)", price: "$1,200" },
-  { label: "Blog + social content", price: "$497/mo" },
-  { label: "Google Ads management", price: "15% of spend ($497/mo min)" },
-];
-
 const faqItems = [
   {
     q: "Why does Magimatix cost more than the $500 freelancer I found on Fiverr?",
@@ -268,11 +204,11 @@ const faqItems = [
   },
   {
     q: "What is the 90-day rank-or-refund guarantee?",
-    a: "On the Growth plan, if you do not rank on page one of Google for at least one of your agreed-upon local keywords within 90 days of launch, we refund the setup fee in full and keep working until you do. We can offer this because we have done the work to deserve the confidence.",
+    a: "If you do not rank on page one of Google for at least one of your agreed-upon local keywords within 90 days of launch, we refund your setup fee in full and keep working until you do. We can offer this because we have done the work to deserve the confidence.",
   },
   {
     q: "How long does it take to launch?",
-    a: "Launch plan: 7-14 days from kickoff. Growth plan: 3-4 weeks. Scale plan: 4-6 weeks depending on integrations. We do not draw out timelines to look busy — once you say go, we move.",
+    a: "Most builds launch in 2-4 weeks from kickoff. A simple one-page site can go live in 7-14 days; larger sites with e-commerce or AI automation run 4-6 weeks depending on integrations. We do not draw out timelines to look busy — once you say go, we move.",
   },
   {
     q: "Do I own the website?",
@@ -280,7 +216,7 @@ const faqItems = [
   },
   {
     q: "What does the monthly fee actually cover?",
-    a: "Hosting, SSL, security patches, uptime monitoring, regular backups, small content updates, plus your tier's specific deliverables (SEO reporting on Growth, AI automation upkeep on Scale, etc). Think of it as the team that keeps the asset working — not just a hosting bill.",
+    a: "Hosting, SSL, security patches, uptime monitoring, regular backups, small content updates, plus the specific deliverables we scope for you — SEO reporting, AI automation upkeep, and the like. Think of it as the team that keeps the asset working — not just a hosting bill.",
   },
   {
     q: "Can you redesign or rebuild my existing site?",
@@ -456,9 +392,6 @@ export default function HomeClient() {
             <a href="#ai-services" className="text-sm text-zinc-400 hover:text-white transition-colors">
               AI Services
             </a>
-            <a href="#pricing" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              Pricing
-            </a>
             <a href="#process" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Process
             </a>
@@ -493,7 +426,6 @@ export default function HomeClient() {
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#web-design" className="block text-sm text-zinc-400 hover:text-white transition-colors">Web Design</a>
           <a href="#ai-services" className="block text-sm text-zinc-400 hover:text-white transition-colors">AI Services</a>
-          <a href="#pricing" className="block text-sm text-zinc-400 hover:text-white transition-colors">Pricing</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
           <a href="/blog" className="block text-sm text-zinc-400 hover:text-white transition-colors">Blog</a>
           <a href="#faq" className="block text-sm text-zinc-400 hover:text-white transition-colors">FAQ</a>
@@ -860,149 +792,6 @@ export default function HomeClient() {
                   </ul>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Section */}
-        <div id="pricing" className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16 reveal">
-              <p className="text-sm font-mono text-aurora-pink tracking-widest uppercase mb-4">
-                Pricing
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                Investments That{" "}
-                <span className="gradient-text">Pay You Back</span>
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Three tiers built around the value we create — not the hours we spend.
-                Every plan is a system designed to grow your business, not a static brochure.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto reveal">
-              {pricingTiers.map((tier) => {
-                const accentMap: Record<string, { text: string; bg: string; border: string; ring: string }> = {
-                  cyan: {
-                    text: "text-aurora-cyan",
-                    bg: "bg-aurora-cyan/10",
-                    border: "border-aurora-cyan/30",
-                    ring: "ring-aurora-cyan/40",
-                  },
-                  purple: {
-                    text: "text-aurora-purple",
-                    bg: "bg-aurora-purple/10",
-                    border: "border-aurora-purple/40",
-                    ring: "ring-aurora-purple/60",
-                  },
-                  pink: {
-                    text: "text-aurora-pink",
-                    bg: "bg-aurora-pink/10",
-                    border: "border-aurora-pink/30",
-                    ring: "ring-aurora-pink/40",
-                  },
-                };
-                const c = accentMap[tier.accent];
-                return (
-                  <div
-                    key={tier.name}
-                    className={`relative glass service-card rounded-2xl p-8 md:p-10 flex flex-col ${
-                      tier.featured ? `ring-2 ${c.ring} md:scale-105 md:-my-2 z-10` : ""
-                    }`}
-                  >
-                    {tier.featured && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <span className={`text-[10px] font-mono tracking-widest uppercase px-4 py-1.5 rounded-full ${c.bg} ${c.text} border ${c.border}`}>
-                          Most Popular
-                        </span>
-                      </div>
-                    )}
-
-                    <div className="mb-6">
-                      <h3 className={`text-2xl font-bold mb-2 ${c.text}`}>{tier.name}</h3>
-                      <p className="text-sm text-zinc-400 leading-relaxed min-h-[2.5rem]">
-                        {tier.tagline}
-                      </p>
-                    </div>
-
-                    <div className="mb-6 pb-6 border-b border-white/10">
-                      <div className="flex items-baseline gap-1 mb-1">
-                        <span className="text-sm text-zinc-500">$</span>
-                        <span className="text-5xl font-bold tracking-tight">{tier.setup}</span>
-                        <span className="text-sm text-zinc-500 ml-1">setup</span>
-                      </div>
-                      <div className="flex items-baseline gap-1 text-zinc-300">
-                        <span className="text-sm text-zinc-500">+ $</span>
-                        <span className="text-2xl font-semibold">{tier.monthly}</span>
-                        <span className="text-sm text-zinc-500">/ month</span>
-                      </div>
-                    </div>
-
-                    {tier.guarantee && (
-                      <div className={`mb-6 px-4 py-3 rounded-xl ${c.bg} border ${c.border} flex items-start gap-2`}>
-                        <svg className={`w-5 h-5 flex-shrink-0 mt-0.5 ${c.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                        </svg>
-                        <span className={`text-xs font-medium ${c.text}`}>{tier.guarantee}</span>
-                      </div>
-                    )}
-
-                    <ul className="space-y-3 mb-8 flex-1">
-                      {tier.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3 text-sm text-zinc-300">
-                          <svg className={`w-4 h-4 flex-shrink-0 mt-0.5 ${c.text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                          </svg>
-                          <span className="leading-relaxed">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <a
-                      href="#contact"
-                      className={
-                        tier.featured
-                          ? "btn-glow text-sm font-medium px-6 py-3.5 rounded-full text-white text-center"
-                          : "btn-outline-glow text-sm font-medium px-6 py-3.5 rounded-full text-white text-center"
-                      }
-                    >
-                      Start with {tier.name}
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Add-Ons */}
-            <div className="mt-20 max-w-4xl mx-auto reveal">
-              <div className="text-center mb-10">
-                <p className="text-sm font-mono text-aurora-blue tracking-widest uppercase mb-3">
-                  Add-Ons
-                </p>
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
-                  Stack what you need, when you need it
-                </h3>
-              </div>
-              <div className="glass rounded-2xl p-8 md:p-10">
-                <ul className="divide-y divide-white/5">
-                  {pricingAddOns.map((addon) => (
-                    <li
-                      key={addon.label}
-                      className="flex items-center justify-between py-4 first:pt-0 last:pb-0 gap-4"
-                    >
-                      <span className="text-zinc-300 text-sm md:text-base">{addon.label}</span>
-                      <span className="text-aurora-cyan font-mono text-sm md:text-base font-medium text-right">
-                        {addon.price}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p className="text-center text-xs text-zinc-500 mt-6 font-mono tracking-wide">
-                Every project starts with a free discovery call. No surprise fees, no scope-creep.
-              </p>
             </div>
           </div>
         </section>
