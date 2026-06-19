@@ -203,8 +203,8 @@ const faqItems = [
     a: "Because we are not selling a website — we are selling a system that books work. The $500 site is a brochure: it sits there. Our sites are engineered to rank locally, capture leads, and feed your phone. One real customer typically pays for the entire build. Cheap is the most expensive option you can buy.",
   },
   {
-    q: "What is the 90-day rank-or-refund guarantee?",
-    a: "If you do not rank on page one of Google for at least one of your agreed-upon local keywords within 90 days of launch, we refund your setup fee in full and keep working until you do. We can offer this because we have done the work to deserve the confidence.",
+    q: "What is the 90-day money-back guarantee?",
+    a: "Simple: if you are not happy with your site for any reason within 90 days of launch, ask for a refund and we give it back. The only condition is that the refund unwinds the deal — we take the site down and you return the deliverables, since we host and manage it. You are never stuck paying for work you do not love, and we are never out the hours for a site someone keeps for free. We can offer this because we have done the work to deserve the confidence.",
   },
   {
     q: "How long does it take to launch?",
@@ -223,8 +223,8 @@ const faqItems = [
     a: "Yes, and we usually recommend it over trying to patch what is there. Most existing sites have foundational problems — slow code, no schema, unclear messaging — that are faster to fix from scratch than to retrofit.",
   },
   {
-    q: "What if I do not see results in 90 days?",
-    a: "On the Growth plan, the rank-or-refund guarantee kicks in (see above). Across every plan, if the site is built right and the data says something is not working, we change it. We chase results, not invoices.",
+    q: "What if I am not happy in the first 90 days?",
+    a: "Then the money-back guarantee kicks in (see above) — you get a full refund, we take the site down, and you return the deliverables. Short of that, if the data says something is not working, we change it. We chase results, not invoices.",
   },
   {
     q: "Do you work with clients outside of Idaho?",
@@ -459,7 +459,7 @@ export default function HomeClient() {
                   <svg className="w-4 h-4 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
-                  90-day rank-or-refund guarantee
+                  90-day money-back guarantee
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <svg className="w-4 h-4 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -976,7 +976,7 @@ export default function HomeClient() {
                 },
                 {
                   title: "You expect page one overnight",
-                  body: "Real local ranking takes the 90-day window we guarantee — not 90 hours. We move fast, but search is earned, not bought.",
+                  body: "Real local ranking takes months of compounding work — not 90 hours. We move fast, but search is earned, not bought.",
                 },
               ].map((item) => (
                 <div key={item.title} className="glass rounded-2xl p-7 flex items-start gap-4">
