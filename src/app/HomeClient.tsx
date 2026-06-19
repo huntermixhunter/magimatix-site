@@ -498,9 +498,10 @@ export default function HomeClient() {
                 <span className="gradient-text">More Customers</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                A website that turns visitors into paying customers, or automation that
-                does the busywork for you. Both do the same job — give you back your time
-                and grow your revenue.
+                A website that turns visitors into paying customers, and automation that
+                handles the follow-up — working together as one sales funnel that runs
+                itself. The site brings them in, the automation moves them through, and you
+                get back your time while your revenue grows.
               </p>
             </div>
 
