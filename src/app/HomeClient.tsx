@@ -15,6 +15,45 @@ const CALENDLY_BASE_URL = "https://calendly.com/hunterthomasmix/discovery-call";
 const CALENDLY_URL =
   `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_color=1a1a24&text_color=ffffff&primary_color=5b7fff`;
 
+// ── DATA Dashboard product ───────────────────────────────────────────────────
+// Self-hosted AI command center sold via Lemon Squeezy. Demo video + product
+// screenshots live in /public/data.
+// On-site embedded Stripe Checkout — buyers complete payment on magimatix.com.
+const DATA_CHECKOUT_URL = "/data/checkout";
+const DATA_VIDEO_ID = "uQjrYX_nB7I";
+
+const dataShots = [
+  {
+    src: "/data/data-bridge.png",
+    title: "The main channel",
+    caption: "Talk to your AI in plain language. It reads files, runs commands, and acts — not just chat.",
+  },
+  {
+    src: "/data/data-workspaces.png",
+    title: "Split into parallel panes",
+    caption: "Point each pane at a different folder and model. Several agents working at once, side by side.",
+  },
+  {
+    src: "/data/data-matrix.png",
+    title: "A living memory graph",
+    caption: "Everything it learns is wired into a searchable neural map you can explore and recall.",
+  },
+  {
+    src: "/data/data-connectors.png",
+    title: "Run local models too",
+    caption: "Scan your hardware and run private models on your own machine — no cloud, no per-token bill.",
+  },
+];
+
+const dataFeatures = [
+  "Multi-pane workspace — many agents, one screen",
+  "Reads and writes your files, runs real commands",
+  "Browses the web and controls your screen",
+  "Persistent memory across every session",
+  "Cloud or fully-local models — your choice",
+  "Self-hosted on your machine — you own it all",
+];
+
 // Calendly's widget.js attaches this to window once loaded.
 declare global {
   interface Window {
@@ -392,6 +431,9 @@ export default function HomeClient() {
             <a href="#ai-services" className="text-sm text-zinc-400 hover:text-white transition-colors">
               AI Services
             </a>
+            <a href="#data" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              DATA
+            </a>
             <a href="#process" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Process
             </a>
@@ -426,6 +468,7 @@ export default function HomeClient() {
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#web-design" className="block text-sm text-zinc-400 hover:text-white transition-colors">Web Design</a>
           <a href="#ai-services" className="block text-sm text-zinc-400 hover:text-white transition-colors">AI Services</a>
+          <a href="#data" className="block text-sm text-zinc-400 hover:text-white transition-colors">DATA</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
           <a href="/blog" className="block text-sm text-zinc-400 hover:text-white transition-colors">Blog</a>
           <a href="#faq" className="block text-sm text-zinc-400 hover:text-white transition-colors">FAQ</a>
@@ -797,6 +840,93 @@ export default function HomeClient() {
           </div>
         </section>
 
+        {/* DATA Dashboard — Product Section */}
+        <div id="data" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16 reveal">
+              <p className="text-sm font-mono text-aurora-green tracking-widest uppercase mb-4">
+                Our Product
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                Meet{" "}
+                <span className="gradient-text">DATA</span> — Your AI Command Center
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                Run a fleet of AI agents from one local, self-hosted dashboard. They chat,
+                write code, run commands, browse the web, control your screen, and remember
+                everything across sessions — all from a single fast interface you own outright.
+              </p>
+            </div>
+
+            {/* Demo video — responsive 16:9 */}
+            <div className="reveal max-w-4xl mx-auto mb-14">
+              <div className="glass rounded-2xl overflow-hidden p-2 md:p-3">
+                <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${DATA_VIDEO_ID}`}
+                    title="DATA Dashboard — Demo"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Screenshot gallery */}
+            <div className="grid md:grid-cols-2 gap-6 reveal mb-14">
+              {dataShots.map((shot) => (
+                <figure
+                  key={shot.src}
+                  className="glass service-card rounded-2xl overflow-hidden group"
+                >
+                  <div className="relative overflow-hidden border-b border-white/5">
+                    <Image
+                      src={shot.src}
+                      alt={shot.title}
+                      width={2880}
+                      height={1800}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <figcaption className="p-6">
+                    <h3 className="text-base md:text-lg font-semibold mb-1.5 group-hover:text-aurora-green transition-colors">
+                      {shot.title}
+                    </h3>
+                    <p className="text-sm text-zinc-400 leading-relaxed">{shot.caption}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            {/* Feature list + CTA */}
+            <div className="glass-strong rounded-2xl p-8 md:p-12 max-w-4xl mx-auto reveal text-center">
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-left max-w-2xl mx-auto mb-10">
+                {dataFeatures.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                    <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span className="leading-snug">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={DATA_CHECKOUT_URL}
+                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
+              >
+                Get DATA →
+              </a>
+              <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
+                One-time purchase · Self-hosted · Runs on your machine
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Process Section */}
         <div id="process" className="section-divider max-w-4xl mx-auto" />
         <section className="py-20 relative">
@@ -1071,6 +1201,9 @@ export default function HomeClient() {
                 </a>
                 <a href="#ai-services" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   AI Services
+                </a>
+                <a href="#data" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                  DATA
                 </a>
                 <a href="/blog" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   Blog
