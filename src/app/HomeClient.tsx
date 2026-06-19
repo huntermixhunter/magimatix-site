@@ -1,8 +1,28 @@
 "use client";
 
 import Image from "next/image";
+import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
-import { useForm, ValidationError } from "@formspree/react";
+
+// ── Calendly ───────────────────────────────────────────────────────────────
+// Free discovery call. Live event link from the Calendly account
+// (hunterthomasmix@gmail.com). The popup is a modal overlay themed DARK to
+// match the aurora palette. The background is lifted off near-black to a
+// charcoal (1a1a24) and text is forced pure white — that gives Calendly's
+// muted secondary text (field helper copy, the post-booking confirmation
+// line) enough contrast to read, fixing the washed-out grey from before.
+const CALENDLY_BASE_URL = "https://calendly.com/hunterthomasmix/discovery-call";
+const CALENDLY_URL =
+  `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_color=1a1a24&text_color=ffffff&primary_color=5b7fff`;
+
+// Calendly's widget.js attaches this to window once loaded.
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
 
 const webDesignServices = [
   {
@@ -300,6 +320,17 @@ export default function HomeClient() {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  // Open the Calendly scheduler in a centered popup overlay (no scroll trap).
+  const openCalendly = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      // Widget script not ready yet — fall back to opening in a new tab.
+      window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
+    }
+  };
+
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -354,8 +385,6 @@ export default function HomeClient() {
       window.clearTimeout(fallback);
     };
   }, []);
-
-  const [formState, handleSubmit] = useForm("xlgavrod");
 
   return (
     <>
@@ -1200,74 +1229,35 @@ export default function HomeClient() {
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
               Whether you need a stunning website or intelligent AI automations,
-              we&apos;re here to bring your vision to life. Let&apos;s start a conversation.
+              we&apos;re here to bring your vision to life. Pick a time below for a
+              free 30-minute discovery call — no pressure, no templated pitch.
             </p>
 
-            <div className="glass-strong rounded-2xl p-10 md:p-14 max-w-2xl mx-auto">
-              {formState.succeeded ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-aurora-green/20 flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">Message Sent!</h3>
-                  <p className="text-zinc-400">Thank you for reaching out. We&apos;ll be in touch soon.</p>
-                </div>
-              ) : (
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        required
-                        className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
-                      />
-                      <ValidationError field="name" errors={formState.errors} className="text-red-400 text-sm mt-1" />
-                    </div>
-                    <div>
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        required
-                        className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all"
-                      />
-                      <ValidationError field="email" errors={formState.errors} className="text-red-400 text-sm mt-1" />
-                    </div>
-                  </div>
-                  <select
-                    name="service"
-                    className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-zinc-400 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all appearance-none"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      What are you interested in?
-                    </option>
-                    <option value="web-design">Web Design</option>
-                    <option value="ai-services">AI Services</option>
-                    <option value="both">Both</option>
-                  </select>
-                  <div>
-                    <textarea
-                      name="message"
-                      placeholder="Tell us about your project..."
-                      rows={4}
-                      className="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-aurora-blue/50 focus:ring-1 focus:ring-aurora-blue/30 transition-all resize-none"
-                    />
-                    <ValidationError field="message" errors={formState.errors} className="text-red-400 text-sm mt-1" />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={formState.submitting}
-                    className="btn-glow w-full text-base font-medium px-8 py-4 rounded-full text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {formState.submitting ? "Sending..." : "Send Message"}
-                  </button>
-                </form>
-              )}
+            {/* Primary path — book the call directly via popup overlay */}
+            <div className="glass-strong rounded-2xl p-6 sm:p-8 md:p-10 max-w-3xl mx-auto mb-10">
+              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
+                Book Your Free Discovery Call
+              </p>
+              <p className="text-zinc-400 text-base mb-6 leading-relaxed">
+                Grab a 30-minute slot that works for you. Opens an instant
+                scheduler — pick a time and you&apos;re booked.
+              </p>
+              <button
+                type="button"
+                onClick={openCalendly}
+                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block cursor-pointer"
+              >
+                Pick a Time →
+              </button>
+              {/* Calendly popup assets */}
+              <link
+                rel="stylesheet"
+                href="https://assets.calendly.com/assets/external/widget.css"
+              />
+              <Script
+                src="https://assets.calendly.com/assets/external/widget.js"
+                strategy="afterInteractive"
+              />
             </div>
           </div>
         </section>
