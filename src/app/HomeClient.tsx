@@ -494,7 +494,7 @@ export default function HomeClient() {
         <section id="hero" className="min-h-screen flex items-center justify-center relative">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <p className="animate-fade-in-up opacity-0 text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-5">
-              AI, put to work for your business
+              Buy the tool or hire the team
             </p>
             <h1 className="animate-fade-in-up opacity-0 animate-delay-200 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
               We Make AI{" "}
