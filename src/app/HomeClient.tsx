@@ -16,8 +16,8 @@ const CALENDLY_URL =
   `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_color=1a1a24&text_color=ffffff&primary_color=5b7fff`;
 
 // ── DATA Dashboard product ───────────────────────────────────────────────────
-// Self-hosted AI command center sold via Lemon Squeezy. Demo video + product
-// screenshots live in /public/data.
+// Self-hosted AI command center — the $49 tool-only tier and the front door to
+// the whole AI offering. Demo video + product screenshots live in /public/data.
 // On-site embedded Stripe Checkout — buyers complete payment on magimatix.com.
 const DATA_CHECKOUT_URL = "/data/checkout";
 const DATA_VIDEO_ID = "uQjrYX_nB7I";
@@ -63,86 +63,88 @@ declare global {
   }
 }
 
-const webDesignServices = [
+// ── The Ladder ───────────────────────────────────────────────────────────────
+// Two ways to put AI to work, lowest commitment to highest. DATA is the $49
+// front door (a real, shipping product you own). Done-for-you is the bespoke
+// build where websites live as one line item among many. (A $99 setup bundle
+// is a planned middle rung — held back until it actually ships.)
+const tiers = [
   {
-    title: "Custom Websites",
-    description:
-      "Bespoke, hand-crafted websites built from the ground up to reflect your brand identity and convert visitors into customers.",
-    items: [
-      "Custom design — zero templates",
-      "Mobile-first responsive build",
-      "Copywriting for every page",
-      "Lead form wired straight to your inbox",
-      "On-page SEO + analytics setup",
-      "You own 100% of the code",
+    id: "tool",
+    eyebrow: "Run it yourself",
+    name: "DATA",
+    price: "$49",
+    priceNote: "one-time",
+    accent: "cyan",
+    tagline:
+      "Your own AI command center. Download it, install it, and run a fleet of agents on your own machine.",
+    points: [
+      "Self-hosted — you own it outright",
+      "Many agents, one fast dashboard",
+      "Cloud or fully-local models",
+      "One-time price, no subscription",
     ],
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" />
-      </svg>
-    ),
+    ctaLabel: "Get DATA →",
+    ctaHref: DATA_CHECKOUT_URL,
+    featured: false,
+    badge: "",
   },
   {
-    title: "E-Commerce",
-    description:
-      "High-converting online stores with seamless checkout flows, inventory management, and payment integrations.",
-    items: [
-      "Product catalog setup",
-      "Stripe / card payment integration",
-      "Secure, optimized checkout",
-      "Inventory + order management",
-      "Automated receipt + order emails",
-      "Abandoned-cart recovery",
+    id: "dfy",
+    eyebrow: "We build it",
+    name: "Done-for-You",
+    price: "Custom",
+    priceNote: "scoped to you",
+    accent: "green",
+    tagline:
+      "We design and build the whole system end to end — automations, agents, integrations, and the website that fronts it.",
+    points: [
+      "Workflow automation + AI agents",
+      "Custom integrations to your stack",
+      "Websites & web design included",
+      "Built, deployed, and supported by us",
     ],
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-      </svg>
-    ),
-  },
-  {
-    title: "UI/UX Design",
-    description:
-      "Intuitive, research-driven interfaces designed for engagement. User flows, wireframes, and prototypes that put your audience first.",
-    items: [
-      "Discovery + audience research",
-      "Sitemap & user flows",
-      "Wireframes + interactive prototype",
-      "Design system (color, type, components)",
-      "Accessibility (WCAG) pass",
-      "Revisions until you approve",
-    ],
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.764m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
-      </svg>
-    ),
-  },
-  {
-    title: "SEO & Performance",
-    description:
-      "Blazing-fast load times, Core Web Vitals optimization, and search engine visibility built into every project.",
-    items: [
-      "Local + keyword search research",
-      "Google Business Profile optimization",
-      "On-page SEO (titles, meta, schema)",
-      "Core Web Vitals tuning",
-      "Image compression + lazy-load",
-      "Monthly ranking report",
-    ],
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
+    ctaLabel: "Book a free call →",
+    ctaHref: "#contact",
+    featured: false,
+    badge: "",
   },
 ];
 
+// Aurora accent class maps — keeps Tailwind's purge happy (static strings).
+const accentMap: Record<
+  string,
+  { text: string; ring: string; chipBg: string; dot: string }
+> = {
+  cyan: {
+    text: "text-aurora-cyan",
+    ring: "border-aurora-cyan/40 shadow-[0_0_50px_rgba(34,211,238,0.10)]",
+    chipBg: "bg-aurora-cyan/10",
+    dot: "text-aurora-cyan",
+  },
+  purple: {
+    text: "text-aurora-purple",
+    ring: "border-aurora-purple/50 shadow-[0_0_60px_rgba(168,128,255,0.16)]",
+    chipBg: "bg-aurora-purple/10",
+    dot: "text-aurora-purple",
+  },
+  green: {
+    text: "text-aurora-green",
+    ring: "border-aurora-green/40 shadow-[0_0_50px_rgba(74,222,128,0.10)]",
+    chipBg: "bg-aurora-green/10",
+    dot: "text-aurora-green",
+  },
+};
+
+// ── Done-for-you capabilities ────────────────────────────────────────────────
+// The AI work we build and run for clients. Websites are folded in below as a
+// single line item — demoted from a headline service to one capability among
+// many, which is the whole point of the pivot.
 const aiServices = [
   {
     title: "Workflow Automation",
     description:
-      "Eliminate repetitive tasks with intelligent AI workflows. From data processing to social media posting and customer communications, we automate it all.",
+      "Eliminate the repetitive busywork eating your week. Data entry, follow-ups, scheduling, posting — we automate it so you get the hours back.",
     items: [
       "Process audit + automation map",
       "Custom workflow build",
@@ -196,7 +198,7 @@ const aiServices = [
   {
     title: "Custom AI Solutions",
     description:
-      "Tailored machine learning models and AI integrations built specifically for your business processes and goals.",
+      "Tailored models and integrations built specifically for your business processes — wired straight into the tools you already run.",
     items: [
       "Discovery + feasibility scoping",
       "Custom model / integration build",
@@ -213,6 +215,16 @@ const aiServices = [
   },
 ];
 
+// Websites — now one line item inside Done-for-you, not a headline service.
+const webCapabilities = [
+  "Custom sites — zero templates",
+  "E-commerce + secure checkout",
+  "UI/UX, copy, and brand",
+  "SEO + Core Web Vitals tuning",
+  "Lead forms wired to your inbox",
+  "You own 100% of the code",
+];
+
 const processSteps = [
   {
     step: "01",
@@ -222,7 +234,7 @@ const processSteps = [
   {
     step: "02",
     title: "AI Solutions",
-    description: "Your call feeds our AI workflow to engineer solutions specific to you — never templated.",
+    description: "Your call feeds our own AI workflow to engineer a solution specific to you — never templated.",
   },
   {
     step: "03",
@@ -238,44 +250,44 @@ const processSteps = [
 
 const faqItems = [
   {
-    q: "Why does Magimatix cost more than the $500 freelancer I found on Fiverr?",
-    a: "Because we are not selling a website — we are selling a system that books work. The $500 site is a brochure: it sits there. Our sites are engineered to rank locally, capture leads, and feed your phone. One real customer typically pays for the entire build. Cheap is the most expensive option you can buy.",
+    q: "What exactly is DATA, and why is it only $49?",
+    a: "DATA is our own AI command center — the same self-hosted dashboard we run the agency on, packaged so you can run it yourself. It is a one-time $49 download you install on your own machine: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. It is the front door to the whole AI offering — the cheapest way to put real AI to work without hiring anyone. If you want a whole system built for you instead, that is done-for-you.",
+  },
+  {
+    q: "What is the difference between the $49 tool and done-for-you?",
+    a: "The $49 tool is DATA, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a setup for you.",
+  },
+  {
+    q: "Do you still build websites?",
+    a: "Yes — we just stopped leading with it. A website is now one line item inside a done-for-you build, not the whole pitch. We still build fast, custom, conversion-focused sites with copy, SEO, and lead capture, and you still own 100% of the code. The difference is we wire AI leverage — chatbots, automations, lead routing — into the site instead of handing you a brochure that just sits there.",
+  },
+  {
+    q: "Do I own everything?",
+    a: "Yes. DATA is self-hosted on your machine — you own the install outright. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
   },
   {
     q: "What is the 90-day money-back guarantee?",
-    a: "Simple: if you are not happy with your site for any reason within 90 days of launch, ask for a refund and we give it back. The only condition is that the refund unwinds the deal — we take the site down and you return the deliverables, since we host and manage it. You are never stuck paying for work you do not love, and we are never out the hours for a site someone keeps for free. We can offer this because we have done the work to deserve the confidence.",
+    a: "On a done-for-you build: if you are not happy within 90 days of launch, ask for a refund and we give it back. The only condition is that the refund unwinds the deal — we take the work down and you return the deliverables, since we host and manage it. You are never stuck paying for work you do not love, and we are never out the hours for work someone keeps for free.",
   },
   {
-    q: "How long does it take to launch?",
-    a: "Most builds launch in 2-4 weeks from kickoff. A simple one-page site can go live in 7-14 days; larger sites with e-commerce or AI automation run 4-6 weeks depending on integrations. We do not draw out timelines to look busy — once you say go, we move.",
+    q: "How long does a done-for-you build take?",
+    a: "Most builds launch in 2–4 weeks from kickoff. A focused automation or a simple site can go live in 7–14 days; larger systems with e-commerce or deep AI integration run 4–6 weeks depending on the wiring. We do not draw out timelines to look busy — once you say go, we move.",
   },
   {
-    q: "Do I own the website?",
-    a: "Yes. You own the code, the domain, the content, and the brand assets — full stop. If you ever leave, we hand it over clean. No hostage situations, no proprietary builders you cannot escape.",
+    q: "What does a monthly fee cover, if any?",
+    a: "DATA has none — it is a one-time purchase you self-host. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope — automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
   },
   {
-    q: "What does the monthly fee actually cover?",
-    a: "Hosting, SSL, security patches, uptime monitoring, regular backups, small content updates, plus the specific deliverables we scope for you — SEO reporting, AI automation upkeep, and the like. Think of it as the team that keeps the asset working — not just a hosting bill.",
-  },
-  {
-    q: "Can you redesign or rebuild my existing site?",
-    a: "Yes, and we usually recommend it over trying to patch what is there. Most existing sites have foundational problems — slow code, no schema, unclear messaging — that are faster to fix from scratch than to retrofit.",
-  },
-  {
-    q: "What if I am not happy in the first 90 days?",
-    a: "Then the money-back guarantee kicks in (see above) — you get a full refund, we take the site down, and you return the deliverables. Short of that, if the data says something is not working, we change it. We chase results, not invoices.",
+    q: "What computers does DATA run on?",
+    a: "Windows 10 and 11 today. A macOS version is in the works. If you are on Mac or Linux right now, the done-for-you path is the better fit — or hold for the macOS release.",
   },
   {
     q: "Do you work with clients outside of Idaho?",
-    a: "Absolutely. We are based in Idaho but our clients are everywhere — local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design.",
-  },
-  {
-    q: "How is this different from a $20/month Squarespace or Wix site?",
-    a: "Two ways: design and leverage. Template builders give you the same drag-and-drop layout 50,000 other businesses are using — Google sees right through it. Our sites are custom-coded for speed, SEO, and conversion, then paired with the option to add AI leverage (chatbots, automations, lead routing) that template platforms simply cannot do.",
+    a: "Absolutely. We are based in Idaho but our clients are everywhere — local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design, and DATA is a download anyone can run.",
   },
   {
     q: "What happens on the free discovery call?",
-    a: "30 minutes to learn your business, your goals, and your bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. You decide from there — no pressure, no templated solutions.",
+    a: "30 minutes to learn your business, your goals, and your bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. You decide from there — no pressure, no templated pitch.",
   },
 ];
 
@@ -422,17 +434,17 @@ export default function HomeClient() {
             />
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#portfolio" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              Portfolio
-            </a>
-            <a href="#web-design" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              Web Design
-            </a>
-            <a href="#ai-services" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              AI Services
+            <a href="#pricing" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              Pricing
             </a>
             <a href="#data" className="text-sm text-zinc-400 hover:text-white transition-colors">
               DATA
+            </a>
+            <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              What We Build
+            </a>
+            <a href="#portfolio" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              Portfolio
             </a>
             <a href="#process" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Process
@@ -465,10 +477,10 @@ export default function HomeClient() {
         </div>
         {/* Mobile menu */}
         <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3" onClick={() => document.getElementById("mobile-menu")?.classList.add("hidden")}>
-          <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
-          <a href="#web-design" className="block text-sm text-zinc-400 hover:text-white transition-colors">Web Design</a>
-          <a href="#ai-services" className="block text-sm text-zinc-400 hover:text-white transition-colors">AI Services</a>
+          <a href="#pricing" className="block text-sm text-zinc-400 hover:text-white transition-colors">Pricing</a>
           <a href="#data" className="block text-sm text-zinc-400 hover:text-white transition-colors">DATA</a>
+          <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Build</a>
+          <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
           <a href="/blog" className="block text-sm text-zinc-400 hover:text-white transition-colors">Blog</a>
           <a href="#faq" className="block text-sm text-zinc-400 hover:text-white transition-colors">FAQ</a>
@@ -481,34 +493,45 @@ export default function HomeClient() {
         {/* Hero Section */}
         <section id="hero" className="min-h-screen flex items-center justify-center relative">
           <div className="max-w-5xl mx-auto px-6 text-center">
-            <h1 className="animate-fade-in-up opacity-0 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
-              A Website That Brings You{" "}
-              <span className="gradient-text">Customers</span>
+            <p className="animate-fade-in-up opacity-0 text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-5">
+              AI, put to work for your business
+            </p>
+            <h1 className="animate-fade-in-up opacity-0 animate-delay-200 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
+              We Make AI{" "}
+              <span className="gradient-text">Work</span> for Your Business
             </h1>
             <p className="animate-fade-in-up opacity-0 animate-delay-200 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              We build fast, custom sites engineered to rank locally and turn
-              visitors into booked work — not just a pretty brochure that sits
-              there. Most builds pay for themselves with a single new customer.
+              Start with our $49 AI command center and run it yourself — or have
+              us build the whole system for you. Two ways in, from a download
+              you own to a done-for-you build with the website included.
             </p>
             <div className="animate-fade-in-up opacity-0 animate-delay-300 flex flex-col items-center justify-center gap-5">
-              <a
-                href="#contact"
-                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white"
-              >
-                Book Your Free Discovery Call
-              </a>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href="#data"
+                  className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white"
+                >
+                  Meet DATA — $49
+                </a>
+                <a
+                  href="#contact"
+                  className="glass text-base font-medium px-8 py-4 rounded-full text-white hover:border-white/30 transition-colors"
+                >
+                  Book a Free Call
+                </a>
+              </div>
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-zinc-400">
                 <span className="inline-flex items-center gap-1.5">
                   <svg className="w-4 h-4 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
-                  90-day money-back guarantee
+                  Self-hosted — you own it
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <svg className="w-4 h-4 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
-                  You own everything
+                  90-day money-back guarantee
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <svg className="w-4 h-4 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -528,77 +551,265 @@ export default function HomeClient() {
           </div>
         </section>
 
-        {/* Services Overview */}
+        {/* The Ladder — pricing / two ways in */}
+        <div id="pricing" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16 reveal">
+              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
+                Two Ways In
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                Pick How Much You Want Us{" "}
+                <span className="gradient-text">in the Room</span>
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                From a $49 tool you run yourself to a system we build end to end.
+                Start anywhere on the ladder and move up when you are ready.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal items-stretch">
+              {tiers.map((tier) => {
+                const a = accentMap[tier.accent];
+                return (
+                  <div
+                    key={tier.id}
+                    className={`glass rounded-2xl p-8 flex flex-col relative ${
+                      tier.featured ? `glass-strong ${a.ring}` : ""
+                    }`}
+                  >
+                    {tier.badge && (
+                      <span className={`absolute -top-3 left-1/2 -translate-x-1/2 text-[0.65rem] font-mono tracking-widest uppercase px-4 py-1 rounded-full ${a.chipBg} ${a.text} border border-white/10`}>
+                        {tier.badge}
+                      </span>
+                    )}
+                    <p className={`text-xs font-mono tracking-widest uppercase mb-3 ${a.text}`}>
+                      {tier.eyebrow}
+                    </p>
+                    <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-4xl font-bold gradient-text">{tier.price}</span>
+                      <span className="text-sm text-zinc-500">{tier.priceNote}</span>
+                    </div>
+                    <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+                      {tier.tagline}
+                    </p>
+                    <ul className="space-y-2.5 mb-8 flex-1">
+                      {tier.points.map((p) => (
+                        <li key={p} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                          <svg className={`w-4 h-4 flex-shrink-0 mt-0.5 ${a.dot}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                          </svg>
+                          <span className="leading-snug">{p}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={tier.ctaHref}
+                      className={`text-center text-sm font-medium px-6 py-3.5 rounded-full transition-colors ${
+                        tier.featured
+                          ? "btn-glow text-white"
+                          : "border border-white/15 text-white hover:bg-white/5"
+                      }`}
+                    >
+                      {tier.ctaLabel}
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+
+            <p className="text-center text-xs text-zinc-500 mt-8 font-mono tracking-wide">
+              Not sure where you fit? Book a free call and we will point you to the right rung.
+            </p>
+          </div>
+        </section>
+
+        {/* DATA Dashboard — the $49 front door, expanded */}
+        <div id="data" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16 reveal">
+              <p className="text-sm font-mono text-aurora-green tracking-widest uppercase mb-4">
+                The $49 Front Door
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                Meet{" "}
+                <span className="gradient-text">DATA</span> — Your AI Command Center
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                The same dashboard we run the agency on, packaged so you can run
+                it yourself. A fleet of AI agents from one local, self-hosted
+                screen — they chat, write code, run commands, browse the web,
+                control your screen, and remember everything across sessions.
+                Yours outright, one time.
+              </p>
+            </div>
+
+            {/* Demo video — responsive 16:9 */}
+            <div className="reveal max-w-4xl mx-auto mb-14">
+              <div className="glass rounded-2xl overflow-hidden p-2 md:p-3">
+                <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${DATA_VIDEO_ID}`}
+                    title="DATA Dashboard — Demo"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Screenshot gallery */}
+            <div className="grid md:grid-cols-2 gap-6 reveal mb-14">
+              {dataShots.map((shot) => (
+                <figure
+                  key={shot.src}
+                  className="glass service-card rounded-2xl overflow-hidden group"
+                >
+                  <div className="relative overflow-hidden border-b border-white/5">
+                    <Image
+                      src={shot.src}
+                      alt={shot.title}
+                      width={2880}
+                      height={1800}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <figcaption className="p-6">
+                    <h3 className="text-base md:text-lg font-semibold mb-1.5 group-hover:text-aurora-green transition-colors">
+                      {shot.title}
+                    </h3>
+                    <p className="text-sm text-zinc-400 leading-relaxed">{shot.caption}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            {/* Feature list + CTA */}
+            <div className="glass-strong rounded-2xl p-8 md:p-12 max-w-4xl mx-auto reveal text-center">
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-left max-w-2xl mx-auto mb-10">
+                {dataFeatures.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5 text-sm text-zinc-300">
+                    <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                    <span className="leading-snug">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={DATA_CHECKOUT_URL}
+                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
+              >
+                Get DATA — $49 →
+              </a>
+              <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
+                One-time purchase · Self-hosted · Runs on your machine
+              </p>
+              <p className="inline-flex items-center gap-2 mt-4 text-xs text-zinc-400 font-mono tracking-wide border border-white/10 rounded-full px-4 py-1.5">
+                <svg className="w-3.5 h-3.5 text-aurora-green" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M3 5.7 10.5 4.6v7.1H3V5.7Zm0 12.6 7.5 1.1v-7H3v5.9Zm8.5 1.2L21 21V12.7h-9.5v6.8Zm0-15.4v6.9H21V3l-9.5 1.1Z" />
+                </svg>
+                Windows 10 / 11 only — macOS version coming soon
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* What We Build For You — Done-for-you capabilities */}
         <div id="services" className="section-divider max-w-4xl mx-auto" />
         <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20 reveal">
-              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
-                What We Do
+              <p className="text-sm font-mono text-aurora-purple tracking-widest uppercase mb-4">
+                Done-for-You
               </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                Two Ways We Get You{" "}
-                <span className="gradient-text">More Customers</span>
+                What We Build{" "}
+                <span className="gradient-text">For You</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                A website that turns visitors into paying customers, and automation that
-                handles the follow-up — working together as one sales funnel that runs
-                itself. The site brings them in, the automation moves them through, and you
-                get back your time while your revenue grows.
+                Want the result without running the tool? We design, build, and
+                deploy the whole AI system — then keep it running as your
+                business grows.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto reveal">
-              {/* Web Design Card */}
-              <a
-                href="#web-design"
-                className="glass service-card rounded-2xl p-10 group cursor-pointer block"
-              >
-                <div className="w-14 h-14 rounded-xl bg-aurora-cyan/10 flex items-center justify-center mb-6 group-hover:bg-aurora-cyan/20 transition-colors">
-                  <svg className="w-7 h-7 text-aurora-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
-                  </svg>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+              {aiServices.map((service) => (
+                <div
+                  key={service.title}
+                  className="glass service-card rounded-2xl p-8 text-center"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-aurora-purple/10 flex items-center justify-center mx-auto mb-5 text-aurora-purple">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="mt-5 pt-5 border-t border-white/5 space-y-2 text-left">
+                    {service.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
+                        <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-aurora-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span className="leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-aurora-cyan transition-colors">
-                  Web Design
-                </h3>
-                <p className="text-zinc-400 leading-relaxed mb-6">
-                  A fast, professional website that turns visitors into paying customers —
-                  so the people already searching for what you do call you instead of
-                  your competitor.
-                </p>
-                <span className="inline-flex items-center gap-2 text-sm text-aurora-cyan font-medium">
-                  View Services
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </span>
-              </a>
+              ))}
+            </div>
 
-              {/* AI Services Card */}
-              <a
-                href="#ai-services"
-                className="glass service-card rounded-2xl p-10 group cursor-pointer block"
-              >
-                <div className="w-14 h-14 rounded-xl bg-aurora-purple/10 flex items-center justify-center mb-6 group-hover:bg-aurora-purple/20 transition-colors">
-                  <svg className="w-7 h-7 text-aurora-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
-                  </svg>
+            {/* Websites — demoted to one line item inside done-for-you */}
+            <div className="glass rounded-2xl p-8 md:p-10 max-w-5xl mx-auto mt-8 reveal">
+              <div className="grid md:grid-cols-[1.1fr_1fr] gap-8 items-center">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-aurora-cyan/10 flex items-center justify-center text-aurora-cyan flex-shrink-0">
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs font-mono text-aurora-cyan tracking-widest uppercase">
+                        Also included
+                      </p>
+                      <h3 className="text-xl md:text-2xl font-bold">Websites &amp; web design</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
+                    Yes — we still build sites. We just stopped leading with it. A
+                    fast, custom, conversion-focused website is now one line item
+                    inside a done-for-you build — with AI leverage wired in, not a
+                    brochure that sits there. You still own 100% of the code.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-aurora-purple transition-colors">
-                  AI Services
-                </h3>
-                <p className="text-zinc-400 leading-relaxed mb-6">
-                  We automate the repetitive busywork eating your week — follow-ups, data
-                  entry, scheduling — so you get hours back and spend them on the work that
-                  actually makes you money.
-                </p>
-                <span className="inline-flex items-center gap-2 text-sm text-aurora-purple font-medium">
-                  View Services
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </span>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {webCapabilities.map((cap) => (
+                    <li key={cap} className="flex items-start gap-2 text-sm text-zinc-300">
+                      <svg className="w-3.5 h-3.5 flex-shrink-0 mt-1 text-aurora-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                      <span className="leading-snug">{cap}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center mt-12 reveal">
+              <a
+                href="#contact"
+                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
+              >
+                Book Your Free Discovery Call
               </a>
             </div>
           </div>
@@ -617,7 +828,7 @@ export default function HomeClient() {
                 <span className="gradient-text">Built</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Real results for real businesses. Here are some of the websites we&apos;ve designed and developed.
+                Real results for real businesses. Here are some of the sites and systems we&apos;ve designed and developed.
               </p>
             </div>
 
@@ -746,187 +957,6 @@ export default function HomeClient() {
           </>
         )}
 
-        {/* Web Design Section */}
-        <div id="web-design" className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20 reveal">
-              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
-                Web Design
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                Websites That{" "}
-                <span className="gradient-text">Make an Impact</span>
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Every project is a unique digital experience — meticulously designed,
-                expertly developed, and optimized for results.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-              {webDesignServices.map((service) => (
-                <div
-                  key={service.title}
-                  className="glass service-card rounded-2xl p-8 text-center"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-aurora-cyan/10 flex items-center justify-center mx-auto mb-5 text-aurora-cyan">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="mt-5 pt-5 border-t border-white/5 space-y-2 text-left">
-                    {service.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
-                        <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-aurora-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
-                        <span className="leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* AI Services Section */}
-        <div id="ai-services" className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20 reveal">
-              <p className="text-sm font-mono text-aurora-purple tracking-widest uppercase mb-4">
-                AI Services
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                Automate. Optimize.{" "}
-                <span className="gradient-text">Dominate.</span>
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Harness the power of artificial intelligence to supercharge your operations
-                and stay ahead of the competition.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-              {aiServices.map((service) => (
-                <div
-                  key={service.title}
-                  className="glass service-card rounded-2xl p-8 text-center"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-aurora-purple/10 flex items-center justify-center mx-auto mb-5 text-aurora-purple">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="mt-5 pt-5 border-t border-white/5 space-y-2 text-left">
-                    {service.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
-                        <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-aurora-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
-                        <span className="leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* DATA Dashboard — Product Section */}
-        <div id="data" className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16 reveal">
-              <p className="text-sm font-mono text-aurora-green tracking-widest uppercase mb-4">
-                Our Product
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                Meet{" "}
-                <span className="gradient-text">DATA</span> — Your AI Command Center
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Run a fleet of AI agents from one local, self-hosted dashboard. They chat,
-                write code, run commands, browse the web, control your screen, and remember
-                everything across sessions — all from a single fast interface you own outright.
-              </p>
-            </div>
-
-            {/* Demo video — responsive 16:9 */}
-            <div className="reveal max-w-4xl mx-auto mb-14">
-              <div className="glass rounded-2xl overflow-hidden p-2 md:p-3">
-                <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    className="absolute inset-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${DATA_VIDEO_ID}`}
-                    title="DATA Dashboard — Demo"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Screenshot gallery */}
-            <div className="grid md:grid-cols-2 gap-6 reveal mb-14">
-              {dataShots.map((shot) => (
-                <figure
-                  key={shot.src}
-                  className="glass service-card rounded-2xl overflow-hidden group"
-                >
-                  <div className="relative overflow-hidden border-b border-white/5">
-                    <Image
-                      src={shot.src}
-                      alt={shot.title}
-                      width={2880}
-                      height={1800}
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <figcaption className="p-6">
-                    <h3 className="text-base md:text-lg font-semibold mb-1.5 group-hover:text-aurora-green transition-colors">
-                      {shot.title}
-                    </h3>
-                    <p className="text-sm text-zinc-400 leading-relaxed">{shot.caption}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-
-            {/* Feature list + CTA */}
-            <div className="glass-strong rounded-2xl p-8 md:p-12 max-w-4xl mx-auto reveal text-center">
-              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-left max-w-2xl mx-auto mb-10">
-                {dataFeatures.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2.5 text-sm text-zinc-300">
-                    <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-aurora-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                    </svg>
-                    <span className="leading-snug">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={DATA_CHECKOUT_URL}
-                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
-              >
-                Get DATA →
-              </a>
-              <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
-                One-time purchase · Self-hosted · Runs on your machine
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Process Section */}
         <div id="process" className="section-divider max-w-4xl mx-auto" />
         <section className="py-20 relative">
@@ -979,8 +1009,8 @@ export default function HomeClient() {
                   <span className="gradient-text">Worth Asking</span>
                 </h2>
                 <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
-                  Straight answers on pricing, ownership, timelines, and what
-                  actually happens after you say go. No fluff, no fine print.
+                  Straight answers on the two tiers, ownership, timelines, and
+                  what actually happens after you say go. No fluff, no fine print.
                 </p>
                 <a
                   href="#contact"
@@ -1094,20 +1124,20 @@ export default function HomeClient() {
             <div className="grid md:grid-cols-2 gap-5 reveal">
               {[
                 {
-                  title: "You want the cheapest option",
-                  body: "A $500 brochure site exists — we are not it. We build systems that bring in work, and we price for that outcome.",
+                  title: "You want AI as a buzzword",
+                  body: "If the goal is to say you “use AI,” we are overkill. We build systems that actually save hours or book work — and we price for that outcome.",
                 },
                 {
                   title: "You want a box checked, not a result",
-                  body: "If a site that just “looks done” is the goal, we are overkill. We build to rank, capture leads, and feed your phone.",
+                  body: "Whether it is a site or an automation, if “looks done” is the bar, we are not it. We build to rank, capture leads, and feed your phone.",
                 },
                 {
                   title: "You cannot make a few decisions",
                   body: "We need you reachable for one 30-minute call and a handful of quick calls during the build. No responsiveness, no momentum.",
                 },
                 {
-                  title: "You expect page one overnight",
-                  body: "Real local ranking takes months of compounding work — not 90 hours. We move fast, but search is earned, not bought.",
+                  title: "You expect magic with zero input",
+                  body: "AI is leverage, not a genie. The best systems are trained on your business — that means a little of your time up front. We move fast, but we build with you, not around you.",
                 },
               ].map((item) => (
                 <div key={item.title} className="glass rounded-2xl p-7 flex items-start gap-4">
@@ -1144,13 +1174,13 @@ export default function HomeClient() {
               Let&apos;s Work Together
             </p>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-              Ready to{" "}
-              <span className="gradient-text">Transform</span> Your Business?
+              Ready to Put AI to{" "}
+              <span className="gradient-text">Work</span>?
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-              Whether you need a stunning website or intelligent AI automations,
-              we&apos;re here to bring your vision to life. Pick a time below for a
-              free 30-minute discovery call — no pressure, no templated pitch.
+              Run DATA yourself for $49, or pick a time below for a free 30-minute
+              call and we&apos;ll map the right build for your business — no
+              pressure, no templated pitch.
             </p>
 
             {/* Primary path — book the call directly via popup overlay */}
@@ -1179,6 +1209,13 @@ export default function HomeClient() {
                 strategy="afterInteractive"
               />
             </div>
+
+            <p className="text-sm text-zinc-500">
+              Just want the tool?{" "}
+              <a href={DATA_CHECKOUT_URL} className="text-aurora-green hover:text-white transition-colors font-medium">
+                Get DATA for $49 →
+              </a>
+            </p>
           </div>
         </section>
 
@@ -1196,14 +1233,14 @@ export default function HomeClient() {
                 />
               </div>
               <div className="flex items-center gap-8">
-                <a href="#web-design" className="text-sm text-zinc-500 hover:text-white transition-colors">
-                  Web Design
-                </a>
-                <a href="#ai-services" className="text-sm text-zinc-500 hover:text-white transition-colors">
-                  AI Services
+                <a href="#pricing" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                  Pricing
                 </a>
                 <a href="#data" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   DATA
+                </a>
+                <a href="#services" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                  What We Build
                 </a>
                 <a href="/blog" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   Blog
