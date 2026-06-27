@@ -1,5 +1,6 @@
-// Lists every blob under data-product/ and deletes all EXCEPT the live one
-// named in DATA_DOWNLOAD_URL. Dry-run by default; pass --apply to delete.
+// Lists every blob under data-product/ and deletes all EXCEPT the live files
+// named in DATA_DOWNLOAD_URL (the .zip) and DATA_INSTALLER_URL (the .exe).
+// Dry-run by default; pass --apply to delete.
 //
 //   node scripts/cleanup-data-zips.mjs           # preview
 //   node scripts/cleanup-data-zips.mjs --apply    # actually delete
@@ -12,6 +13,7 @@ config({ path: ".env.local" });
 const apply = process.argv.includes("--apply");
 const token = process.env.BLOB_READ_WRITE_TOKEN;
 const liveUrl = (process.env.DATA_DOWNLOAD_URL || "").trim();
+const installerUrl = (process.env.DATA_INSTALLER_URL || "").trim();
 
 if (!token) {
   console.error("Missing BLOB_READ_WRITE_TOKEN in .env.local");
@@ -31,12 +33,14 @@ if (!blobs.length) {
 
 // Normalize for matching (ignore trailing query if any)
 const norm = (u) => u.split("?")[0];
-const liveNorm = norm(liveUrl);
+const liveNorms = new Set(
+  [liveUrl, installerUrl].filter(Boolean).map(norm),
+);
 
 const keep = [];
 const remove = [];
 for (const b of blobs) {
-  if (norm(b.url) === liveNorm) keep.push(b);
+  if (liveNorms.has(norm(b.url))) keep.push(b);
   else remove.push(b);
 }
 
@@ -44,7 +48,7 @@ console.log(`\nFound ${blobs.length} blob(s) under data-product/\n`);
 console.log("KEEP (live):");
 keep.forEach((b) => console.log(`  ✓ ${b.pathname}  (${(b.size / 1048576).toFixed(2)} MB)`));
 if (!keep.length) {
-  console.error("\n⚠ The live DATA_DOWNLOAD_URL did not match ANY blob. Aborting to avoid deleting the live file.");
+  console.error("\n⚠ No live URL matched ANY blob. Aborting to avoid deleting a live file.");
   process.exit(1);
 }
 
@@ -62,4 +66,4 @@ if (!apply) {
 }
 
 await del(remove.map((b) => b.url), { token });
-console.log(`\nDeleted ${remove.length} old zip(s). Live v1.0.16 retained.`);
+console.log(`\nDeleted ${remove.length} old file(s). Live .zip + .exe retained.`);
