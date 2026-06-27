@@ -4,6 +4,7 @@
 // path — it does not depend on the webhook.
 import Link from "next/link";
 import { getStripe } from "@/lib/stripe";
+import DownloadPanel from "./DownloadPanel";
 
 export const runtime = "nodejs";
 
@@ -48,12 +49,7 @@ export default async function ThankYouPage({
               ) : null}
             </p>
 
-            <a
-              href={`/api/download?session_id=${encodeURIComponent(sessionId!)}`}
-              className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
-            >
-              Download DATA DAEMON ↓
-            </a>
+            <DownloadPanel sessionId={sessionId!} />
 
             <p className="text-xs text-zinc-500 mt-8 leading-relaxed">
               Keep this page or your receipt — the download link works again from
