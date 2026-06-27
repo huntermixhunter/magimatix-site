@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const links = [
   { href: "/#pricing", label: "Pricing" },
-  { href: "/#data", label: "DATA" },
+  { href: "/#data", label: "DATA DAEMON" },
   { href: "/#services", label: "What We Build" },
   { href: "/#portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },

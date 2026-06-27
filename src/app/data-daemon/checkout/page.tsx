@@ -31,11 +31,11 @@ export default function DataCheckoutPage() {
           href="/#data"
           className="text-sm text-zinc-400 hover:text-white transition-colors"
         >
-          ← Back to DATA
+          ← Back to DATA DAEMON
         </Link>
 
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mt-6 mb-2">
-          Checkout — <span className="gradient-text">DATA</span> Dashboard
+          Checkout — <span className="gradient-text">DATA DAEMON</span> Dashboard
         </h1>
         <p className="text-zinc-400 mb-6">
           One-time purchase. Self-hosted. Runs on your own machine.
@@ -47,7 +47,7 @@ export default function DataCheckoutPage() {
           </svg>
           <p className="text-sm text-zinc-300 leading-relaxed">
             <span className="font-semibold text-white">Windows 10 / 11 only.</span>{" "}
-            DATA does not yet run on macOS or Linux — a macOS version is coming soon.
+            DATA DAEMON does not yet run on macOS or Linux — a macOS version is coming soon.
             Please make sure you are on Windows before purchasing.
           </p>
         </div>

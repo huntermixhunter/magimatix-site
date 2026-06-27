@@ -15,11 +15,11 @@ const CALENDLY_BASE_URL = "https://calendly.com/hunterthomasmix/discovery-call";
 const CALENDLY_URL =
   `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_color=1a1a24&text_color=ffffff&primary_color=5b7fff`;
 
-// ── DATA Dashboard product ───────────────────────────────────────────────────
+// ── DATA DAEMON Dashboard product ───────────────────────────────────────────────────
 // Self-hosted AI command center — the $49 tool-only tier and the front door to
 // the whole AI offering. Demo video + product screenshots live in /public/data.
 // On-site embedded Stripe Checkout — buyers complete payment on magimatix.com.
-const DATA_CHECKOUT_URL = "/data/checkout";
+const DATA_CHECKOUT_URL = "/data-daemon/checkout";
 const DATA_VIDEO_ID = "uQjrYX_nB7I";
 
 const dataShots = [
@@ -64,15 +64,15 @@ declare global {
 }
 
 // ── The Ladder ───────────────────────────────────────────────────────────────
-// Two ways to put AI to work, lowest commitment to highest. DATA is the $49
+// Two ways to put AI to work, lowest commitment to highest. DATA DAEMON is the $49
 // front door (a real, shipping product you own). Done-for-you is the bespoke
-// build where websites live as one line item among many. (A $99 setup bundle
-// is a planned middle rung — held back until it actually ships.)
+// build — automations, AI systems, and websites, scoped per client. (A $99
+// setup bundle is a planned middle rung — held back until it actually ships.)
 const tiers = [
   {
     id: "tool",
     eyebrow: "Run it yourself",
-    name: "DATA",
+    name: "DATA DAEMON",
     price: "$49",
     priceNote: "one-time",
     accent: "cyan",
@@ -84,7 +84,7 @@ const tiers = [
       "Cloud or fully-local models",
       "One-time price, no subscription",
     ],
-    ctaLabel: "Get DATA →",
+    ctaLabel: "Get DATA DAEMON →",
     ctaHref: DATA_CHECKOUT_URL,
     featured: false,
     badge: "",
@@ -137,9 +137,7 @@ const accentMap: Record<
 };
 
 // ── Done-for-you capabilities ────────────────────────────────────────────────
-// The AI work we build and run for clients. Websites are folded in below as a
-// single line item — demoted from a headline service to one capability among
-// many, which is the whole point of the pivot.
+// The done-for-you services we build and run for clients, defined below.
 const aiServices = [
   {
     title: "Workflow Automation",
@@ -215,7 +213,7 @@ const aiServices = [
   },
 ];
 
-// Websites — now one line item inside Done-for-you, not a headline service.
+// Websites — one capability inside Done-for-you.
 const webCapabilities = [
   "Custom sites — zero templates",
   "E-commerce + secure checkout",
@@ -250,20 +248,20 @@ const processSteps = [
 
 const faqItems = [
   {
-    q: "What exactly is DATA, and why is it only $49?",
-    a: "DATA is our own AI command center — the same self-hosted dashboard we run the agency on, packaged so you can run it yourself. It is a one-time $49 download you install on your own machine: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. It is the front door to the whole AI offering — the cheapest way to put real AI to work without hiring anyone. If you want a whole system built for you instead, that is done-for-you.",
+    q: "What exactly is DATA DAEMON, and why is it only $49?",
+    a: "DATA DAEMON is our own AI command center — the same self-hosted dashboard we run the agency on, packaged so you can run it yourself. It is a one-time $49 download you install on your own machine: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. It is the front door to the whole AI offering — the cheapest way to put real AI to work without hiring anyone. If you want a whole system built for you instead, that is done-for-you.",
   },
   {
     q: "What is the difference between the $49 tool and done-for-you?",
-    a: "The $49 tool is DATA, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a setup for you.",
+    a: "The $49 tool is DATA DAEMON, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a setup for you.",
   },
   {
     q: "Do you still build websites?",
-    a: "Yes — we just stopped leading with it. A website is now one line item inside a done-for-you build, not the whole pitch. We still build fast, custom, conversion-focused sites with copy, SEO, and lead capture, and you still own 100% of the code. The difference is we wire AI leverage — chatbots, automations, lead routing — into the site instead of handing you a brochure that just sits there.",
+    a: "Yes. A website is one line item inside a done-for-you build — and we build fast, custom, conversion-focused sites with copy, SEO, and lead capture, with you owning 100% of the code. The difference is we wire AI leverage — chatbots, automations, lead routing — into the site instead of handing you a brochure that just sits there.",
   },
   {
     q: "Do I own everything?",
-    a: "Yes. DATA is self-hosted on your machine — you own the install outright. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
+    a: "Yes. DATA DAEMON is self-hosted on your machine — you own the install outright. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
   },
   {
     q: "What is the 90-day money-back guarantee?",
@@ -275,15 +273,15 @@ const faqItems = [
   },
   {
     q: "What does a monthly fee cover, if any?",
-    a: "DATA has none — it is a one-time purchase you self-host. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope — automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
+    a: "DATA DAEMON has none — it is a one-time purchase you self-host. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope — automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
   },
   {
-    q: "What computers does DATA run on?",
+    q: "What computers does DATA DAEMON run on?",
     a: "Windows 10 and 11 today. A macOS version is in the works. If you are on Mac or Linux right now, the done-for-you path is the better fit — or hold for the macOS release.",
   },
   {
     q: "Do you work with clients outside of Idaho?",
-    a: "Absolutely. We are based in Idaho but our clients are everywhere — local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design, and DATA is a download anyone can run.",
+    a: "Absolutely. We are based in Idaho but our clients are everywhere — local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design, and DATA DAEMON is a download anyone can run.",
   },
   {
     q: "What happens on the free discovery call?",
@@ -438,7 +436,7 @@ export default function HomeClient() {
               Pricing
             </a>
             <a href="#data" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              DATA
+              DATA DAEMON
             </a>
             <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
               What We Build
@@ -478,7 +476,7 @@ export default function HomeClient() {
         {/* Mobile menu */}
         <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3" onClick={() => document.getElementById("mobile-menu")?.classList.add("hidden")}>
           <a href="#pricing" className="block text-sm text-zinc-400 hover:text-white transition-colors">Pricing</a>
-          <a href="#data" className="block text-sm text-zinc-400 hover:text-white transition-colors">DATA</a>
+          <a href="#data" className="block text-sm text-zinc-400 hover:text-white transition-colors">DATA DAEMON</a>
           <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Build</a>
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
@@ -511,7 +509,7 @@ export default function HomeClient() {
                   href="#data"
                   className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white"
                 >
-                  Meet DATA — $49
+                  Meet DATA DAEMON — $49
                 </a>
                 <a
                   href="#contact"
@@ -626,7 +624,7 @@ export default function HomeClient() {
           </div>
         </section>
 
-        {/* DATA Dashboard — the $49 front door, expanded */}
+        {/* DATA DAEMON Dashboard — the $49 front door, expanded */}
         <div id="data" className="section-divider max-w-4xl mx-auto" />
         <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
@@ -636,7 +634,7 @@ export default function HomeClient() {
               </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
                 Meet{" "}
-                <span className="gradient-text">DATA</span> — Your AI Command Center
+                <span className="gradient-text">DATA DAEMON</span> — Your AI Command Center
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
                 The same dashboard we run the agency on, packaged so you can run
@@ -654,7 +652,7 @@ export default function HomeClient() {
                   <iframe
                     className="absolute inset-0 w-full h-full"
                     src={`https://www.youtube.com/embed/${DATA_VIDEO_ID}`}
-                    title="DATA Dashboard — Demo"
+                    title="DATA DAEMON Dashboard — Demo"
                     loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -706,7 +704,7 @@ export default function HomeClient() {
                 href={DATA_CHECKOUT_URL}
                 className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
               >
-                Get DATA — $49 →
+                Get DATA DAEMON — $49 →
               </a>
               <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
                 One-time purchase · Self-hosted · Runs on your machine
@@ -767,7 +765,7 @@ export default function HomeClient() {
               ))}
             </div>
 
-            {/* Websites — demoted to one line item inside done-for-you */}
+            {/* Websites — one capability inside done-for-you */}
             <div className="glass rounded-2xl p-8 md:p-10 max-w-5xl mx-auto mt-8 reveal">
               <div className="grid md:grid-cols-[1.1fr_1fr] gap-8 items-center">
                 <div>
@@ -785,10 +783,10 @@ export default function HomeClient() {
                     </div>
                   </div>
                   <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-                    Yes — we still build sites. We just stopped leading with it. A
-                    fast, custom, conversion-focused website is now one line item
-                    inside a done-for-you build — with AI leverage wired in, not a
-                    brochure that sits there. You still own 100% of the code.
+                    Yes — we build sites. A fast, custom, conversion-focused
+                    website is one line item inside a done-for-you build — with
+                    AI leverage wired in, not a brochure that sits there. You own
+                    100% of the code.
                   </p>
                 </div>
                 <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
@@ -1178,7 +1176,7 @@ export default function HomeClient() {
               <span className="gradient-text">Work</span>?
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-              Run DATA yourself for $49, or pick a time below for a free 30-minute
+              Run DATA DAEMON yourself for $49, or pick a time below for a free 30-minute
               call and we&apos;ll map the right build for your business — no
               pressure, no templated pitch.
             </p>
@@ -1213,7 +1211,7 @@ export default function HomeClient() {
             <p className="text-sm text-zinc-500">
               Just want the tool?{" "}
               <a href={DATA_CHECKOUT_URL} className="text-aurora-green hover:text-white transition-colors font-medium">
-                Get DATA for $49 →
+                Get DATA DAEMON for $49 →
               </a>
             </p>
           </div>
@@ -1237,7 +1235,7 @@ export default function HomeClient() {
                   Pricing
                 </a>
                 <a href="#data" className="text-sm text-zinc-500 hover:text-white transition-colors">
-                  DATA
+                  DATA DAEMON
                 </a>
                 <a href="#services" className="text-sm text-zinc-500 hover:text-white transition-colors">
                   What We Build

@@ -37,7 +37,7 @@ export default async function ThankYouPage({
               Thank you for your purchase!
             </h1>
             <p className="text-zinc-400 mb-8">
-              Your copy of <span className="gradient-text font-semibold">DATA</span>{" "}
+              Your copy of <span className="gradient-text font-semibold">DATA DAEMON</span>{" "}
               is ready. Click below to download.
               {email ? (
                 <>
@@ -52,7 +52,7 @@ export default async function ThankYouPage({
               href={`/api/download?session_id=${encodeURIComponent(sessionId!)}`}
               className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
             >
-              Download DATA ↓
+              Download DATA DAEMON ↓
             </a>
 
             <p className="text-xs text-zinc-500 mt-8 leading-relaxed">
@@ -73,7 +73,7 @@ export default async function ThankYouPage({
               right away. Otherwise you can try again.
             </p>
             <Link
-              href="/data/checkout"
+              href="/data-daemon/checkout"
               className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
             >
               Back to checkout

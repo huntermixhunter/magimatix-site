@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       line_items: [{ price: DATA_PRICE_ID, quantity: 1 }],
       // After payment, Stripe sends the buyer back to this page; we verify the
       // session there and reveal the download.
-      return_url: `${origin}/data/thank-you?session_id={CHECKOUT_SESSION_ID}`,
+      return_url: `${origin}/data-daemon/thank-you?session_id={CHECKOUT_SESSION_ID}`,
       // Capture the email and create a customer for the receipt + records.
       customer_creation: "always",
       automatic_tax: { enabled: AUTOMATIC_TAX },

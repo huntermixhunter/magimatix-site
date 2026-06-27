@@ -17,30 +17,30 @@ const siteUrl = "https://magimatix.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Magimatix | Web Design & AI Automations",
+    default: "Magimatix | AI Automations & Web Design",
     template: "%s | Magimatix",
   },
   description:
-    "Magimatix builds premium websites and AI automations that transform businesses. Custom web design, e-commerce, UI/UX, workflow automation, AI chatbots, and data analytics — all crafted with precision.",
+    "Magimatix builds AI automations and premium websites that transform businesses. Workflow automation, AI chatbots, data analytics, custom web design, e-commerce, and UI/UX — all crafted with precision.",
   keywords: [
-    "web design agency",
     "AI automation agency",
+    "workflow automation",
+    "AI chatbots for business",
+    "business automation",
+    "AI solutions for business",
+    "AI powered websites",
+    "digital agency",
+    "Magimatix",
+    "web design agency",
     "custom website design",
     "e-commerce website",
     "UI UX design services",
-    "workflow automation",
-    "AI chatbots for business",
-    "digital agency",
-    "Magimatix",
     "web development services",
-    "business automation",
     "small business website",
     "landing page design",
-    "AI solutions for business",
     "web design Idaho",
     "website design services",
     "business website",
-    "AI powered websites",
     "web design Sandpoint Idaho",
     "web designer Sandpoint Idaho",
     "website design Sandpoint",
@@ -71,15 +71,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Magimatix",
-    title: "Magimatix | Web Design & AI Automations",
+    title: "Magimatix | AI Automations & Web Design",
     description:
-      "Premium websites and AI automations that transform your business. Modern, high-performance digital experiences crafted with precision.",
+      "AI automations and premium websites that transform your business. Modern, high-performance digital experiences crafted with precision.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Magimatix | Web Design & AI Automations",
+    title: "Magimatix | AI Automations & Web Design",
     description:
-      "Premium websites and AI automations that transform your business.",
+      "AI automations and premium websites that transform your business.",
     creator: "@magimatix",
   },
   alternates: {
@@ -99,7 +99,7 @@ const jsonLd = [
     "@type": "WebSite",
     name: "Magimatix",
     url: siteUrl,
-    description: "Premium web design and AI automation agency. Custom websites, e-commerce, AI chatbots, and workflow automation for businesses worldwide.",
+    description: "Premium AI automation and web design agency. Workflow automation, AI chatbots, custom websites, and e-commerce for businesses worldwide.",
     potentialAction: {
       "@type": "SearchAction",
       target: `${siteUrl}/?q={search_term_string}`,
@@ -114,7 +114,7 @@ const jsonLd = [
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/opengraph-image`,
     description:
-      "Magimatix builds premium websites and AI automations that transform businesses. We specialize in custom web design, e-commerce, UI/UX design, workflow automation, AI chatbots, and data analytics for businesses worldwide.",
+      "Magimatix builds AI automations and premium websites that transform businesses. We specialize in workflow automation, AI chatbots, data analytics, custom web design, e-commerce, and UI/UX design for businesses worldwide.",
     foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
@@ -122,13 +122,13 @@ const jsonLd = [
     },
     priceRange: "$$",
     serviceType: [
-      "Web Design",
       "AI Automation",
-      "E-Commerce",
-      "UI/UX Design",
       "Workflow Automation",
       "AI Chatbots",
       "Data Analytics",
+      "Web Design",
+      "E-Commerce",
+      "UI/UX Design",
       "SEO Optimization",
     ],
     areaServed: [
@@ -153,15 +153,15 @@ const jsonLd = [
       },
     ],
     knowsAbout: [
-      "Web Design",
       "AI Automation",
       "Machine Learning",
-      "UI/UX Design",
-      "E-Commerce",
-      "Search Engine Optimization",
       "Business Automation",
       "Chatbot Development",
       "Data Analytics",
+      "Web Design",
+      "UI/UX Design",
+      "E-Commerce",
+      "Search Engine Optimization",
       "React",
       "Next.js",
     ],
@@ -176,38 +176,6 @@ const jsonLd = [
       "@type": "OfferCatalog",
       name: "Magimatix Services",
       itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Custom Websites",
-            description: "Bespoke websites built from the ground up to reflect your brand and convert visitors into customers.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "E-Commerce",
-            description: "High-converting online stores with seamless checkout flows and payment integrations.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "UI/UX Design",
-            description: "Research-driven interfaces optimized for engagement, usability, and conversions.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "SEO & Performance",
-            description: "Core Web Vitals optimization and search engine visibility built into every project.",
-          },
-        },
         {
           "@type": "Offer",
           itemOffered: {
@@ -238,6 +206,38 @@ const jsonLd = [
             "@type": "Service",
             name: "Custom AI Solutions",
             description: "Tailored machine learning models and AI integrations built for your specific business processes.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Custom Websites",
+            description: "Bespoke websites built from the ground up to reflect your brand and convert visitors into customers.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "E-Commerce",
+            description: "High-converting online stores with seamless checkout flows and payment integrations.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "UI/UX Design",
+            description: "Research-driven interfaces optimized for engagement, usability, and conversions.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "SEO & Performance",
+            description: "Core Web Vitals optimization and search engine visibility built into every project.",
           },
         },
       ],
@@ -276,12 +276,12 @@ const jsonLd = [
       { "@type": "AdministrativeArea", name: "North Idaho" },
     ],
     serviceType: [
-      "Web Design",
       "AI Automation",
-      "E-Commerce",
-      "UI/UX Design",
       "Workflow Automation",
       "AI Chatbots",
+      "Web Design",
+      "E-Commerce",
+      "UI/UX Design",
     ],
     priceRange: "$$",
     openingHours: "Mo-Fr 09:00-17:00",

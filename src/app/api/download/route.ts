@@ -15,7 +15,7 @@ import { getStripe, DATA_DOWNLOAD_URL } from "@/lib/stripe";
 
 export const runtime = "nodejs";
 
-const DOWNLOAD_FILENAME = "DATA-Dashboard.zip";
+const DOWNLOAD_FILENAME = "DATA-Daemon.zip";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
