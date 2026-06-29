@@ -45,6 +45,34 @@ const dataShots = [
   },
 ];
 
+// ── Field Debrief — the $5 live demo of DATA DAEMON ──────────────────────────
+// debrief.magimatix.com is a standalone product: point the AI at any public
+// Instagram or TikTok handle and it renders a 6-page HUD diagnostic PDF. On the
+// homepage it doubles as proof of what DATA DAEMON does, at an impulse price.
+// Sample pages copied from the live debrief site into /public/debrief.
+const DEBRIEF_URL = "https://debrief.magimatix.com";
+
+const debriefShots = [
+  {
+    src: "/debrief/debrief-vitals.png",
+    tag: "PAGE 02 · VITALS",
+    title: "Account vitals, benchmarked",
+    caption: "Reach, engagement rate, follower velocity and posting cadence, read against where they should be (not just listed).",
+  },
+  {
+    src: "/debrief/debrief-diagnosis.png",
+    tag: "PAGE 04 · DIAGNOSIS",
+    title: "The one root cause",
+    caption: "The single biggest thing suppressing the account's reach, named plainly, with the winning pattern your top posts already share.",
+  },
+  {
+    src: "/debrief/debrief-protocol.png",
+    tag: "PAGE 05 · PROTOCOL",
+    title: "A six-directive fix",
+    caption: "Specific, ordered moves to correct the diagnosis, plus a day-by-day 14-day plan. Written to be done, not admired.",
+  },
+];
+
 const dataFeatures = [
   "Multi-pane workspace — many agents, one screen",
   "Reads and writes your files, runs real commands",
@@ -438,6 +466,9 @@ export default function HomeClient() {
             <a href="#data" className="text-sm text-zinc-400 hover:text-white transition-colors">
               DATA DAEMON
             </a>
+            <a href="#debrief" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              Field Debrief
+            </a>
             <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
               What We Build
             </a>
@@ -477,6 +508,7 @@ export default function HomeClient() {
         <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3" onClick={() => document.getElementById("mobile-menu")?.classList.add("hidden")}>
           <a href="#pricing" className="block text-sm text-zinc-400 hover:text-white transition-colors">Pricing</a>
           <a href="#data" className="block text-sm text-zinc-400 hover:text-white transition-colors">DATA DAEMON</a>
+          <a href="#debrief" className="block text-sm text-zinc-400 hover:text-white transition-colors">Field Debrief</a>
           <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Build</a>
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
@@ -714,6 +746,86 @@ export default function HomeClient() {
                   <path d="M3 5.7 10.5 4.6v7.1H3V5.7Zm0 12.6 7.5 1.1v-7H3v5.9Zm8.5 1.2L21 21V12.7h-9.5v6.8Zm0-15.4v6.9H21V3l-9.5 1.1Z" />
                 </svg>
                 Windows · macOS · Linux — one-click installer on Windows
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Field Debrief — the $5 live demo of DATA DAEMON (debrief.magimatix.com) */}
+        <div id="debrief" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-12 reveal">
+              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
+                See It Work · $5
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                Watch It Read a{" "}
+                <span className="gradient-text">Real Account</span>
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                Want proof before you buy the whole command center? Point our AI
+                at any public Instagram or TikTok handle and it renders a 6-page
+                Field Debrief: the vitals, the posts that worked and why, the one
+                root cause holding the account back, and a 14-day fix. $5, no
+                login, about 60 seconds.
+              </p>
+            </div>
+
+            {/* Stat strip */}
+            <div className="reveal max-w-3xl mx-auto mb-12">
+              <div className="glass rounded-2xl px-6 py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 font-mono text-xs md:text-sm text-zinc-400">
+                <span><span className="text-aurora-cyan font-bold">6</span> pages of HUD analysis</span>
+                <span><span className="text-aurora-cyan font-bold">~60s</span> handle to PDF</span>
+                <span><span className="text-aurora-cyan font-bold">$5</span> flat, no subscription</span>
+                <span><span className="text-aurora-cyan font-bold">0</span> logins or passwords</span>
+              </div>
+            </div>
+
+            {/* Sample pages — real debrief on a live account */}
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 reveal mb-12">
+              {debriefShots.map((shot) => (
+                <a
+                  key={shot.src}
+                  href={DEBRIEF_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass service-card rounded-2xl overflow-hidden group block"
+                >
+                  <div className="relative overflow-hidden border-b border-white/5 bg-black">
+                    <Image
+                      src={shot.src}
+                      alt={shot.title}
+                      width={1588}
+                      height={2246}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                    />
+                  </div>
+                  <figcaption className="p-6">
+                    <p className="text-[0.7rem] font-mono tracking-widest uppercase text-aurora-cyan mb-2">
+                      {shot.tag}
+                    </p>
+                    <h3 className="text-base md:text-lg font-semibold mb-1.5 group-hover:text-aurora-cyan transition-colors">
+                      {shot.title}
+                    </h3>
+                    <p className="text-sm text-zinc-400 leading-relaxed">{shot.caption}</p>
+                  </figcaption>
+                </a>
+              ))}
+            </div>
+
+            <div className="text-center reveal">
+              <a
+                href={DEBRIEF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
+              >
+                Run a Field Debrief · $5 →
+              </a>
+              <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
+                These are six real pages from one live account. Submit your own handle for your own read.
               </p>
             </div>
           </div>
