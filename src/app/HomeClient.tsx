@@ -448,7 +448,7 @@ export default function HomeClient() {
 
       {/* Navigation */}
       <nav className="nav-blur fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-0.5 md:px-6 md:py-1 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-2.5 md:px-6 md:py-1 flex items-center justify-between">
           <a href="#hero" className="flex items-center gap-3">
             <Image
               src="/logo.png"
@@ -521,7 +521,7 @@ export default function HomeClient() {
       {/* Main content */}
       <main className="relative z-10">
         {/* Hero Section */}
-        <section id="hero" className="min-h-screen flex items-center justify-center relative">
+        <section id="hero" className="min-h-screen flex items-center justify-center relative pt-28 pb-20 md:pt-0 md:pb-0">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <p className="animate-fade-in-up opacity-0 text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-5">
               Buy the tool or hire the team
