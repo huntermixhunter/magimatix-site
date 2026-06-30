@@ -521,7 +521,7 @@ export default function HomeClient() {
       {/* Main content */}
       <main className="relative z-10">
         {/* Hero Section */}
-        <section id="hero" className="min-h-screen flex items-center justify-center relative pt-28 pb-20 md:pt-0 md:pb-0">
+        <section id="hero" className="min-h-screen flex items-center justify-center relative pt-16 pb-28 md:pt-0 md:pb-0">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <p className="animate-fade-in-up opacity-0 text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-5">
               Buy the tool or hire the team
