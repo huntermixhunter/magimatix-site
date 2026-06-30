@@ -55,6 +55,19 @@ export default function DataCheckoutPage() {
         </div>
 
         {/* Stripe renders its own (light) form inside this card */}
+        <p className="text-xs text-zinc-400 leading-relaxed mb-3">
+          By completing this purchase you agree to the{" "}
+          <Link
+            href="/data-daemon/license"
+            className="text-zinc-200 underline underline-offset-2 hover:text-white"
+          >
+            DATA DAEMON End User License Agreement
+          </Link>{" "}
+          — a proprietary, single-user license (one purchase, one user, no
+          redistribution). The Software is experimental, autonomous, and
+          provided &ldquo;as is&rdquo;; you run it on your own machine at your
+          own risk.
+        </p>
         <div className="rounded-2xl overflow-hidden bg-white p-1">
           <EmbeddedCheckoutProvider
             stripe={stripePromise}
