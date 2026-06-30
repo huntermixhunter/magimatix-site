@@ -16,7 +16,7 @@ const CALENDLY_URL =
   `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_color=1a1a24&text_color=ffffff&primary_color=5b7fff`;
 
 // ── DATA DAEMON Dashboard product ───────────────────────────────────────────────────
-// Self-hosted AI command center — the $49 tool-only tier and the front door to
+// Self-hosted AI command center — the $39 tool-only tier and the front door to
 // the whole AI offering. Demo video + product screenshots live in /public/data.
 // On-site embedded Stripe Checkout — buyers complete payment on magimatix.com.
 const DATA_CHECKOUT_URL = "/data-daemon/checkout";
@@ -92,7 +92,7 @@ declare global {
 }
 
 // ── The Ladder ───────────────────────────────────────────────────────────────
-// Two ways to put AI to work, lowest commitment to highest. DATA DAEMON is the $49
+// Two ways to put AI to work, lowest commitment to highest. DATA DAEMON is the $39
 // front door (a real, shipping product you own). Done-for-you is the bespoke
 // build — automations, AI systems, and websites, scoped per client. (A $99
 // setup bundle is a planned middle rung — held back until it actually ships.)
@@ -101,7 +101,8 @@ const tiers = [
     id: "tool",
     eyebrow: "Run it yourself",
     name: "DATA DAEMON",
-    price: "$49",
+    price: "$39",
+    origPrice: "$49",
     priceNote: "one-time",
     accent: "cyan",
     tagline:
@@ -115,7 +116,7 @@ const tiers = [
     ctaLabel: "Get DATA DAEMON →",
     ctaHref: DATA_CHECKOUT_URL,
     featured: false,
-    badge: "",
+    badge: "20% off launch",
   },
   {
     id: "dfy",
@@ -276,12 +277,12 @@ const processSteps = [
 
 const faqItems = [
   {
-    q: "What exactly is DATA DAEMON, and why is it only $49?",
-    a: "DATA DAEMON is our own AI command center — the same self-hosted dashboard we run the agency on, packaged so you can run it yourself. It is a one-time $49 download you install on your own machine: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. It is the front door to the whole AI offering — the cheapest way to put real AI to work without hiring anyone. If you want a whole system built for you instead, that is done-for-you.",
+    q: "What exactly is DATA DAEMON, and why is it only $39?",
+    a: "DATA DAEMON is our own AI command center — the same self-hosted dashboard we run the agency on, packaged so you can run it yourself. It is a one-time $39 download you install on your own machine: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. It is the front door to the whole AI offering — the cheapest way to put real AI to work without hiring anyone. If you want a whole system built for you instead, that is done-for-you.",
   },
   {
-    q: "What is the difference between the $49 tool and done-for-you?",
-    a: "The $49 tool is DATA DAEMON, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a setup for you.",
+    q: "What is the difference between the $39 tool and done-for-you?",
+    a: "The $39 tool is DATA DAEMON, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a setup for you.",
   },
   {
     q: "Do you still build websites?",
@@ -531,7 +532,7 @@ export default function HomeClient() {
               <span className="gradient-text">Work</span> for Your Business
             </h1>
             <p className="animate-fade-in-up opacity-0 animate-delay-200 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Start with our $49 AI command center and run it yourself — or have
+              Start with our $39 AI command center and run it yourself — or have
               us build the whole system for you. Two ways in, from a download
               you own to a done-for-you build with the website included.
             </p>
@@ -541,7 +542,7 @@ export default function HomeClient() {
                   href="#data"
                   className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white"
                 >
-                  Meet DATA DAEMON — $49
+                  Meet DATA DAEMON — $39
                 </a>
                 <a
                   href="#contact"
@@ -594,7 +595,7 @@ export default function HomeClient() {
                 <span className="gradient-text">in the Room</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                From a $49 tool you run yourself to a system we build end to end.
+                From a $39 tool you run yourself to a system we build end to end.
                 Start anywhere on the ladder and move up when you are ready.
               </p>
             </div>
@@ -619,6 +620,9 @@ export default function HomeClient() {
                     </p>
                     <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
                     <div className="flex items-baseline gap-2 mb-4">
+                      {"origPrice" in tier && tier.origPrice && (
+                        <span className="text-2xl font-bold text-zinc-600 line-through">{tier.origPrice}</span>
+                      )}
                       <span className="text-4xl font-bold gradient-text">{tier.price}</span>
                       <span className="text-sm text-zinc-500">{tier.priceNote}</span>
                     </div>
@@ -656,13 +660,13 @@ export default function HomeClient() {
           </div>
         </section>
 
-        {/* DATA DAEMON Dashboard — the $49 front door, expanded */}
+        {/* DATA DAEMON Dashboard — the $39 front door, expanded */}
         <div id="data" className="section-divider max-w-4xl mx-auto" />
         <section className="py-20 relative">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16 reveal">
               <p className="text-sm font-mono text-aurora-green tracking-widest uppercase mb-4">
-                The $49 Front Door
+                The $39 Front Door
               </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
                 Meet{" "}
@@ -736,7 +740,7 @@ export default function HomeClient() {
                 href={DATA_CHECKOUT_URL}
                 className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
               >
-                Get DATA DAEMON — $49 →
+                Get DATA DAEMON — $39 →
               </a>
               <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
                 One-time purchase · Self-hosted · Runs on your machine
@@ -1288,7 +1292,7 @@ export default function HomeClient() {
               <span className="gradient-text">Work</span>?
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-              Run DATA DAEMON yourself for $49, or pick a time below for a free 30-minute
+              Run DATA DAEMON yourself for $39, or pick a time below for a free 30-minute
               call and we&apos;ll map the right build for your business — no
               pressure, no templated pitch.
             </p>
@@ -1323,7 +1327,7 @@ export default function HomeClient() {
             <p className="text-sm text-zinc-500">
               Just want the tool?{" "}
               <a href={DATA_CHECKOUT_URL} className="text-aurora-green hover:text-white transition-colors font-medium">
-                Get DATA DAEMON for $49 →
+                Get DATA DAEMON for $39 →
               </a>
             </p>
           </div>
