@@ -2,9 +2,10 @@
 
 // OS-aware download options for the post-purchase thank-you page.
 //
-// The product ships two ways:
+// The product ships three ways:
 //   • Windows  — a one-click installer (.exe), recommended; the .zip also works.
-//   • macOS / Linux / ChromeOS — the cross-platform .zip (run install.sh).
+//   • macOS    — a native disk image (.dmg), recommended; the .zip also works.
+//   • Linux / ChromeOS / other — the cross-platform .zip (run install.sh).
 //
 // We detect the buyer's OS in the browser and lead with the right choice, but
 // every format stays reachable behind a toggle because UA sniffing is never
@@ -46,8 +47,10 @@ export default function DownloadPanel({ sessionId }: { sessionId: string }) {
   const sid = encodeURIComponent(sessionId);
   const zipHref = `/api/download?session_id=${sid}`;
   const exeHref = `/api/download?session_id=${sid}&format=installer`;
+  const dmgHref = `/api/download?session_id=${sid}&format=dmg`;
 
   const isWindows = os === "windows";
+  const isMac = os === "mac";
 
   return (
     <div className="w-full">
@@ -70,6 +73,25 @@ export default function DownloadPanel({ sessionId }: { sessionId: string }) {
             </button>
           </p>
         </>
+      ) : isMac ? (
+        <>
+          <a
+            href={dmgHref}
+            className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block w-full sm:w-auto"
+          >
+            Download the Mac installer (.dmg) ↓
+          </a>
+          <p className="text-xs text-zinc-500 mt-3">
+            Open the disk image and drag DATA to Applications (macOS).{" "}
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              className="underline underline-offset-2 hover:text-zinc-300 transition-colors"
+            >
+              Prefer the .zip, or on Windows / Linux?
+            </button>
+          </p>
+        </>
       ) : (
         <>
           <a
@@ -88,25 +110,31 @@ export default function DownloadPanel({ sessionId }: { sessionId: string }) {
               onClick={() => setShowAll((v) => !v)}
               className="underline underline-offset-2 hover:text-zinc-300 transition-colors"
             >
-              On Windows and want the one-click installer?
+              Want a native installer instead?
             </button>
           </p>
         </>
       )}
 
       {showAll ? (
-        <div className="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="mt-5 flex flex-col sm:flex-row flex-wrap gap-3 justify-center">
+          <a
+            href={exeHref}
+            className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
+          >
+            .exe installer — Windows
+          </a>
+          <a
+            href={dmgHref}
+            className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
+          >
+            .dmg installer — macOS
+          </a>
           <a
             href={zipHref}
             className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
           >
             .zip — Windows / macOS / Linux
-          </a>
-          <a
-            href={exeHref}
-            className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
-          >
-            .exe installer — Windows only
           </a>
         </div>
       ) : null}

@@ -47,8 +47,9 @@ export default function DataCheckoutPage() {
           </svg>
           <p className="text-sm text-zinc-300 leading-relaxed">
             <span className="font-semibold text-white">Runs on Windows, macOS &amp; Linux.</span>{" "}
-            Windows gets a one-click installer; macOS and Linux use the included
-            zip and a one-line setup. You will need Python 3.10+ and a free AI
+            Windows gets a one-click installer and Mac a native disk image;
+            Linux uses the included zip and a one-line setup. You will need
+            Python 3.10+ and a free AI
             provider CLI (Claude, ChatGPT, Gemini, or Ollama) — full steps are in
             the included INSTALL.txt.
           </p>

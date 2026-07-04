@@ -25,6 +25,7 @@ import {
   getStripe,
   DATA_DOWNLOAD_URL,
   DATA_INSTALLER_URL,
+  DATA_DMG_URL,
 } from "@/lib/stripe";
 
 export const runtime = "nodejs";
@@ -32,9 +33,10 @@ export const runtime = "nodejs";
 // finish a slow transfer instead of being cut off mid-stream.
 export const maxDuration = 300;
 
-// Two delivery formats. The cross-platform .zip is the default and works
+// Three delivery formats. The cross-platform .zip is the default and works
 // everywhere (Windows / macOS / Linux). The Windows one-click installer (.exe)
-// is offered as an alternative for Windows buyers via ?format=installer.
+// is offered via ?format=installer, and the macOS disk image (.dmg) via
+// ?format=dmg.
 const FORMATS = {
   zip: {
     url: () => DATA_DOWNLOAD_URL,
@@ -49,15 +51,26 @@ const FORMATS = {
     // Too large to safely stream through the function — hand off to the CDN.
     redirect: true,
   },
+  dmg: {
+    url: () => DATA_DMG_URL,
+    filename: "DATA-Daemon.dmg",
+    contentType: "application/x-apple-diskimage",
+    // ~20 MB — small enough to stream through the function like the zip,
+    // keeping the blob URL hidden.
+    redirect: false,
+  },
 } as const;
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const sessionId = searchParams.get("session_id");
+  const formatParam = searchParams.get("format");
   const format =
-    searchParams.get("format") === "installer"
+    formatParam === "installer"
       ? FORMATS.installer
-      : FORMATS.zip;
+      : formatParam === "dmg"
+        ? FORMATS.dmg
+        : FORMATS.zip;
 
   if (!sessionId) {
     return new NextResponse("Missing session_id.", { status: 400 });

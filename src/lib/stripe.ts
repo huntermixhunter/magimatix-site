@@ -29,8 +29,13 @@ export const DATA_DOWNLOAD_URL = process.env.DATA_DOWNLOAD_URL ?? "";
 
 // Absolute URL to the Windows one-click installer (.exe) on Vercel Blob.
 // Served by /api/download?format=installer for Windows buyers who want the
-// guided setup instead of the zip. macOS/Linux buyers use the zip above.
+// guided setup instead of the zip. Linux buyers use the zip above.
 export const DATA_INSTALLER_URL = process.env.DATA_INSTALLER_URL ?? "";
+
+// Absolute URL to the macOS disk-image installer (.dmg) on Vercel Blob.
+// Served by /api/download?format=dmg for Mac buyers who want the native
+// drag-to-Applications install instead of the zip.
+export const DATA_DMG_URL = process.env.DATA_DMG_URL ?? "";
 
 // Enable Stripe Tax automatic calculation. Leave "false" until Stripe Tax is
 // configured with tax registrations, otherwise checkout session creation fails.
