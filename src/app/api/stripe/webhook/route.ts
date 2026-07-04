@@ -7,6 +7,7 @@
 // customer list). It verifies the Stripe signature before trusting anything.
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
+import { sendDownloadEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -34,12 +35,28 @@ export async function POST(request: Request) {
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
+      const email = session.customer_details?.email ?? null;
       console.log(
         "[webhook] DATA purchase completed:",
         session.id,
-        session.customer_details?.email ?? "(no email)",
+        email ?? "(no email)",
       );
-      // Future: send download email, add to mailing list, etc.
+      // Deliver the download link by email. Only for genuinely-paid sessions
+      // (payment_status can be "unpaid" for async methods that complete later).
+      if (email && session.payment_status === "paid") {
+        const result = await sendDownloadEmail({ to: email, sessionId: session.id });
+        console.log(
+          "[webhook] download email:",
+          result.ok ? `sent (${result.id ?? "no-id"})` : `FAILED (${result.error})`,
+          "→",
+          email,
+        );
+      } else {
+        console.log(
+          "[webhook] download email skipped:",
+          !email ? "no email on session" : `payment_status=${session.payment_status}`,
+        );
+      }
       break;
     }
     default:

@@ -43,7 +43,7 @@ export default async function ThankYouPage({
               {email ? (
                 <>
                   {" "}
-                  A receipt has been sent to{" "}
+                  We&apos;ve also emailed the download link to{" "}
                   <span className="text-zinc-200">{email}</span>.
                 </>
               ) : null}

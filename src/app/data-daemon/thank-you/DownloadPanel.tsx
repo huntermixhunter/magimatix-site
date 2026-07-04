@@ -43,6 +43,41 @@ export default function DownloadPanel({ sessionId }: { sessionId: string }) {
     () => "other",
   );
   const [showAll, setShowAll] = useState(false);
+  const [emailState, setEmailState] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
+  const [emailMsg, setEmailMsg] = useState("");
+
+  async function emailMeTheLink() {
+    if (emailState === "sending") return;
+    setEmailState("sending");
+    setEmailMsg("");
+    try {
+      const res = await fetch("/api/email-download", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session_id: sessionId }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        sentTo?: string;
+        error?: string;
+      };
+      if (res.ok) {
+        setEmailState("sent");
+        setEmailMsg(
+          data.sentTo
+            ? `Sent — check ${data.sentTo}`
+            : "Sent — check your inbox.",
+        );
+      } else {
+        setEmailState("error");
+        setEmailMsg(data.error || "Could not send. Please try again.");
+      }
+    } catch {
+      setEmailState("error");
+      setEmailMsg("Could not send. Please try again.");
+    }
+  }
 
   const sid = encodeURIComponent(sessionId);
   const zipHref = `/api/download?session_id=${sid}`;
@@ -138,6 +173,34 @@ export default function DownloadPanel({ sessionId }: { sessionId: string }) {
           </a>
         </div>
       ) : null}
+
+      {/* Email the link — the webhook already sends it automatically after
+          purchase; this lets the buyer send it (again) to their inbox. */}
+      <div className="mt-8 pt-6 border-t border-white/10">
+        {emailState === "sent" ? (
+          <p className="text-sm text-emerald-400">{emailMsg}</p>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={emailMeTheLink}
+              disabled={emailState === "sending"}
+              className="text-sm font-medium text-zinc-300 underline underline-offset-2 hover:text-white transition-colors disabled:opacity-50"
+            >
+              {emailState === "sending"
+                ? "Sending…"
+                : "Email me this download link"}
+            </button>
+            {emailState === "error" ? (
+              <p className="text-xs text-rose-400 mt-2">{emailMsg}</p>
+            ) : (
+              <p className="text-xs text-zinc-500 mt-2">
+                We also emailed it to you automatically after checkout.
+              </p>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
