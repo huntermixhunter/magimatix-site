@@ -98,6 +98,26 @@ declare global {
 // setup bundle is a planned middle rung — held back until it actually ships.)
 const tiers = [
   {
+    id: "dfy",
+    eyebrow: "We build it",
+    name: "Done-for-You",
+    price: "Custom",
+    priceNote: "scoped to you",
+    accent: "green",
+    tagline:
+      "We design and build the whole system end to end — automations, agents, integrations, and the website that fronts it.",
+    points: [
+      "Workflow automation + AI agents",
+      "Custom integrations to your stack",
+      "Websites & web design included",
+      "Built, deployed, and supported by us",
+    ],
+    ctaLabel: "Book a free call →",
+    ctaHref: "#contact",
+    featured: false,
+    badge: "",
+  },
+  {
     id: "tool",
     eyebrow: "Run it yourself",
     name: "DATA DAEMON",
@@ -117,26 +137,6 @@ const tiers = [
     ctaHref: DATA_CHECKOUT_URL,
     featured: false,
     badge: "20% off launch",
-  },
-  {
-    id: "dfy",
-    eyebrow: "We build it",
-    name: "Done-for-You",
-    price: "Custom",
-    priceNote: "scoped to you",
-    accent: "green",
-    tagline:
-      "We design and build the whole system end to end — automations, agents, integrations, and the website that fronts it.",
-    points: [
-      "Workflow automation + AI agents",
-      "Custom integrations to your stack",
-      "Websites & web design included",
-      "Built, deployed, and supported by us",
-    ],
-    ctaLabel: "Book a free call →",
-    ctaHref: "#contact",
-    featured: false,
-    badge: "",
   },
 ];
 
@@ -334,6 +334,44 @@ export default function HomeClient() {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  // Contact form state. Status drives the button label and the inline notice.
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+    website: "", // honeypot — hidden from real users
+  });
+  const [contactStatus, setContactStatus] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
+  const [contactError, setContactError] = useState("");
+
+  const submitContact = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (contactStatus === "sending") return;
+    setContactStatus("sending");
+    setContactError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contact),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        setContactError(data.error || "Something went wrong. Please try again.");
+        setContactStatus("error");
+        return;
+      }
+      setContactStatus("sent");
+      setContact({ name: "", email: "", company: "", message: "", website: "" });
+    } catch {
+      setContactError("Network error. Please try again.");
+      setContactStatus("error");
+    }
+  };
+
   // Open the Calendly scheduler in a centered popup overlay (no scroll trap).
   const openCalendly = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -464,14 +502,14 @@ export default function HomeClient() {
             <a href="#pricing" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Pricing
             </a>
+            <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
+              What We Build
+            </a>
             <a href="#data" className="text-sm text-zinc-400 hover:text-white transition-colors">
               DATA DAEMON
             </a>
             <a href="#debrief" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Field Debrief
-            </a>
-            <a href="#services" className="text-sm text-zinc-400 hover:text-white transition-colors">
-              What We Build
             </a>
             <a href="#portfolio" className="text-sm text-zinc-400 hover:text-white transition-colors">
               Portfolio
@@ -508,9 +546,9 @@ export default function HomeClient() {
         {/* Mobile menu */}
         <div id="mobile-menu" className="hidden md:hidden px-6 pb-4 space-y-3" onClick={() => document.getElementById("mobile-menu")?.classList.add("hidden")}>
           <a href="#pricing" className="block text-sm text-zinc-400 hover:text-white transition-colors">Pricing</a>
+          <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Build</a>
           <a href="#data" className="block text-sm text-zinc-400 hover:text-white transition-colors">DATA DAEMON</a>
           <a href="#debrief" className="block text-sm text-zinc-400 hover:text-white transition-colors">Field Debrief</a>
-          <a href="#services" className="block text-sm text-zinc-400 hover:text-white transition-colors">What We Build</a>
           <a href="#portfolio" className="block text-sm text-zinc-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#process" className="block text-sm text-zinc-400 hover:text-white transition-colors">Process</a>
           <a href="/blog" className="block text-sm text-zinc-400 hover:text-white transition-colors">Blog</a>
@@ -532,9 +570,9 @@ export default function HomeClient() {
               <span className="gradient-text">Work</span> for Your Business
             </h1>
             <p className="animate-fade-in-up opacity-0 animate-delay-200 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Start with our $39 AI command center and run it yourself — or have
+              Start with our AI command center and run it yourself, or have
               us build the whole system for you. Two ways in, from a download
-              you own to a done-for-you build with the website included.
+              you own to a done-for-you build.
             </p>
             <div className="animate-fade-in-up opacity-0 animate-delay-300 flex flex-col items-center justify-center gap-5">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -542,7 +580,7 @@ export default function HomeClient() {
                   href="#data"
                   className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white"
                 >
-                  Meet DATA DAEMON — $39
+                  Meet DATA DAEMON
                 </a>
                 <a
                   href="#contact"
@@ -591,8 +629,8 @@ export default function HomeClient() {
                 Two Ways In
               </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                Pick How Much You Want Us{" "}
-                <span className="gradient-text">in the Room</span>
+                Choose how you want to experience{" "}
+                <span className="gradient-text">Magimatix</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
                 From a $39 tool you run yourself to a system we build end to end.
@@ -660,6 +698,100 @@ export default function HomeClient() {
           </div>
         </section>
 
+        {/* What We Build For You — Done-for-you capabilities */}
+        <div id="services" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20 reveal">
+              <p className="text-sm font-mono text-aurora-purple tracking-widest uppercase mb-4">
+                Done-for-You
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                What We Build{" "}
+                <span className="gradient-text">For You</span>
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                Want the result without running the tool? We design, build, and
+                deploy the whole AI system — then keep it running as your
+                business grows.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+              {aiServices.map((service) => (
+                <div
+                  key={service.title}
+                  className="glass service-card rounded-2xl p-8 text-center"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-aurora-purple/10 flex items-center justify-center mx-auto mb-5 text-aurora-purple">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="mt-5 pt-5 border-t border-white/5 space-y-2 text-left">
+                    {service.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
+                        <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-aurora-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        <span className="leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {/* Websites — one capability inside done-for-you */}
+            <div className="glass rounded-2xl p-8 md:p-10 max-w-5xl mx-auto mt-8 reveal">
+              <div className="grid md:grid-cols-[1.1fr_1fr] gap-8 items-center">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-aurora-cyan/10 flex items-center justify-center text-aurora-cyan flex-shrink-0">
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs font-mono text-aurora-cyan tracking-widest uppercase">
+                        Also included
+                      </p>
+                      <h3 className="text-xl md:text-2xl font-bold">Websites &amp; web design</h3>
+                    </div>
+                  </div>
+                  <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
+                    Yes — we build sites. A fast, custom, conversion-focused
+                    website is one line item inside a done-for-you build — with
+                    AI leverage wired in, not a brochure that sits there. You own
+                    100% of the code.
+                  </p>
+                </div>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {webCapabilities.map((cap) => (
+                    <li key={cap} className="flex items-start gap-2 text-sm text-zinc-300">
+                      <svg className="w-3.5 h-3.5 flex-shrink-0 mt-1 text-aurora-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                      <span className="leading-snug">{cap}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center mt-12 reveal">
+              <a
+                href="#contact"
+                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
+              >
+                Book Your Free Discovery Call
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* DATA DAEMON Dashboard — the $39 front door, expanded */}
         <div id="data" className="section-divider max-w-4xl mx-auto" />
         <section className="py-20 relative">
@@ -673,10 +805,13 @@ export default function HomeClient() {
                 <span className="gradient-text">DATA DAEMON</span> — Your AI Command Center
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                The same dashboard we run the agency on, packaged so you can run
-                it yourself. A fleet of AI agents from one local, self-hosted
-                screen — they chat, write code, run commands, browse the web,
-                control your screen, and remember everything across sessions.
+                DATA means Dashboard for Analytical Thought and Action. It is the
+                AI interface we run the agency on. We&apos;re handing you the option
+                to build the same way we do here. Optimized for use with Claude Code
+                CLI and Codex CLI. Packaged so you can easily run it yourself and
+                manage everything in one place. A fleet of AI agents from one local,
+                self-hosted screen. They chat, write code, run commands, browse the
+                web, control your screen, and remember everything across sessions.
                 Yours outright, one time.
               </p>
             </div>
@@ -831,100 +966,6 @@ export default function HomeClient() {
               <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
                 These are six real pages from one live account. Submit your own handle for your own read.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* What We Build For You — Done-for-you capabilities */}
-        <div id="services" className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20 reveal">
-              <p className="text-sm font-mono text-aurora-purple tracking-widest uppercase mb-4">
-                Done-for-You
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                What We Build{" "}
-                <span className="gradient-text">For You</span>
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Want the result without running the tool? We design, build, and
-                deploy the whole AI system — then keep it running as your
-                business grows.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-              {aiServices.map((service) => (
-                <div
-                  key={service.title}
-                  className="glass service-card rounded-2xl p-8 text-center"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-aurora-purple/10 flex items-center justify-center mx-auto mb-5 text-aurora-purple">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3">{service.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="mt-5 pt-5 border-t border-white/5 space-y-2 text-left">
-                    {service.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
-                        <svg className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-aurora-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                        </svg>
-                        <span className="leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            {/* Websites — one capability inside done-for-you */}
-            <div className="glass rounded-2xl p-8 md:p-10 max-w-5xl mx-auto mt-8 reveal">
-              <div className="grid md:grid-cols-[1.1fr_1fr] gap-8 items-center">
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-aurora-cyan/10 flex items-center justify-center text-aurora-cyan flex-shrink-0">
-                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-xs font-mono text-aurora-cyan tracking-widest uppercase">
-                        Also included
-                      </p>
-                      <h3 className="text-xl md:text-2xl font-bold">Websites &amp; web design</h3>
-                    </div>
-                  </div>
-                  <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-                    Yes — we build sites. A fast, custom, conversion-focused
-                    website is one line item inside a done-for-you build — with
-                    AI leverage wired in, not a brochure that sits there. You own
-                    100% of the code.
-                  </p>
-                </div>
-                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
-                  {webCapabilities.map((cap) => (
-                    <li key={cap} className="flex items-start gap-2 text-sm text-zinc-300">
-                      <svg className="w-3.5 h-3.5 flex-shrink-0 mt-1 text-aurora-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                      </svg>
-                      <span className="leading-snug">{cap}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="text-center mt-12 reveal">
-              <a
-                href="#contact"
-                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
-              >
-                Book Your Free Discovery Call
-              </a>
             </div>
           </div>
         </section>
@@ -1322,6 +1363,147 @@ export default function HomeClient() {
                 src="https://assets.calendly.com/assets/external/widget.js"
                 strategy="afterInteractive"
               />
+            </div>
+
+            {/* Secondary path — send a message directly (emails us via Resend) */}
+            <div className="flex items-center gap-4 max-w-3xl mx-auto mb-10">
+              <div className="flex-1 h-px bg-white/10" />
+              <span className="text-xs font-mono text-zinc-500 tracking-widest uppercase">
+                or send a message
+              </span>
+              <div className="flex-1 h-px bg-white/10" />
+            </div>
+
+            <div className="glass-strong rounded-2xl p-6 sm:p-8 md:p-10 max-w-3xl mx-auto mb-10 text-left">
+              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-2">
+                Prefer to Write?
+              </p>
+              <p className="text-zinc-400 text-base mb-6 leading-relaxed">
+                Tell us a little about your business and what you want to build.
+                We read every message and reply personally.
+              </p>
+
+              {contactStatus === "sent" ? (
+                <div className="rounded-xl border border-aurora-green/30 bg-aurora-green/5 p-6 text-center">
+                  <p className="text-aurora-green font-medium mb-1">
+                    Message sent.
+                  </p>
+                  <p className="text-zinc-400 text-sm">
+                    Thanks for reaching out. We&apos;ll get back to you shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={submitContact} className="space-y-5" noValidate>
+                  {/* Honeypot — visually hidden, off-screen, ignored by humans */}
+                  <div className="absolute -left-[9999px]" aria-hidden="true">
+                    <label>
+                      Do not fill this out
+                      <input
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={contact.website}
+                        onChange={(e) =>
+                          setContact((c) => ({ ...c, website: e.target.value }))
+                        }
+                      />
+                    </label>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label
+                        htmlFor="contact-name"
+                        className="block text-sm text-zinc-300 mb-2"
+                      >
+                        Name <span className="text-aurora-pink">*</span>
+                      </label>
+                      <input
+                        id="contact-name"
+                        type="text"
+                        required
+                        value={contact.name}
+                        onChange={(e) =>
+                          setContact((c) => ({ ...c, name: e.target.value }))
+                        }
+                        className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-aurora-cyan/60 focus:ring-1 focus:ring-aurora-cyan/40 transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="contact-email"
+                        className="block text-sm text-zinc-300 mb-2"
+                      >
+                        Email <span className="text-aurora-pink">*</span>
+                      </label>
+                      <input
+                        id="contact-email"
+                        type="email"
+                        required
+                        value={contact.email}
+                        onChange={(e) =>
+                          setContact((c) => ({ ...c, email: e.target.value }))
+                        }
+                        className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-aurora-cyan/60 focus:ring-1 focus:ring-aurora-cyan/40 transition-colors"
+                        placeholder="you@company.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="contact-company"
+                      className="block text-sm text-zinc-300 mb-2"
+                    >
+                      Company{" "}
+                      <span className="text-zinc-500 font-normal">(optional)</span>
+                    </label>
+                    <input
+                      id="contact-company"
+                      type="text"
+                      value={contact.company}
+                      onChange={(e) =>
+                        setContact((c) => ({ ...c, company: e.target.value }))
+                      }
+                      className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-aurora-cyan/60 focus:ring-1 focus:ring-aurora-cyan/40 transition-colors"
+                      placeholder="Your business"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="contact-message"
+                      className="block text-sm text-zinc-300 mb-2"
+                    >
+                      Message <span className="text-aurora-pink">*</span>
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      required
+                      rows={5}
+                      value={contact.message}
+                      onChange={(e) =>
+                        setContact((c) => ({ ...c, message: e.target.value }))
+                      }
+                      className="w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-aurora-cyan/60 focus:ring-1 focus:ring-aurora-cyan/40 transition-colors resize-y"
+                      placeholder="What are you trying to build, and what would a win look like?"
+                    />
+                  </div>
+
+                  {contactStatus === "error" && (
+                    <p className="text-sm text-aurora-pink">{contactError}</p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={contactStatus === "sending"}
+                    className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {contactStatus === "sending" ? "Sending…" : "Send Message →"}
+                  </button>
+                </form>
+              )}
             </div>
 
             <p className="text-sm text-zinc-500">
