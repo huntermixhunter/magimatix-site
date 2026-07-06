@@ -633,11 +633,10 @@ export default function HomeClient() {
                 <span className="gradient-text">Magimatix</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Either have us build everything you need for you to save time and
-                money for your business or if you feel up to the task check out our
-                custom AI interface we built that we actually run the agency and build
-                for yourself! We just want you to have the tools to keep up with the
-                latest of what AI has to offer.
+                Either have us build everything you need to save time and money or
+                if you feel up to the task try out our custom AI interface we built
+                that we actually run the agency on and build your own stuff! We just
+                want you to be able to make AI work for your business.
               </p>
             </div>
 
