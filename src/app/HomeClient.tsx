@@ -633,8 +633,11 @@ export default function HomeClient() {
                 <span className="gradient-text">Magimatix</span>
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                From a $39 tool you run yourself to a system we build end to end.
-                Start anywhere on the ladder and move up when you are ready.
+                Either have us build everything you need for you to save time and
+                money for your business or if you feel up to the task check out our
+                custom AI interface we built that we actually run the agency and build
+                for yourself! We just want you to have the tools to keep up with the
+                latest of what AI has to offer.
               </p>
             </div>
 
@@ -656,14 +659,7 @@ export default function HomeClient() {
                     <p className={`text-xs font-mono tracking-widest uppercase mb-3 ${a.text}`}>
                       {tier.eyebrow}
                     </p>
-                    <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                    <div className="flex items-baseline gap-2 mb-4">
-                      {"origPrice" in tier && tier.origPrice && (
-                        <span className="text-2xl font-bold text-zinc-600 line-through">{tier.origPrice}</span>
-                      )}
-                      <span className="text-4xl font-bold gradient-text">{tier.price}</span>
-                      <span className="text-sm text-zinc-500">{tier.priceNote}</span>
-                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{tier.name}</h3>
                     <p className="text-sm text-zinc-400 leading-relaxed mb-6">
                       {tier.tagline}
                     </p>
@@ -807,8 +803,10 @@ export default function HomeClient() {
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
                 DATA means Dashboard for Analytical Thought and Action. It is the
                 AI interface we run the agency on. We&apos;re handing you the option
-                to build the same way we do here. Optimized for use with Claude Code
-                CLI and Codex CLI. Packaged so you can easily run it yourself and
+                to build the same way we do here. Optimized for use with top AI
+                subscription models (Claude Code CLI, Codex CLI) not API to save
+                you money. API version of DATA may be released in the future.
+                Packaged so you can easily run it yourself and
                 manage everything in one place. A fleet of AI agents from one local,
                 self-hosted screen. They chat, write code, run commands, browse the
                 web, control your screen, and remember everything across sessions.
@@ -1516,39 +1514,39 @@ export default function HomeClient() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 border-t border-white/5 bg-black">
+        <footer className="py-5 md:py-6 border-t border-white/5 bg-black">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
               <div className="flex items-center gap-3">
                 <Image
                   src="/logo.png"
                   alt="Magimatix"
                   width={200}
                   height={57}
-                  className="h-8 md:h-10 w-auto"
+                  className="h-6 md:h-7 w-auto"
                 />
               </div>
-              <div className="flex items-center gap-8">
-                <a href="#pricing" className="text-sm text-zinc-500 hover:text-white transition-colors">
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+                <a href="#pricing" className="text-xs text-zinc-500 hover:text-white transition-colors">
                   Pricing
                 </a>
-                <a href="#data" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                <a href="#data" className="text-xs text-zinc-500 hover:text-white transition-colors">
                   DATA DAEMON
                 </a>
-                <a href="#services" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                <a href="#services" className="text-xs text-zinc-500 hover:text-white transition-colors">
                   What We Build
                 </a>
-                <a href="/blog" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                <a href="/blog" className="text-xs text-zinc-500 hover:text-white transition-colors">
                   Blog
                 </a>
-                <a href="#faq" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                <a href="#faq" className="text-xs text-zinc-500 hover:text-white transition-colors">
                   FAQ
                 </a>
-                <a href="#contact" className="text-sm text-zinc-500 hover:text-white transition-colors">
+                <a href="#contact" className="text-xs text-zinc-500 hover:text-white transition-colors">
                   Contact
                 </a>
               </div>
-              <p className="text-sm text-zinc-600">
+              <p className="text-xs text-zinc-600">
                 &copy; 2026 Magimatix LLC. All rights reserved.
               </p>
             </div>
