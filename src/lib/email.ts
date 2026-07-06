@@ -140,3 +140,70 @@ export async function sendDownloadEmail(params: {
 
   return sendEmail({ to: params.to, subject, html, text });
 }
+
+/**
+ * Notify the seller (the Captain) that a sale just happened, and who bought it.
+ * Recipient is SALE_NOTIFY_TO (fall back to the known owner inbox). Never throws.
+ * A failure here must never affect the 200 we owe Stripe.
+ */
+export async function sendSaleNotification(params: {
+  buyerEmail: string | null;
+  sessionId: string;
+  amountTotal?: number | null; // in the smallest currency unit (e.g. cents)
+  currency?: string | null;
+}): Promise<SendResult> {
+  const to =
+    process.env.SALE_NOTIFY_TO ||
+    process.env.RESEND_REPLY_TO ||
+    "hunterthomasmix@gmail.com";
+
+  const amount =
+    params.amountTotal != null
+      ? `${(params.amountTotal / 100).toFixed(2)} ${(params.currency || "usd").toUpperCase()}`
+      : "unknown amount";
+  const buyer = params.buyerEmail || "(no email on session)";
+  const dash = `https://dashboard.stripe.com/payments`;
+
+  const subject = `New DATA DAEMON sale — ${buyer}`;
+
+  const text = [
+    "New DATA DAEMON purchase.",
+    "",
+    `Buyer:    ${buyer}`,
+    `Amount:   ${amount}`,
+    `Session:  ${params.sessionId}`,
+    "",
+    `Stripe:   ${dash}`,
+    "",
+    "— DATA",
+  ].join("\n");
+
+  const html = `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#0a0a0f;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0f;padding:32px 16px;">
+      <tr><td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#121218;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
+          <tr><td style="padding:32px 34px 8px 34px;">
+            <p style="margin:0 0 6px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9a;">DATA DAEMON &middot; New sale</p>
+            <h1 style="margin:0 0 18px 0;font-size:24px;line-height:1.25;color:#ffffff;">${amount}</h1>
+            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="font-size:14px;line-height:1.7;color:#c4c4cf;">
+              <tr><td style="color:#8b8b9a;padding-right:12px;">Buyer</td><td style="color:#ffffff;">${buyer}</td></tr>
+              <tr><td style="color:#8b8b9a;padding-right:12px;">Amount</td><td style="color:#ffffff;">${amount}</td></tr>
+              <tr><td style="color:#8b8b9a;padding-right:12px;vertical-align:top;">Session</td><td style="color:#c4c4cf;font-family:monospace;font-size:12px;word-break:break-all;">${params.sessionId}</td></tr>
+            </table>
+            <p style="margin:22px 0 0 0;font-size:13px;line-height:1.6;">
+              <a href="${dash}" style="color:#ec4899;text-decoration:none;">Open Stripe payments &rarr;</a>
+            </p>
+          </td></tr>
+          <tr><td style="padding:20px 34px 30px 34px;border-top:1px solid rgba(255,255,255,0.06);">
+            <p style="margin:0;font-size:12px;color:#6b6b78;">Automated notice &middot; magimatix.com</p>
+          </td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>`;
+
+  return sendEmail({ to, subject, html, text });
+}

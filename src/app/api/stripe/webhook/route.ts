@@ -7,7 +7,7 @@
 // customer list). It verifies the Stripe signature before trusting anything.
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
-import { sendDownloadEmail } from "@/lib/email";
+import { sendDownloadEmail, sendSaleNotification } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -55,6 +55,20 @@ export async function POST(request: Request) {
         console.log(
           "[webhook] download email skipped:",
           !email ? "no email on session" : `payment_status=${session.payment_status}`,
+        );
+      }
+      // Always notify the seller of a paid sale, even if the buyer left no email.
+      // A mail failure here must never affect the 200 we owe Stripe.
+      if (session.payment_status === "paid") {
+        const notice = await sendSaleNotification({
+          buyerEmail: email,
+          sessionId: session.id,
+          amountTotal: session.amount_total,
+          currency: session.currency,
+        });
+        console.log(
+          "[webhook] sale notification:",
+          notice.ok ? `sent (${notice.id ?? "no-id"})` : `FAILED (${notice.error})`,
         );
       }
       break;
