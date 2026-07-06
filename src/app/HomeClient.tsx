@@ -570,9 +570,9 @@ export default function HomeClient() {
               <span className="gradient-text">Work</span> for Your Business
             </h1>
             <p className="animate-fade-in-up opacity-0 animate-delay-200 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Start with our AI command center and run it yourself, or have
-              us build the whole system for you. Two ways in, from a download
-              you own to a done-for-you build.
+              We design and build practical AI integrations that give your
+              business back its time, cut the cost of the work you do every
+              day, and turn more of your attention into more paying clients.
             </p>
             <div className="animate-fade-in-up opacity-0 animate-delay-300 flex flex-col items-center justify-center gap-5">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -787,6 +787,138 @@ export default function HomeClient() {
           </div>
         </section>
 
+        {/* Portfolio Section */}
+        <div id="portfolio" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20 reveal">
+              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
+                Our Work
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                Projects We&apos;ve{" "}
+                <span className="gradient-text">Built</span>
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                Real results for real businesses. Here are some of the sites and systems we&apos;ve designed and developed.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 reveal">
+              {[
+                {
+                  title: "Dusk 2 Dawn Lighting",
+                  description: "Professional landscape lighting company. Custom design with elegant dark theme and immersive hero imagery.",
+                  image: "/portfolio-dusk2dawn.jpg",
+                  url: "https://dusk2dawnlighting.com/",
+                  tags: ["Web Design", "Business"],
+                },
+                {
+                  title: "Truesum Bookkeeping",
+                  description: "Precision bookkeeping service. Clean, modern design with warm earth tones and professional feel.",
+                  image: "/portfolio-truesum.jpg",
+                  url: "https://truesumbookkeeping.com/",
+                  tags: ["Web Design", "SaaS"],
+                },
+                {
+                  title: "Elixir Keys",
+                  description: "Premium wholesale botanicals brand. Rich, organic aesthetic with a luxurious dark-green palette.",
+                  image: "/portfolio-elixirkeys.jpg",
+                  url: "https://elixirkeys.com/",
+                  tags: ["Web Design", "E-Commerce"],
+                },
+                {
+                  title: "Selkirk Sprinklers",
+                  description: "Irrigation and sprinkler services company in northern Idaho. Clean, conversion-focused design built to drive local leads.",
+                  image: "/portfolio-selkirk.jpg",
+                  url: "https://selkirksprinklers.com/",
+                  tags: ["Web Design", "Business"],
+                },
+              ].map((project) => (
+                <a
+                  key={project.title}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass service-card rounded-2xl overflow-hidden group block"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={800}
+                      height={450}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="p-8">
+                    <div className="flex gap-2 mb-3">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-mono text-aurora-cyan/70 border border-aurora-cyan/20 rounded-full px-3 py-1"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-aurora-cyan transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-sm text-aurora-cyan font-medium">
+                      Visit Site
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <div id="process" className="section-divider max-w-4xl mx-auto" />
+        <section className="py-20 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20 reveal">
+              <p className="text-sm font-mono text-aurora-blue tracking-widest uppercase mb-4">
+                Our Process
+              </p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+                From Vision to{" "}
+                <span className="gradient-text">Reality</span>
+              </h2>
+              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                A streamlined, transparent process that keeps you in control at every stage.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto reveal">
+              {processSteps.map((item, i) => (
+                <div key={item.step} className="relative text-center">
+                  {/* Connector line */}
+                  {i < processSteps.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-aurora-blue/30 to-transparent" />
+                  )}
+                  <div className="text-4xl font-bold gradient-text mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* DATA DAEMON Dashboard — the $39 front door, expanded */}
         <div id="data" className="section-divider max-w-4xl mx-auto" />
         <section className="py-20 relative">
@@ -967,101 +1099,6 @@ export default function HomeClient() {
           </div>
         </section>
 
-        {/* Portfolio Section */}
-        <div id="portfolio" className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20 reveal">
-              <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
-                Our Work
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                Projects We&apos;ve{" "}
-                <span className="gradient-text">Built</span>
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Real results for real businesses. Here are some of the sites and systems we&apos;ve designed and developed.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 reveal">
-              {[
-                {
-                  title: "Dusk 2 Dawn Lighting",
-                  description: "Professional landscape lighting company. Custom design with elegant dark theme and immersive hero imagery.",
-                  image: "/portfolio-dusk2dawn.jpg",
-                  url: "https://dusk2dawnlighting.com/",
-                  tags: ["Web Design", "Business"],
-                },
-                {
-                  title: "Truesum Bookkeeping",
-                  description: "Precision bookkeeping service. Clean, modern design with warm earth tones and professional feel.",
-                  image: "/portfolio-truesum.jpg",
-                  url: "https://truesumbookkeeping.com/",
-                  tags: ["Web Design", "SaaS"],
-                },
-                {
-                  title: "Elixir Keys",
-                  description: "Premium wholesale botanicals brand. Rich, organic aesthetic with a luxurious dark-green palette.",
-                  image: "/portfolio-elixirkeys.jpg",
-                  url: "https://elixirkeys.com/",
-                  tags: ["Web Design", "E-Commerce"],
-                },
-                {
-                  title: "Selkirk Sprinklers",
-                  description: "Irrigation and sprinkler services company in northern Idaho. Clean, conversion-focused design built to drive local leads.",
-                  image: "/portfolio-selkirk.jpg",
-                  url: "https://selkirksprinklers.com/",
-                  tags: ["Web Design", "Business"],
-                },
-              ].map((project) => (
-                <a
-                  key={project.title}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glass service-card rounded-2xl overflow-hidden group block"
-                >
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      width={800}
-                      height={450}
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="p-8">
-                    <div className="flex gap-2 mb-3">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs font-mono text-aurora-cyan/70 border border-aurora-cyan/20 rounded-full px-3 py-1"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-aurora-cyan transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-zinc-400 leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-                    <span className="inline-flex items-center gap-2 text-sm text-aurora-cyan font-medium">
-                      Visit Site
-                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Testimonials Section — renders only when real client quotes exist */}
         {testimonials.length > 0 && (
           <>
@@ -1108,43 +1145,6 @@ export default function HomeClient() {
             </section>
           </>
         )}
-
-        {/* Process Section */}
-        <div id="process" className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20 reveal">
-              <p className="text-sm font-mono text-aurora-blue tracking-widest uppercase mb-4">
-                Our Process
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                From Vision to{" "}
-                <span className="gradient-text">Reality</span>
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                A streamlined, transparent process that keeps you in control at every stage.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto reveal">
-              {processSteps.map((item, i) => (
-                <div key={item.step} className="relative text-center">
-                  {/* Connector line */}
-                  {i < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-aurora-blue/30 to-transparent" />
-                  )}
-                  <div className="text-4xl font-bold gradient-text mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* FAQ Section */}
         <div id="faq" className="section-divider max-w-4xl mx-auto" />
@@ -1251,69 +1251,6 @@ export default function HomeClient() {
                   })}
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Disqualification / Fit Check */}
-        <div className="section-divider max-w-4xl mx-auto" />
-        <section className="py-20 relative">
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-14 reveal">
-              <p className="text-sm font-mono text-aurora-pink tracking-widest uppercase mb-4">
-                Honest Fit Check
-              </p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                We&apos;re Not for{" "}
-                <span className="gradient-text">Everyone</span>
-              </h2>
-              <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                We&apos;d rather tell you up front than waste your discovery call.
-                Magimatix is probably the wrong fit if&hellip;
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-5 reveal">
-              {[
-                {
-                  title: "You want AI as a buzzword",
-                  body: "If the goal is to say you “use AI,” we are overkill. We build systems that actually save hours or book work — and we price for that outcome.",
-                },
-                {
-                  title: "You want a box checked, not a result",
-                  body: "Whether it is a site or an automation, if “looks done” is the bar, we are not it. We build to rank, capture leads, and feed your phone.",
-                },
-                {
-                  title: "You cannot make a few decisions",
-                  body: "We need you reachable for one 30-minute call and a handful of quick calls during the build. No responsiveness, no momentum.",
-                },
-                {
-                  title: "You expect magic with zero input",
-                  body: "AI is leverage, not a genie. The best systems are trained on your business — that means a little of your time up front. We move fast, but we build with you, not around you.",
-                },
-              ].map((item) => (
-                <div key={item.title} className="glass rounded-2xl p-7 flex items-start gap-4">
-                  <svg className="w-6 h-6 flex-shrink-0 mt-0.5 text-aurora-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                  </svg>
-                  <div>
-                    <h3 className="text-base md:text-lg font-semibold mb-1.5">{item.title}</h3>
-                    <p className="text-sm text-zinc-400 leading-relaxed">{item.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center mt-12 reveal">
-              <p className="text-zinc-300 text-lg mb-6">
-                Still here? Then we should talk.
-              </p>
-              <a
-                href="#contact"
-                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
-              >
-                Book Your Free Discovery Call
-              </a>
             </div>
           </div>
         </section>
