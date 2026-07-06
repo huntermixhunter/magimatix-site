@@ -563,30 +563,31 @@ export default function HomeClient() {
         <section id="hero" className="min-h-screen flex items-center justify-center relative pt-16 pb-28 md:pt-0 md:pb-0">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <p className="animate-fade-in-up opacity-0 text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-5">
-              Buy the tool or hire the team
+              Custom AI Tools for Businesses
             </p>
             <h1 className="animate-fade-in-up opacity-0 animate-delay-200 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
               We Make AI{" "}
               <span className="gradient-text">Work</span> for Your Business
             </h1>
             <p className="animate-fade-in-up opacity-0 animate-delay-200 text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              We design and build practical AI integrations that give your
-              business back its time, cut the cost of the work you do every
-              day, and turn more of your attention into more paying clients.
+              We design and build practical AI tools, integrations, and sales
+              funnels that give your business back its time, cut the cost of the
+              work that needs to be done every day, and turn more of your
+              audience into paying clients.
             </p>
             <div className="animate-fade-in-up opacity-0 animate-delay-300 flex flex-col items-center justify-center gap-5">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="#data"
+                  href="#contact"
                   className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white"
                 >
-                  Meet DATA DAEMON
+                  Book a Free Call
                 </a>
                 <a
-                  href="#contact"
-                  className="glass text-base font-medium px-8 py-4 rounded-full text-white hover:border-white/30 transition-colors"
+                  href="#data"
+                  className="text-base font-medium px-8 py-4 rounded-full text-white bg-black border border-white/15 hover:border-white/30 transition-colors"
                 >
-                  Book a Free Call
+                  Meet DATA DAEMON
                 </a>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-zinc-400">
