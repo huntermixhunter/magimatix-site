@@ -90,16 +90,16 @@ export async function sendDownloadEmail(params: {
     params.sessionId,
   )}`;
 
-  const subject = "Your DATA DAEMON download is ready";
+  const subject = "Thank you for supporting DATA DAEMON";
 
   const text = [
-    "Thank you for your purchase of DATA DAEMON.",
+    "Thank you for supporting DATA DAEMON — it means a lot.",
     "",
-    "Download it here (works on Windows, macOS, and Linux):",
+    "DATA is free and open source, so here is your download",
+    "(works on Windows, macOS, and Linux):",
     link,
     "",
-    "This link re-checks your purchase each time, so keep this email — you can",
-    "use it again to re-download on any of your machines.",
+    "Keep this email — the link works again any time, on any of your machines.",
     "",
     "Unzip and open INSTALL.txt to get started.",
     "",
@@ -114,9 +114,9 @@ export async function sendDownloadEmail(params: {
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#121218;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
           <tr><td style="padding:36px 36px 8px 36px;">
             <p style="margin:0 0 6px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9a;">Magimatix</p>
-            <h1 style="margin:0 0 16px 0;font-size:24px;line-height:1.25;color:#ffffff;">Your DATA&nbsp;DAEMON download is ready</h1>
+            <h1 style="margin:0 0 16px 0;font-size:24px;line-height:1.25;color:#ffffff;">Thank you for supporting DATA&nbsp;DAEMON</h1>
             <p style="margin:0 0 24px 0;font-size:15px;line-height:1.6;color:#c4c4cf;">
-              Thank you for your purchase. Click below to download DATA&nbsp;DAEMON — it works on Windows, macOS, and Linux.
+              DATA is free and open source — here is your download. It works on Windows, macOS, and Linux.
             </p>
             <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px 0;">
               <tr><td style="border-radius:999px;background:linear-gradient(90deg,#7c3aed,#ec4899);">
@@ -124,7 +124,7 @@ export async function sendDownloadEmail(params: {
               </td></tr>
             </table>
             <p style="margin:0 0 24px 0;font-size:13px;line-height:1.6;color:#8b8b9a;">
-              Keep this email — the link re-checks your purchase each time, so you can re-download on any of your machines. Unzip and open <span style="font-family:monospace;color:#c4c4cf;">INSTALL.txt</span> to get started.
+              Keep this email — the link works again any time, on any of your machines. Unzip and open <span style="font-family:monospace;color:#c4c4cf;">INSTALL.txt</span> to get started.
             </p>
             <p style="margin:0;font-size:12px;line-height:1.6;color:#6b6b78;word-break:break-all;">
               If the button does not work, paste this link into your browser:<br />${link}

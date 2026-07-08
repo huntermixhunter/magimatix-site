@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
+import { DATA_REPO_URL } from "@/lib/data-release";
 
 // ── Calendly ───────────────────────────────────────────────────────────────
 // Free discovery call. Live event link from the Calendly account
@@ -121,22 +122,21 @@ const tiers = [
     id: "tool",
     eyebrow: "Run it yourself",
     name: "DATA DAEMON",
-    price: "$39",
-    origPrice: "$49",
-    priceNote: "one-time",
+    price: "Free",
+    priceNote: "open source",
     accent: "cyan",
     tagline:
-      "Your own AI command center. Download it, install it, and run a fleet of agents on your own machine.",
+      "Your own AI command center. Download it, install it, and run a fleet of agents on your own machine. Free, open source, name your price.",
     points: [
+      "Free and open source (Apache-2.0)",
       "Self-hosted — you own it outright",
       "Many agents, one fast dashboard",
       "Cloud or fully-local models",
-      "One-time price, no subscription",
     ],
     ctaLabel: "Get DATA DAEMON →",
     ctaHref: DATA_CHECKOUT_URL,
     featured: false,
-    badge: "20% off launch",
+    badge: "Open source",
   },
 ];
 
@@ -277,12 +277,12 @@ const processSteps = [
 
 const faqItems = [
   {
-    q: "What exactly is DATA DAEMON, and why is it only $39?",
-    a: "DATA DAEMON is our own AI command center — the same self-hosted dashboard we run the agency on, packaged so you can run it yourself. It is a one-time $39 download you install on your own machine: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. It is the front door to the whole AI offering — the cheapest way to put real AI to work without hiring anyone. If you want a whole system built for you instead, that is done-for-you.",
+    q: "What exactly is DATA DAEMON, and is it really free?",
+    a: "Yes — it is free and open source under Apache-2.0. DATA DAEMON is our own AI command center, the same self-hosted dashboard we run the agency on, packaged so you can run it yourself: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. Download it, read every line of the source, and run it on your own machine at no cost. If it earns a place in your workflow you can name your price to support development, but that is entirely optional. If you want a whole system built for you instead, that is done-for-you.",
   },
   {
-    q: "What is the difference between the $39 tool and done-for-you?",
-    a: "The $39 tool is DATA DAEMON, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a setup for you.",
+    q: "What is the difference between DATA DAEMON and done-for-you?",
+    a: "DATA DAEMON is the free, open-source tool, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a paid setup for you.",
   },
   {
     q: "Do you still build websites?",
@@ -290,7 +290,7 @@ const faqItems = [
   },
   {
     q: "Do I own everything?",
-    a: "Yes. DATA DAEMON is self-hosted on your machine — you own the install outright. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
+    a: "Yes. DATA DAEMON is open source and self-hosted on your machine — the code is yours to run, modify, and share under Apache-2.0. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
   },
   {
     q: "What is the 90-day money-back guarantee?",
@@ -302,11 +302,11 @@ const faqItems = [
   },
   {
     q: "What does a monthly fee cover, if any?",
-    a: "DATA DAEMON has none — it is a one-time purchase you self-host. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope — automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
+    a: "DATA DAEMON has none — it is free and open source, self-hosted by you. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope — automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
   },
   {
     q: "What computers does DATA DAEMON run on?",
-    a: "Windows, macOS, and Linux. Windows comes with a one-click installer (.exe) and Mac with a native disk image (.dmg); Linux uses the included zip and a one-line setup. All you need is Python 3.10+ and a free AI provider CLI (Claude, ChatGPT, Gemini, or Ollama) — the included INSTALL.txt walks you through it.",
+    a: "Windows, macOS, and Linux. Windows comes with a one-click installer (.exe); Mac and Linux use the included zip and a one-line setup. All you need is Python 3.10+ and a free AI provider CLI (Claude, ChatGPT, Gemini, or Ollama) — the included INSTALL.txt walks you through it.",
   },
   {
     q: "Do you work with clients outside of Idaho?",
@@ -926,7 +926,7 @@ export default function HomeClient() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16 reveal">
               <p className="text-sm font-mono text-aurora-green tracking-widest uppercase mb-4">
-                The $39 Front Door
+                Free &amp; Open Source
               </p>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
                 Meet{" "}
@@ -942,7 +942,8 @@ export default function HomeClient() {
                 manage everything in one place. A fleet of AI agents from one local,
                 self-hosted screen. They chat, write code, run commands, browse the
                 web, control your screen, and remember everything across sessions.
-                Yours outright, one time.
+                Free, open source, and yours outright — read every line of the
+                source before you run it.
               </p>
             </div>
 
@@ -1001,20 +1002,30 @@ export default function HomeClient() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={DATA_CHECKOUT_URL}
-                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
-              >
-                Get DATA DAEMON — $39 →
-              </a>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={DATA_CHECKOUT_URL}
+                  className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
+                >
+                  Get DATA DAEMON — free →
+                </a>
+                <a
+                  href={DATA_REPO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium px-8 py-4 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors inline-block"
+                >
+                  View source on GitHub →
+                </a>
+              </div>
               <p className="text-xs text-zinc-500 mt-4 font-mono tracking-wide">
-                One-time purchase · Self-hosted · Runs on your machine
+                Free &amp; open source · Self-hosted · Name your price
               </p>
               <p className="inline-flex items-center gap-2 mt-4 text-xs text-zinc-400 font-mono tracking-wide border border-white/10 rounded-full px-4 py-1.5">
                 <svg className="w-3.5 h-3.5 text-aurora-green" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M3 5.7 10.5 4.6v7.1H3V5.7Zm0 12.6 7.5 1.1v-7H3v5.9Zm8.5 1.2L21 21V12.7h-9.5v6.8Zm0-15.4v6.9H21V3l-9.5 1.1Z" />
                 </svg>
-                Windows · macOS · Linux — one-click installers for Windows &amp; Mac
+                Windows · macOS · Linux — one-click installer for Windows
               </p>
             </div>
           </div>
@@ -1268,7 +1279,7 @@ export default function HomeClient() {
               <span className="gradient-text">Work</span>?
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-              Run DATA DAEMON yourself for $39, or pick a time below for a free 30-minute
+              Run DATA DAEMON yourself for free, or pick a time below for a free 30-minute
               call and we&apos;ll map the right build for your business — no
               pressure, no templated pitch.
             </p>
@@ -1444,7 +1455,7 @@ export default function HomeClient() {
             <p className="text-sm text-zinc-500">
               Just want the tool?{" "}
               <a href={DATA_CHECKOUT_URL} className="text-aurora-green hover:text-white transition-colors font-medium">
-                Get DATA DAEMON for $39 →
+                Get DATA DAEMON — free &amp; open source →
               </a>
             </p>
           </div>

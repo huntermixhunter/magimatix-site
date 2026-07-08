@@ -1,14 +1,17 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { DATA_REPO_URL } from "@/lib/data-release";
 
 export const metadata: Metadata = {
-  title: "DATA DAEMON — End User License Agreement",
+  title: "DATA DAEMON — License (Apache-2.0)",
   description:
-    "The End User License Agreement (EULA) for the DATA Daemon dashboard: a proprietary, single-user license. One purchase, one user, self-hosted, no redistribution.",
+    "DATA DAEMON is free and open-source software licensed under Apache-2.0. Use it, modify it, redistribute it. Provided as is, with an important note on running an autonomous AI agent.",
 };
 
-// Static, public copy of the license that ships inside the product (EULA.md).
-// The version bundled with the download is the canonical, controlling text.
+const LICENSE_URL = `${DATA_REPO_URL}/blob/main/LICENSE`;
+
+// Public summary of the DATA license. The canonical, controlling text is the
+// Apache-2.0 LICENSE file in the repository and inside the download.
 export default function DataLicensePage() {
   return (
     <main className="min-h-screen bg-[#0a0a0f] text-white">
@@ -20,77 +23,74 @@ export default function DataLicensePage() {
           ← Back to DATA DAEMON
         </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mt-6 mb-2">
-          End User License Agreement —{" "}
-          <span className="gradient-text">DATA DAEMON</span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/5 px-3 py-1 text-xs font-medium text-emerald-300 mt-6 mb-4">
+          Free &amp; open source · Apache-2.0
+        </div>
+
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
+          License — <span className="gradient-text">DATA DAEMON</span>
         </h1>
         <p className="text-zinc-400 mb-10">
-          Proprietary, single-user license. Copyright © 2026 Hunter Mix. All
-          rights reserved. This page summarizes the agreement; the{" "}
-          <code className="text-zinc-300">EULA.md</code> file included with your
-          download is the canonical, controlling text.
+          DATA DAEMON is free and open-source software, released under the{" "}
+          <a
+            href={LICENSE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-200 underline underline-offset-2 hover:text-white"
+          >
+            Apache License 2.0
+          </a>
+          . This page is a plain-language summary; the{" "}
+          <code className="text-zinc-300">LICENSE</code> file in the repository
+          and inside your download is the canonical, controlling text.
         </p>
 
         <div className="space-y-8 text-sm leading-relaxed text-zinc-300">
           <section>
             <h2 className="text-lg font-semibold text-white mb-2">
-              1. License grant (single user, per purchase)
+              1. What you can do
             </h2>
             <p>
-              Each purchase grants <strong>one user</strong> a personal,
-              non-exclusive, non-transferable, revocable license to install and
-              use one copy of the Software per purchase, on devices you own or
-              control, and to modify it for your own use. Deploying it for
-              multiple users or a team requires one purchase per user or a
-              separate written license.
+              You may use, copy, modify, and distribute the Software, for any
+              purpose including commercial use, and you may build on it. The
+              Apache-2.0 license also includes an express grant of patent rights
+              from the contributors. In short: it is yours to run, change, and
+              share.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-2">
-              2. Restrictions
+              2. The conditions
             </h2>
             <p>
-              You may not distribute, publish, share, sublicense, sell, resell,
-              rent, lease, or host the Software as a service; you may not
-              redistribute it in any bundle, course, template, or marketplace
-              (free or paid); you may not reverse engineer it for the purpose of
-              redistribution or building a competing product; you may not remove
-              proprietary notices; and you may not circumvent any license key or
-              technical protection measure. Modifying the Software for your own
-              use is permitted.
+              When you redistribute the Software or a derivative, keep the
+              copyright and license notices and the{" "}
+              <code className="text-zinc-300">NOTICE</code> file, state any
+              significant changes you made, and include a copy of the Apache-2.0
+              license. You may not use the DATA or Magimatix names or marks to
+              endorse or promote your derivative without permission.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-2">
-              3. Ownership
-            </h2>
-            <p>
-              The Software is licensed, not sold. The Licensor retains all
-              copyrights, trademarks, trade secrets, and other intellectual
-              property rights. All rights not expressly granted are reserved.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white mb-2">
-              4. Experimental software — assumption of risk
+              3. Experimental software — assumption of risk
             </h2>
             <p>
               The Software is experimental and is an autonomous AI agent that can
               execute commands, create/modify/delete files, install software,
               control your mouse, keyboard, and screen, access the network, and
               act on your behalf in connected accounts. AI is non-deterministic
-              and may behave unexpectedly; actions may be irreversible. You
-              accept these risks and are solely responsible for supervising it.
-              Run it only on systems you control and keep backups.
+              and may behave unexpectedly; actions may be irreversible. You accept
+              these risks and are solely responsible for supervising it. Run it
+              only on systems you control and keep backups.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-2">
-              5. Not professional advice
+              4. Not professional advice
             </h2>
             <p>
               Any output — financial, investment, legal, tax, medical, health, or
@@ -101,58 +101,50 @@ export default function DataLicensePage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-2">
-              6. Refunds
+              5. No warranty &amp; limitation of liability
             </h2>
             <p>
-              The Software is a digital product delivered immediately. All sales
-              are final and non-refundable once the download has been accessed,
-              except where required by law or granted in writing. If a download
-              link fails or you were charged in error, contact us and we will
-              make it right.
+              As stated in the Apache-2.0 license, the Software is provided on an
+              &ldquo;as is&rdquo; basis, without warranties or conditions of any
+              kind, express or implied. To the maximum extent permitted by law,
+              no contributor is liable for any damages arising from the use of
+              the Software. You bear the entire risk of its use.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-2">
-              7. No warranty &amp; limitation of liability
+              6. Supporting the project
             </h2>
             <p>
-              The Software is provided &ldquo;as is&rdquo; and &ldquo;as
-              available&rdquo; without warranty of any kind. To the maximum extent
-              permitted by law, the Licensor is not liable for any indirect,
-              incidental, special, or consequential damages, or loss of data,
-              profits, or revenue. Total aggregate liability shall not exceed the
-              amount you paid for the Software.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-semibold text-white mb-2">
-              8. Term, governing law
-            </h2>
-            <p>
-              This Agreement terminates automatically if you breach it, in
-              particular the Restrictions; on termination you must delete all
-              copies. It is governed by the laws of the State of Idaho, USA, with
-              exclusive venue in the courts of Idaho.
+              DATA is free — there is nothing to buy. If you want to support
+              continued development, contributions are pay-what-you-want and
+              entirely optional; they grant no additional license or warranty.
             </p>
           </section>
         </div>
 
         <p className="text-xs text-zinc-500 mt-12 leading-relaxed">
-          By purchasing, downloading, installing, or using the DATA Daemon
-          Software, you acknowledge that you have read and agree to this End User
-          License Agreement and the accompanying disclaimer. This page is a
-          license agreement, not legal advice to you.
+          By downloading, installing, or using the DATA DAEMON Software, you
+          acknowledge the Apache-2.0 license and the risk notice above. This page
+          is a summary, not legal advice to you.
         </p>
 
-        <div className="mt-10">
+        <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/data-daemon/checkout"
             className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-zinc-200 transition-colors"
           >
-            Continue to checkout →
+            Get DATA — free →
           </Link>
+          <a
+            href={DATA_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-5 py-3 text-sm font-semibold text-zinc-200 hover:bg-white/5 transition-colors"
+          >
+            View source on GitHub →
+          </a>
         </div>
       </div>
     </main>
