@@ -12,7 +12,7 @@ export const DATA_REPO_URL = "https://github.com/huntermixhunter/D.A.T.A";
 export const DATA_RELEASES_URL = `${DATA_REPO_URL}/releases`;
 export const DATA_LATEST_URL = `${DATA_REPO_URL}/releases/latest`;
 
-export const DATA_VERSION = "v1.0.41";
+export const DATA_VERSION = "v1.0.49";
 
 const RELEASE_BASE = `${DATA_REPO_URL}/releases/download/${DATA_VERSION}`;
 
