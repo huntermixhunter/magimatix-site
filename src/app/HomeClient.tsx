@@ -933,7 +933,8 @@ export default function HomeClient() {
                 <span className="gradient-text">DATA DAEMON</span> — Your AI Command Center
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                DATA means Dashboard for Analytical Thought and Action. It is the
+                DATA (Dashboard for Analytical Thought and Action) is a daemon,
+                a computer program that runs in the background. It is the
                 AI interface we run the agency on. We&apos;re handing you the option
                 to build the same way we do here. Optimized for use with top AI
                 subscription models (Claude Code CLI, Codex CLI) not API to save
