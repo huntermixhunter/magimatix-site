@@ -8,6 +8,7 @@
 import { useState, useSyncExternalStore } from "react";
 import {
   DATA_EXE_URL,
+  DATA_DMG_URL,
   DATA_ZIP_URL,
   DATA_REPO_URL,
   DATA_LATEST_URL,
@@ -40,6 +41,7 @@ export default function DownloadPanel() {
   const [showAll, setShowAll] = useState(false);
 
   const isWindows = os === "windows";
+  const isMac = os === "mac";
 
   return (
     <div className="w-full">
@@ -58,7 +60,27 @@ export default function DownloadPanel() {
               onClick={() => setShowAll((v) => !v)}
               className="underline underline-offset-2 hover:text-zinc-300 transition-colors"
             >
-              On Mac or Linux? Get the .zip.
+              On Mac or Linux? See all downloads.
+            </button>
+          </p>
+        </>
+      ) : isMac ? (
+        <>
+          <a
+            href={DATA_DMG_URL}
+            className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block w-full sm:w-auto"
+          >
+            Download for Mac (.dmg) ↓
+          </a>
+          <p className="text-xs text-zinc-500 mt-3">
+            One-click installer for macOS — open the .dmg and drag DATA to
+            Applications.{" "}
+            <button
+              type="button"
+              onClick={() => setShowAll((v) => !v)}
+              className="underline underline-offset-2 hover:text-zinc-300 transition-colors"
+            >
+              On Windows or Linux? See all downloads.
             </button>
           </p>
         </>
@@ -71,7 +93,7 @@ export default function DownloadPanel() {
             Download DATA (.zip) ↓
           </a>
           <p className="text-xs text-zinc-500 mt-3">
-            Works on macOS, Linux, and Windows — unzip and run{" "}
+            Works on Linux, macOS, and Windows — unzip and run{" "}
             <span className="font-mono text-zinc-300">install.sh</span> (or{" "}
             <span className="font-mono text-zinc-300">install.bat</span> on
             Windows).{" "}
@@ -80,7 +102,7 @@ export default function DownloadPanel() {
               onClick={() => setShowAll((v) => !v)}
               className="underline underline-offset-2 hover:text-zinc-300 transition-colors"
             >
-              On Windows? Get the one-click installer.
+              On Windows or Mac? Get the one-click installer.
             </button>
           </p>
         </>
@@ -93,6 +115,12 @@ export default function DownloadPanel() {
             className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
           >
             .exe installer — Windows
+          </a>
+          <a
+            href={DATA_DMG_URL}
+            className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
+          >
+            .dmg installer — Mac
           </a>
           <a
             href={DATA_ZIP_URL}

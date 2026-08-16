@@ -306,7 +306,7 @@ const faqItems = [
   },
   {
     q: "What computers does DATA DAEMON run on?",
-    a: "Windows, macOS, and Linux. Windows comes with a one-click installer (.exe); Mac and Linux use the included zip and a one-line setup. All you need is Python 3.10+ and a free AI provider CLI (Claude, ChatGPT, Gemini, or Ollama) — the included INSTALL.txt walks you through it.",
+    a: "Windows, macOS, and Linux. Windows and Mac both come with a native one-click installer (.exe for Windows, .dmg for Mac); Linux uses the included zip and a one-line setup. All you need is Python 3.10+ and a free AI provider CLI (Claude, ChatGPT, Gemini, or Ollama) — the included INSTALL.txt walks you through it.",
   },
   {
     q: "Do you work with clients outside of Idaho?",
@@ -1026,7 +1026,7 @@ export default function HomeClient() {
                 <svg className="w-3.5 h-3.5 text-aurora-green" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M3 5.7 10.5 4.6v7.1H3V5.7Zm0 12.6 7.5 1.1v-7H3v5.9Zm8.5 1.2L21 21V12.7h-9.5v6.8Zm0-15.4v6.9H21V3l-9.5 1.1Z" />
                 </svg>
-                Windows · macOS · Linux — one-click installer for Windows
+                Windows · macOS · Linux — one-click installer for Windows and Mac
               </p>
             </div>
           </div>
