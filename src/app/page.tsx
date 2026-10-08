@@ -57,9 +57,9 @@ const accents = {
 const choices: Choice[] = [
   {
     href: "/services",
-    kicker: "Done for you",
-    title: "I want AI working inside my business",
-    body: "Automations that kill the busywork, chatbots and agents that answer around the clock, dashboards that actually tell you something. We scope it, build it, deploy it, and keep it running.",
+    kicker: "AI Services",
+    title: "Put AI to work for me",
+    body: "Automate busywork, answer customers, and connect the tools your business runs on.",
     accent: "purple",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -69,9 +69,9 @@ const choices: Choice[] = [
   },
   {
     href: "/websites",
-    kicker: "Done for you",
-    title: "I need a website that actually converts",
-    body: "Custom design with zero templates, built fast, tuned for search, with lead capture wired to your inbox and AI leverage inside it. You own 100% of the code.",
+    kicker: "Websites",
+    title: "Build a better website",
+    body: "A custom site built to bring in customers, with design, search, and lead capture handled.",
     accent: "cyan",
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -81,9 +81,9 @@ const choices: Choice[] = [
   },
   {
     href: "/data-daemon",
-    kicker: "Run it yourself",
-    title: "I want the AI command center we run on",
-    body: "DATA DAEMON is the self-hosted dashboard this agency is built on. A fleet of AI agents in one screen that read your files, run commands, browse the web, and remember everything.",
+    kicker: "DATA DAEMON",
+    title: "Run my own AI workspace",
+    body: "A free, open-source dashboard for AI agents, files, tools, and persistent memory.",
     badge: "Free · open source",
     accent: "green",
     icon: (
@@ -94,9 +94,9 @@ const choices: Choice[] = [
   },
   {
     href: "/field-debrief",
-    kicker: "See it work",
-    title: "I want my Instagram read by an AI",
-    body: "Point it at any public Instagram or TikTok handle and get a six-page diagnostic: the vitals, the posts that worked and why, the one root cause killing reach, and a 14-day fix.",
+    kicker: "Field Debrief",
+    title: "Improve my social media",
+    body: "Get a six-page Instagram or TikTok analysis with clear priorities and a 14-day plan.",
     badge: "$5 · about 60 seconds",
     accent: "blue",
     icon: (
@@ -111,34 +111,23 @@ export default function Home() {
   return (
     <SiteShell loader>
       {/* ── Hero ───────────────────────────────────────────────────────────── */}
-      <section className="pt-32 pb-10 md:pt-44 md:pb-14 relative">
+      <section className="pt-28 pb-8 md:pt-28 md:pb-10 relative">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="animate-fade-in-up opacity-0 text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-5">
-            Custom AI Tools for Businesses
+          <p className="animate-fade-in-up opacity-0 text-xs md:text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
+            AI tools &amp; websites for your business
           </p>
-          <h1 className="animate-fade-in-up opacity-0 animate-delay-200 text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
-            We Make AI <span className="gradient-text">Work</span> for Your
-            Business
+          <h1 className="animate-fade-in-up opacity-0 animate-delay-200 text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
+            What are you <span className="gradient-text">looking for?</span>
           </h1>
-          <p className="animate-fade-in-up opacity-0 animate-delay-200 text-base md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Practical AI tools, automations, and websites that give your business
-            back its time and turn more of your audience into paying clients.
+          <p className="animate-fade-in-up opacity-0 animate-delay-200 text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            Choose where to start. We will take you straight to what you need.
           </p>
         </div>
       </section>
 
       {/* ── The chooser ────────────────────────────────────────────────────── */}
-      <section id="chooser" className="pb-20 relative scroll-mt-24">
+      <section id="chooser" aria-label="Choose a service or product" className="pb-12 relative scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-10 md:mb-14 animate-fade-in-up opacity-0 animate-delay-300">
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-3">
-              What are you <span className="gradient-text">looking for?</span>
-            </h2>
-            <p className="text-zinc-400 text-sm md:text-base">
-              Pick the one that sounds like you. We will take you straight there.
-            </p>
-          </div>
-
           <div className="grid md:grid-cols-2 gap-5 animate-fade-in-up opacity-0 animate-delay-400">
             {choices.map((choice) => {
               const a = accents[choice.accent];
@@ -146,9 +135,9 @@ export default function Home() {
                 <Link
                   key={choice.href}
                   href={choice.href}
-                  className={`glass service-card rounded-2xl p-7 md:p-8 group flex flex-col transition-colors ${a.hover}`}
+                  className={`glass service-card rounded-2xl p-6 group flex flex-col transition-colors ${a.hover}`}
                 >
-                  <div className="flex items-start justify-between gap-4 mb-5">
+                  <div className="flex items-start justify-between gap-4 mb-4">
                     <div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${a.bg} ${a.text}`}
                     >
@@ -167,16 +156,16 @@ export default function Home() {
                   >
                     {choice.kicker}
                   </p>
-                  <h3
+                  <h2
                     className={`text-lg md:text-xl font-bold leading-snug mb-3 transition-colors ${a.glow}`}
                   >
                     {choice.title}
-                  </h3>
+                  </h2>
                   <p className="text-sm text-zinc-400 leading-relaxed flex-1">
                     {choice.body}
                   </p>
                   <span
-                    className={`inline-flex items-center gap-2 text-sm font-medium mt-6 ${a.text}`}
+                    className={`inline-flex items-center gap-2 text-sm font-medium mt-4 ${a.text}`}
                   >
                     Show me
                     <svg
@@ -197,7 +186,7 @@ export default function Home() {
           {/* Fifth option: the human path, given its own wide band */}
           <Link
             href="/contact"
-            className="glass service-card rounded-2xl p-7 md:p-8 group mt-5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 hover:border-aurora-pink/40 transition-colors animate-fade-in-up opacity-0 animate-delay-500"
+            className="glass service-card rounded-2xl p-6 group mt-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 hover:border-aurora-pink/40 transition-colors animate-fade-in-up opacity-0 animate-delay-500"
           >
             <div className="w-12 h-12 rounded-xl bg-aurora-pink/10 text-aurora-pink flex items-center justify-center flex-shrink-0">
               <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -208,13 +197,11 @@ export default function Home() {
               <p className="text-xs font-mono tracking-widest uppercase mb-2 text-aurora-pink">
                 Not sure yet
               </p>
-              <h3 className="text-lg md:text-xl font-bold leading-snug mb-2 group-hover:text-aurora-pink transition-colors">
-                I just want to talk to someone about it
-              </h3>
+              <h2 className="text-lg md:text-xl font-bold leading-snug mb-2 group-hover:text-aurora-pink transition-colors">
+                Talk it through with us
+              </h2>
               <p className="text-sm text-zinc-400 leading-relaxed">
-                A free 30-minute call. We learn the business, find the
-                bottleneck, and tell you what we would build. No pressure and no
-                templated pitch.
+                A free 30-minute call to find the right next step for your business.
               </p>
             </div>
             <span className="inline-flex items-center gap-2 text-sm font-medium text-aurora-pink flex-shrink-0">

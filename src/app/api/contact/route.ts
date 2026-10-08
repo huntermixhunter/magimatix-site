@@ -1,7 +1,7 @@
 // Website contact-form handler.
 //
-// Accepts a JSON submission from the homepage contact form and emails it to the
-// Captain via Resend (same sending identity as every other transactional mail
+// Accepts a JSON submission from the contact form and emails it to the
+// business via Resend (same sending identity as every other transactional mail
 // on this domain). The submitter's address becomes the reply_to, so replying
 // from the inbox goes straight back to them. A hidden honeypot field ("website")
 // silently drops obvious bots without telling them why.

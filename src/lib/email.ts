@@ -143,7 +143,7 @@ export async function sendDownloadEmail(params: {
 }
 
 /**
- * Notify the seller (the Captain) that a sale just happened, and who bought it.
+ * Notify the seller that a sale just happened, and who bought it.
  * Recipient is SALE_NOTIFY_TO (fall back to the known owner inbox). Never throws.
  * A failure here must never affect the 200 we owe Stripe.
  */
@@ -223,7 +223,7 @@ function escapeHtml(input: string): string {
 }
 
 /**
- * Deliver a website contact-form submission to the Captain's inbox. The
+ * Deliver a website contact-form submission to the business inbox. The
  * submitter's own address is set as reply_to so replying from the inbox goes
  * straight back to them. Never throws: returns {ok:false} on failure so the
  * route can surface a clean error.
