@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Magimatix",
   },
   description:
-    "Magimatix builds AI automations and premium websites that transform businesses. Workflow automation, AI chatbots, data analytics, custom web design, e-commerce, and UI/UX — all crafted with precision.",
+    "Magimatix builds AI automations and premium websites that transform businesses. Workflow automation, AI chatbots, data analytics, custom web design, e-commerce, and UI/UX, all crafted with precision.",
   keywords: [
     "AI automation agency",
     "workflow automation",
@@ -168,7 +168,7 @@ const jsonLd = [
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      url: `${siteUrl}/#contact`,
+      url: `${siteUrl}/contact`,
       areaServed: "Worldwide",
       availableLanguage: "English",
     },
@@ -288,121 +288,12 @@ const jsonLd = [
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      url: `${siteUrl}/#contact`,
+      url: `${siteUrl}/contact`,
       areaServed: ["Sandpoint", "North Idaho", "US"],
       availableLanguage: "English",
     },
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What web design services does Magimatix offer?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Magimatix offers custom website design, e-commerce development, UI/UX design, SEO and performance optimization, and complete brand identity for businesses of all sizes.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What AI automation services does Magimatix provide?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Magimatix builds workflow automation systems, AI chatbots and agents, data analytics dashboards, and custom machine learning integrations tailored to your specific business processes.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does it take to build a custom website?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Most Magimatix websites are completed in 2–6 weeks depending on complexity. The process includes discovery, design, development, and launch — with your input at every stage.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Magimatix work with small businesses?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes — Magimatix works with small businesses, startups, and established companies. Every project is custom-built to fit your specific goals and budget.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can Magimatix help my business with AI automation?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Absolutely. Magimatix designs and implements AI automations for customer support, lead generation, workflow management, and data processing — reducing manual work and increasing operational efficiency.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Magimatix work with businesses in Sandpoint and North Idaho?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes — Magimatix is based in Sandpoint, Idaho and works with small businesses throughout Bonner County and North Idaho, including Sandpoint, Ponderay, Bonners Ferry, Priest River, Hope, Coeur d'Alene, and the greater Spokane area.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Do I need to be local to hire Magimatix?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No — while Magimatix is based in Sandpoint, Idaho and serves North Idaho businesses, we work with clients across the United States and internationally. Everything is handled remotely with clear communication at every stage.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How much does a website cost from Magimatix?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Website pricing at Magimatix depends on your goals, features, and complexity. Most small business websites start around $1,500–$3,500. E-commerce stores, booking systems, and custom web apps are priced per project. Contact us for a free estimate — we work to fit real budgets.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Magimatix offer website maintenance and ongoing support?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Magimatix offers post-launch support, content updates, performance monitoring, and ongoing maintenance. Whether you need a quick fix or a monthly retainer, we keep your site fast, secure, and up to date.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can Magimatix redesign my existing website?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Absolutely. Magimatix specializes in website redesigns — taking outdated or underperforming sites and rebuilding them with modern design, faster load times, and better SEO. We can work with your existing content or help you start fresh.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Magimatix help with SEO and Google search rankings?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Every Magimatix website is built with on-page SEO from the start — structured data, meta tags, fast load times, and local business schema. We also offer SEO strategy for businesses in Sandpoint, Coeur d'Alene, and across North Idaho who want to rank higher in local search.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Magimatix build e-commerce websites?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Magimatix builds custom e-commerce stores with product catalogs, payment processing, inventory management, and mobile-optimized checkout. Whether you are selling products locally in North Idaho or shipping nationwide, we build stores that convert.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do I get started working with Magimatix?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Book a free 30-minute discovery call so we can learn your business, goals, and bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. No pressure, no templated solutions.",
-        },
-      },
-    ],
-  },
+
 ];
 
 export default function RootLayout({

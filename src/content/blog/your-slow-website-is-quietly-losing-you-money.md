@@ -53,4 +53,4 @@ A website is the only employee you have that works every hour of every day and n
 
 ---
 
-**Want to know exactly what is slowing your site down and what it is costing you? We will run a free speed and Core Web Vitals audit on your current site and show you the fixes in plain English, no jargon and no pressure. [Get in touch](/#contact) and let us see what we are working with.**
+**Want to know exactly what is slowing your site down and what it is costing you? We will run a free speed and Core Web Vitals audit on your current site and show you the fixes in plain English, no jargon and no pressure. [Get in touch](/contact) and let us see what we are working with.**

@@ -1,7 +1,7 @@
 "use client";
 
 // OS-aware, free download for DATA. The product is open source and the installers
-// live on GitHub Releases, so every link here is public and permanent — there is
+// live on GitHub Releases, so every link here is public and permanent: there is
 // no payment gate. We detect the visitor's OS and lead with the right build, but
 // keep every format reachable behind a toggle because UA sniffing is never perfect
 // (and someone may be setting it up for a different machine).
@@ -73,7 +73,7 @@ export default function DownloadPanel() {
             Download for Mac (.dmg) ↓
           </a>
           <p className="text-xs text-zinc-500 mt-3">
-            One-click installer for macOS — open the .dmg and drag DATA to
+            One-click installer for macOS. Open the .dmg and drag DATA to
             Applications.{" "}
             <button
               type="button"
@@ -93,7 +93,7 @@ export default function DownloadPanel() {
             Download DATA (.zip) ↓
           </a>
           <p className="text-xs text-zinc-500 mt-3">
-            Works on Linux, macOS, and Windows — unzip and run{" "}
+            Works on Linux, macOS, and Windows. Unzip and run{" "}
             <span className="font-mono text-zinc-300">install.sh</span> (or{" "}
             <span className="font-mono text-zinc-300">install.bat</span> on
             Windows).{" "}
@@ -114,19 +114,19 @@ export default function DownloadPanel() {
             href={DATA_EXE_URL}
             className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
           >
-            .exe installer — Windows
+            .exe installer for Windows
           </a>
           <a
             href={DATA_DMG_URL}
             className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
           >
-            .dmg installer — Mac
+            .dmg installer for Mac
           </a>
           <a
             href={DATA_ZIP_URL}
             className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"
           >
-            .zip — Windows / macOS / Linux
+            .zip for Windows / macOS / Linux
           </a>
           <a
             href={DATA_LATEST_URL}
@@ -139,7 +139,7 @@ export default function DownloadPanel() {
         </div>
       ) : null}
 
-      {/* Open source — the trust lever. Anyone can read every line before running it. */}
+      {/* Open source: the trust lever. Anyone can read every line before running it. */}
       <div className="mt-8 pt-6 border-t border-white/10">
         <a
           href={DATA_REPO_URL}

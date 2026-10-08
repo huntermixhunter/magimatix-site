@@ -11,7 +11,7 @@ tags:
   - Hiring
   - Performance
 scene: >-
-  Two open laptops side by side on a clean oak desk — one displaying a crisp,
+  Two open laptops side by side on a clean oak desk, one displaying a crisp,
   fast-loading website with generous whitespace and confident typography, the
   other showing a cluttered, slow page with misaligned elements and dense walls
   of text; a steel ruler and a red pen laid between them; soft north window
@@ -24,7 +24,7 @@ imageAlt: >-
 
 Hiring a web developer is one of the few purchases where the buyer cannot evaluate the product. You see a portfolio of pretty screenshots, you get a price, you wire a deposit, and then you wait three months to find out whether you bought a Ferrari or a fiberglass shell painted to look like one.
 
-The problem is that the things that matter — speed, code quality, accessibility, how the site behaves when you need to change it next year — are invisible at the moment of sale. The things you *can* see, like color choices and hero animations, do not predict the things you actually care about, like leads and longevity.
+The problem is that the things that matter (speed, code quality, accessibility, how the site behaves when you need to change it next year) are invisible at the moment of sale. The things you *can* see, like color choices and hero animations, do not predict the things you actually care about, like leads and longevity.
 
 Here are five questions a small business owner can ask any developer in a short call. None of them require technical knowledge to evaluate. All of them filter out roughly 80% of the field.
 
@@ -56,7 +56,7 @@ If their own portfolio site fails this test, do not hire them to build yours.
 
 ## 4. "What is your accessibility score, and why?"
 
-Accessibility — making sites usable for people with disabilities — is the canary in the developer-quality coal mine. A site with a 95+ accessibility score on Lighthouse was built carefully. A site with a 60 was thrown together.
+Accessibility, which means making sites usable for people with disabilities, is the canary in the developer-quality coal mine. A site with a 95+ accessibility score on Lighthouse was built carefully. A site with a 60 was thrown together.
 
 You do not need to know the rules. You need to know whether the developer thinks about them. Ask. If they talk about color contrast, alt text on images, keyboard navigation, and semantic HTML, you have found someone who builds correctly. If they say "yeah I make sure it works for screen readers" without elaborating, they are guessing.
 
@@ -78,4 +78,4 @@ The five-minute call is cheaper than the three-month rebuild.
 
 ---
 
-**Need a site that will pass all five of these tests on the day it launches?** [Send Magimatix a quick note about your project.](/#contact) We will tell you exactly how we would build it, and what the real numbers will look like — before you owe us a dollar.
+**Need a site that will pass all five of these tests on the day it launches?** [Send Magimatix a quick note about your project.](/contact) We will tell you exactly how we would build it, and what the real numbers will look like before you owe us a dollar.

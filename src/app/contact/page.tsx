@@ -7,12 +7,12 @@ import ContactForm from "../_components/ContactForm";
 import { DATA_CHECKOUT_URL } from "../_content";
 
 export const metadata: Metadata = {
-  title: "Contact — Book a Free Discovery Call",
+  title: "Contact: Book a Free Discovery Call",
   description:
     "Book a free 30-minute discovery call with Magimatix, or send a message. We learn your business, find the bottleneck, and map the right AI build. No pressure, no templated pitch.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact Magimatix — Book a Free Discovery Call",
+    title: "Contact Magimatix: Book a Free Discovery Call",
     description:
       "A free 30-minute call. We learn the business, find the bottleneck, and tell you what we would build.",
     url: "https://magimatix.com/contact",
@@ -36,14 +36,14 @@ export default function ContactPage() {
 
       <section className="pb-16 md:pb-20 relative">
         <div className="max-w-3xl mx-auto px-6">
-          {/* Primary path — book the call */}
+          {/* Primary path: book the call */}
           <div className="glass-strong rounded-2xl p-6 sm:p-8 md:p-10 text-center reveal">
             <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
               Book Your Free Discovery Call
             </p>
             <p className="text-zinc-400 text-base mb-6 leading-relaxed">
               Grab a 30-minute slot that works for you. Opens an instant
-              scheduler — pick a time and you&apos;re booked.
+              scheduler. Pick a time and you&apos;re booked.
             </p>
             <BookCallButton>Pick a Time →</BookCallButton>
           </div>
@@ -57,7 +57,7 @@ export default function ContactPage() {
             <div className="flex-1 h-px bg-white/10" />
           </div>
 
-          {/* Secondary path — write to us */}
+          {/* Secondary path: write to us */}
           <div className="glass-strong rounded-2xl p-6 sm:p-8 md:p-10 text-left reveal">
             <p className="text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-2">
               Prefer to Write?
@@ -75,7 +75,7 @@ export default function ContactPage() {
               href={DATA_CHECKOUT_URL}
               className="text-aurora-green hover:text-white transition-colors font-medium"
             >
-              Get DATA DAEMON — free &amp; open source →
+              Get DATA DAEMON, free &amp; open source →
             </Link>
           </p>
         </div>

@@ -25,7 +25,7 @@ export const dataShots = [
     src: "/data/data-bridge.png",
     title: "The main channel",
     caption:
-      "Talk to your AI in plain language. It reads files, runs commands, and acts — not just chat.",
+      "Talk to your AI in plain language. It reads files, runs commands, and acts. Not just chat.",
   },
   {
     src: "/data/data-workspaces.png",
@@ -43,17 +43,17 @@ export const dataShots = [
     src: "/data/data-connectors.png",
     title: "Run local models too",
     caption:
-      "Scan your hardware and run private models on your own machine — no cloud, no per-token bill.",
+      "Scan your hardware and run private models on your own machine. No cloud, no per-token bill.",
   },
 ];
 
 export const dataFeatures = [
-  "Multi-pane workspace — many agents, one screen",
+  "Multi-pane workspace: many agents, one screen",
   "Reads and writes your files, runs real commands",
   "Browses the web and controls your screen",
   "Persistent memory across every session",
-  "Cloud or fully-local models — your choice",
-  "Self-hosted on your machine — you own it all",
+  "Cloud or fully-local models, your choice",
+  "Self-hosted on your machine, you own it all",
 ];
 
 // ── Field Debrief ────────────────────────────────────────────────────────────
@@ -95,7 +95,7 @@ export const aiServices: Service[] = [
     id: "automation",
     title: "Workflow Automation",
     description:
-      "Eliminate the repetitive busywork eating your week. Data entry, follow-ups, scheduling, posting — we automate it so you get the hours back.",
+      "Eliminate the repetitive busywork eating your week. Data entry, follow-ups, scheduling, posting. We automate it so you get the hours back.",
     items: [
       "Process audit + automation map",
       "Custom workflow build",
@@ -114,7 +114,7 @@ export const aiServices: Service[] = [
     id: "agents",
     title: "AI Chatbots & Agents",
     description:
-      "Custom-trained conversational AI that handles support, sales, and scheduling — available 24/7 across all your channels.",
+      "Custom-trained conversational AI that handles support, sales, and scheduling, available 24/7 across all your channels.",
     items: [
       "Trained on your business data",
       "Lead capture + qualification",
@@ -152,7 +152,7 @@ export const aiServices: Service[] = [
     id: "custom",
     title: "Custom AI Solutions",
     description:
-      "Tailored models and integrations built specifically for your business processes — wired straight into the tools you already run.",
+      "Tailored models and integrations built specifically for your business processes, wired straight into the tools you already run.",
     items: [
       "Discovery + feasibility scoping",
       "Custom model / integration build",
@@ -171,7 +171,7 @@ export const aiServices: Service[] = [
 
 // ── Websites ─────────────────────────────────────────────────────────────────
 export const webCapabilities = [
-  "Custom sites — zero templates",
+  "Custom sites, zero templates",
   "E-commerce + secure checkout",
   "UI/UX, copy, and brand",
   "SEO + Core Web Vitals tuning",
@@ -254,7 +254,7 @@ export const processSteps = [
     step: "02",
     title: "AI Solutions",
     description:
-      "Your call feeds our own AI workflow to engineer a solution specific to you — never templated.",
+      "Your call feeds our own AI workflow to engineer a solution specific to you. Never templated.",
   },
   {
     step: "03",
@@ -278,42 +278,42 @@ export type FaqItem = { q: string; a: string; topics: string[] };
 export const faqItems: FaqItem[] = [
   {
     q: "What exactly is DATA DAEMON, and is it really free?",
-    a: "Yes — it is free and open source under Apache-2.0. DATA DAEMON is our own AI command center, the same self-hosted dashboard we run the agency on, packaged so you can run it yourself: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. Download it, read every line of the source, and run it on your own machine at no cost. If it earns a place in your workflow you can name your price to support development, but that is entirely optional. If you want a whole system built for you instead, that is done-for-you.",
+    a: "Yes. It is free and open source under Apache-2.0. DATA DAEMON is our own AI command center, the same self-hosted dashboard we run the agency on, packaged so you can run it yourself: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. Download it, read every line of the source, and run it on your own machine at no cost. If it earns a place in your workflow you can name your price to support development, but that is entirely optional. If you want a whole system built for you instead, that is done-for-you.",
     topics: ["data"],
   },
   {
     q: "What is the difference between DATA DAEMON and done-for-you?",
-    a: "DATA DAEMON is the free, open-source tool, run by you — you install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end — automations, agents, integrations, and the website that fronts it — scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a paid setup for you.",
+    a: "DATA DAEMON is the free, open-source tool, run by you. You install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end (automations, agents, integrations, and the website that fronts it), scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a paid setup for you.",
     topics: ["data", "services"],
   },
   {
     q: "Do you still build websites?",
-    a: "Yes. A website is one line item inside a done-for-you build — and we build fast, custom, conversion-focused sites with copy, SEO, and lead capture, with you owning 100% of the code. The difference is we wire AI leverage — chatbots, automations, lead routing — into the site instead of handing you a brochure that just sits there.",
+    a: "Yes. A website is one line item inside a done-for-you build, and we build fast, custom, conversion-focused sites with copy, SEO, and lead capture, with you owning 100% of the code. The difference is we wire AI leverage (chatbots, automations, lead routing) into the site instead of handing you a brochure that just sits there.",
     topics: ["websites", "services"],
   },
   {
     q: "Do I own everything?",
-    a: "Yes. DATA DAEMON is open source and self-hosted on your machine — the code is yours to run, modify, and share under Apache-2.0. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
+    a: "Yes. DATA DAEMON is open source and self-hosted on your machine. The code is yours to run, modify, and share under Apache-2.0. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
     topics: ["websites", "services", "data"],
   },
   {
     q: "What is the 90-day money-back guarantee?",
-    a: "On a done-for-you build: if you are not happy within 90 days of launch, ask for a refund and we give it back. The only condition is that the refund unwinds the deal — we take the work down and you return the deliverables, since we host and manage it. You are never stuck paying for work you do not love, and we are never out the hours for work someone keeps for free.",
+    a: "On a done-for-you build: if you are not happy within 90 days of launch, ask for a refund and we give it back. The only condition is that the refund unwinds the deal. We take the work down and you return the deliverables, since we host and manage it. You are never stuck paying for work you do not love, and we are never out the hours for work someone keeps for free.",
     topics: ["services", "websites"],
   },
   {
     q: "How long does a done-for-you build take?",
-    a: "Most builds launch in 2–4 weeks from kickoff. A focused automation or a simple site can go live in 7–14 days; larger systems with e-commerce or deep AI integration run 4–6 weeks depending on the wiring. We do not draw out timelines to look busy — once you say go, we move.",
+    a: "Most builds launch in 2–4 weeks from kickoff. A focused automation or a simple site can go live in 7–14 days; larger systems with e-commerce or deep AI integration run 4–6 weeks depending on the wiring. We do not draw out timelines to look busy. Once you say go, we move.",
     topics: ["services", "websites"],
   },
   {
     q: "What does a monthly fee cover, if any?",
-    a: "DATA DAEMON has none — it is free and open source, self-hosted by you. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope — automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
+    a: "DATA DAEMON has none. It is free and open source, self-hosted by you. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope: automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
     topics: ["services", "websites"],
   },
   {
     q: "What computers does DATA DAEMON run on?",
-    a: "Windows, macOS, and Linux. Windows and Mac both come with a native one-click installer (.exe for Windows, .dmg for Mac); Linux uses the included zip and a one-line setup. All you need is Python 3.10+ and a free AI provider CLI (Claude, ChatGPT, Gemini, or Ollama) — the included INSTALL.txt walks you through it.",
+    a: "Windows, macOS, and Linux. Windows and Mac both come with a native one-click installer (.exe for Windows, .dmg for Mac); Linux uses the included zip and a one-line setup. All you need is Python 3.10+ and a free AI provider CLI (Claude, ChatGPT, Gemini, or Ollama). The included INSTALL.txt walks you through it.",
     topics: ["data"],
   },
   {
@@ -322,18 +322,18 @@ export const faqItems: FaqItem[] = [
     topics: ["debrief"],
   },
   {
-    q: "Is the Field Debrief safe — do you need my login?",
+    q: "Is the Field Debrief safe, and do you need my login?",
     a: "No login, ever. The debrief reads only what is already public on the account, which is why it works on any handle, including a competitor's. You pay $5, type a handle, and get a PDF about a minute later. Nothing is posted, nothing is changed, and no password is requested at any point.",
     topics: ["debrief"],
   },
   {
     q: "Do you work with clients outside of Idaho?",
-    a: "Absolutely. We are based in Idaho but our clients are everywhere — local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design, and DATA DAEMON is a download anyone can run.",
+    a: "Absolutely. We are based in Idaho but our clients are everywhere: local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design, and DATA DAEMON is a download anyone can run.",
     topics: ["services", "websites"],
   },
   {
     q: "What happens on the free discovery call?",
-    a: "30 minutes to learn your business, your goals, and your bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. You decide from there — no pressure, no templated pitch.",
+    a: "30 minutes to learn your business, your goals, and your bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. You decide from there. No pressure, no templated pitch.",
     topics: ["services", "websites", "contact"],
   },
 ];

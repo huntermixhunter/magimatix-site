@@ -7,7 +7,7 @@ Drop a new `.md` file in this folder and it appears at `/blog/<filename>` automa
 ```yaml
 ---
 title: "Your post title"
-description: "One-sentence summary — used in the post card and meta description."
+description: "One-sentence summary, used in the post card and meta description."
 date: "2026-05-17"   # ISO yyyy-mm-dd
 ---
 ```
@@ -25,7 +25,7 @@ scene: "A literal visual concept for the hero image. See note below."
 ### About the `scene` field
 
 This is a hint for the FLUX image generator. It should describe a **literal physical
-scene** — a place, object, or environment — that visually metaphors the post's topic.
+scene** (a place, object, or environment) that visually metaphors the post's topic.
 **Never** mention abstract concepts like "AI", "robot", "data", "code", "brain", etc.
 FLUX latches onto concrete nouns and ignores negation, so writing "no robots" still
 produces a robot. Describe what you *do* want, not what you don't.
@@ -75,7 +75,7 @@ The script will:
 
 ## Standard post-creation flow
 
-### Fast path (one command — image + commit + push + live in ~60s)
+### Fast path (one command: image + commit + push + live in ~60s)
 
 ```bash
 # 1. Write the post

@@ -8,14 +8,14 @@ import BookCallButton from "../_components/BookCallButton";
 import { aiServices, processSteps, faqFor } from "../_content";
 
 export const metadata: Metadata = {
-  title: "AI Services — Automation, Agents & Custom Builds",
+  title: "AI Services: Automation, Agents & Custom Builds",
   description:
     "Done-for-you AI: workflow automation that kills the busywork, chatbots and agents that answer 24/7, analytics dashboards, and custom AI wired into the tools you already run. Scoped, built, deployed, and maintained by Magimatix.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "AI Services — Automation, Agents & Custom Builds | Magimatix",
+    title: "AI Services: Automation, Agents & Custom Builds | Magimatix",
     description:
-      "Workflow automation, AI chatbots and agents, analytics dashboards, and custom AI builds — designed, deployed, and maintained for you.",
+      "Workflow automation, AI chatbots and agents, analytics dashboards, and custom AI builds, designed, deployed, and maintained for you.",
     url: "https://magimatix.com/services",
     type: "website",
   },
@@ -32,7 +32,7 @@ export default function ServicesPage() {
             What We Build <span className="gradient-text">For You</span>
           </>
         }
-        lede="Want the result without running the tool? We design, build, and deploy the whole AI system — then keep it running as the business grows. Four capabilities, scoped to what you actually need."
+        lede="Want the result without running the tool? We design, build, and deploy the whole AI system, then keep it running as the business grows. Four capabilities, scoped to what you actually need."
       >
         <BookCallButton>Book Your Free Discovery Call →</BookCallButton>
         <p className="text-xs text-zinc-500 mt-5 font-mono tracking-wide">
@@ -178,7 +178,7 @@ export default function ServicesPage() {
         body="Pick a time for a free 30-minute call and we will map the right build for your business. No pressure, no templated pitch."
         primaryLabel="Book Your Free Call →"
         secondaryHref="/data-daemon"
-        secondaryLabel="Or run the tool yourself — free"
+        secondaryLabel="Or run the tool yourself for free"
         note="Prefer to write? Use the contact form instead."
       />
     </SiteShell>

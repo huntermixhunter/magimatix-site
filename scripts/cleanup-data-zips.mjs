@@ -20,7 +20,7 @@ if (!token) {
   process.exit(1);
 }
 if (!liveUrl) {
-  console.error("Missing DATA_DOWNLOAD_URL in .env.local — refusing to run without a protected URL.");
+  console.error("Missing DATA_DOWNLOAD_URL in .env.local. Refusing to run without a protected URL.");
   process.exit(1);
 }
 
@@ -56,7 +56,7 @@ console.log(`\n${apply ? "DELETING" : "WOULD DELETE"} (${remove.length}):`);
 remove.forEach((b) => console.log(`  ✗ ${b.pathname}  (${(b.size / 1048576).toFixed(2)} MB)`));
 
 if (!remove.length) {
-  console.log("\nNothing to delete — store already clean.");
+  console.log("\nNothing to delete. Store already clean.");
   process.exit(0);
 }
 

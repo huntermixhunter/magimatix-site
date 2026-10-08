@@ -27,7 +27,7 @@ const SITE_URL = (process.env.SITE_URL || "https://magimatix.com").replace(
 type SendResult = { ok: boolean; id?: string; error?: string };
 
 /**
- * Low-level Resend send. Never throws — returns {ok:false, error} on failure so
+ * Low-level Resend send. Never throws: returns {ok:false, error} on failure so
  * callers (e.g. the Stripe webhook) can log and still return 2xx.
  */
 async function sendEmail(opts: {
@@ -39,7 +39,7 @@ async function sendEmail(opts: {
 }): Promise<SendResult> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.error("[email] RESEND_API_KEY is not configured — skipping send.");
+    console.error("[email] RESEND_API_KEY is not configured. Skipping send.");
     return { ok: false, error: "no_api_key" };
   }
   const from = process.env.RESEND_FROM || DEFAULT_FROM;
@@ -93,17 +93,17 @@ export async function sendDownloadEmail(params: {
   const subject = "Thank you for supporting DATA DAEMON";
 
   const text = [
-    "Thank you for supporting DATA DAEMON — it means a lot.",
+    "Thank you for supporting DATA DAEMON. It means a lot.",
     "",
     "DATA is free and open source, so here is your download",
     "(works on Windows, macOS, and Linux):",
     link,
     "",
-    "Keep this email — the link works again any time, on any of your machines.",
+    "Keep this email. The link works again any time, on any of your machines.",
     "",
     "Unzip and open INSTALL.txt to get started.",
     "",
-    "— Magimatix",
+    "Magimatix",
   ].join("\n");
 
   const html = `<!doctype html>
@@ -116,7 +116,7 @@ export async function sendDownloadEmail(params: {
             <p style="margin:0 0 6px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9a;">Magimatix</p>
             <h1 style="margin:0 0 16px 0;font-size:24px;line-height:1.25;color:#ffffff;">Thank you for supporting DATA&nbsp;DAEMON</h1>
             <p style="margin:0 0 24px 0;font-size:15px;line-height:1.6;color:#c4c4cf;">
-              DATA is free and open source — here is your download. It works on Windows, macOS, and Linux.
+              DATA is free and open source. Here is your download. It works on Windows, macOS, and Linux.
             </p>
             <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px 0;">
               <tr><td style="border-radius:999px;background:linear-gradient(90deg,#7c3aed,#ec4899);">
@@ -124,7 +124,7 @@ export async function sendDownloadEmail(params: {
               </td></tr>
             </table>
             <p style="margin:0 0 24px 0;font-size:13px;line-height:1.6;color:#8b8b9a;">
-              Keep this email — the link works again any time, on any of your machines. Unzip and open <span style="font-family:monospace;color:#c4c4cf;">INSTALL.txt</span> to get started.
+              Keep this email. The link works again any time, on any of your machines. Unzip and open <span style="font-family:monospace;color:#c4c4cf;">INSTALL.txt</span> to get started.
             </p>
             <p style="margin:0;font-size:12px;line-height:1.6;color:#6b6b78;word-break:break-all;">
               If the button does not work, paste this link into your browser:<br />${link}
@@ -165,7 +165,7 @@ export async function sendSaleNotification(params: {
   const buyer = params.buyerEmail || "(no email on session)";
   const dash = `https://dashboard.stripe.com/payments`;
 
-  const subject = `New DATA DAEMON sale — ${buyer}`;
+  const subject = `New DATA DAEMON sale: ${buyer}`;
 
   const text = [
     "New DATA DAEMON purchase.",
@@ -176,7 +176,7 @@ export async function sendSaleNotification(params: {
     "",
     `Stripe:   ${dash}`,
     "",
-    "— DATA",
+    "DATA",
   ].join("\n");
 
   const html = `<!doctype html>
@@ -225,7 +225,7 @@ function escapeHtml(input: string): string {
 /**
  * Deliver a website contact-form submission to the Captain's inbox. The
  * submitter's own address is set as reply_to so replying from the inbox goes
- * straight back to them. Never throws — returns {ok:false} on failure so the
+ * straight back to them. Never throws: returns {ok:false} on failure so the
  * route can surface a clean error.
  */
 export async function sendContactEmail(params: {
@@ -247,7 +247,7 @@ export async function sendContactEmail(params: {
   const company = (params.company || "").trim();
   const phone = (params.phone || "").trim();
 
-  const subject = `New Magimatix inquiry — ${name}`;
+  const subject = `New Magimatix inquiry: ${name}`;
 
   const textRows = [
     "New contact-form submission from magimatix.com.",
@@ -260,7 +260,7 @@ export async function sendContactEmail(params: {
     "Message:",
     message,
     "",
-    "— Magimatix",
+    "Magimatix",
   ];
   const text = textRows.join("\n");
 

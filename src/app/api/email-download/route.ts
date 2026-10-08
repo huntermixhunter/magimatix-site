@@ -2,7 +2,7 @@
 //
 // The webhook already emails the link automatically after purchase. This route
 // backs the "email me the link" button on the thank-you page for buyers who
-// want it sent (again) — e.g. they closed the receipt, or want it on the
+// want it sent (again): e.g. they closed the receipt, or want it on the
 // machine they'll install on. Same security model as everything else: we
 // re-verify the Stripe session is genuinely paid before sending, and we only
 // ever send to the email Stripe has on that session (never a caller-supplied

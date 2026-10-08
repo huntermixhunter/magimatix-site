@@ -4,9 +4,8 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
 
   // Permanent redirects from the old /data and /daita product routes to the new
-  // /data-daemon route. Keeps existing links — and any in-flight Stripe
-  // success/cancel URLs still pointed at the old paths — from 404ing after the
-  // rename.
+  // /data-daemon route. Keeps existing links and in-flight Stripe success/cancel
+  // URLs pointing at valid pages after the rename.
   //
   // NOTE: product screenshots are served as static files from public/data/*.png
   // at /data/*.png. The :path* matcher below excludes any segment containing a
@@ -41,7 +40,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        // Apply to all routes — reinforces canonical and prevents
+        // Apply to all routes: reinforces canonical and prevents
         // Vercel alias domains (*.vercel.app) from being indexed
         source: "/:path*",
         headers: [

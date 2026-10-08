@@ -1,7 +1,7 @@
 "use client";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SiteShell — the chrome every page shares.
+// SiteShell: the chrome every page shares.
 //
 // Background video + dark overlay, the page-aware top nav, the footer, and the
 // IntersectionObserver that powers the `.reveal` animation. Pages supply only
@@ -14,7 +14,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
@@ -35,6 +35,18 @@ const footerLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const legacySections: Record<string, string> = {
+  "#pricing": "/services",
+  "#services": "/services",
+  "#portfolio": "/websites#portfolio",
+  "#process": "/services#process",
+  "#data": "/data-daemon",
+  "#debrief": "/field-debrief",
+  "#testimonials": "/websites",
+  "#faq": "/faq",
+  "#contact": "/contact",
+};
+
 export default function SiteShell({
   children,
   loader = false,
@@ -43,11 +55,12 @@ export default function SiteShell({
   loader?: boolean;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(!loader);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Re-arm the reveal observer on every route change — a client-side navigation
+  // Re-arm the reveal observer on every route change: a client-side navigation
   // swaps the DOM without remounting this shell.
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
@@ -63,12 +76,22 @@ export default function SiteShell({
     return () => observer.disconnect();
   }, [pathname]);
 
-  // Close the mobile menu whenever the route changes.
+  // Old bookmarks and shared links still reach their new destination.
   useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+    if (pathname !== "/") return;
+    const redirectSection = () => {
+      const destination = legacySections[window.location.hash];
+      if (!destination) return;
+      const target = new URL(destination, window.location.origin);
+      target.search = window.location.search;
+      router.replace(target.pathname + target.search + target.hash);
+    };
+    redirectSection();
+    window.addEventListener("hashchange", redirectSection);
+    return () => window.removeEventListener("hashchange", redirectSection);
+  }, [pathname, router]);
 
-  // Force playback — some browsers block autoplay even when muted.
+  // Force playback: some browsers block autoplay even when muted.
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -83,7 +106,8 @@ export default function SiteShell({
     video.addEventListener("loadeddata", onReady);
     video.addEventListener("canplay", onReady);
     video.addEventListener("playing", onReady);
-    if (video.readyState >= 2) setVideoLoaded(true);
+    const readyFrame =
+      video.readyState >= 2 ? window.requestAnimationFrame(onReady) : undefined;
 
     const fallback = window.setTimeout(() => setVideoLoaded(true), 2500);
     tryPlay();
@@ -103,6 +127,7 @@ export default function SiteShell({
       video.removeEventListener("canplay", onReady);
       video.removeEventListener("playing", onReady);
       window.clearTimeout(fallback);
+      if (readyFrame !== undefined) window.cancelAnimationFrame(readyFrame);
     };
   }, []);
 
@@ -111,7 +136,7 @@ export default function SiteShell({
 
   return (
     <>
-      {/* Loading splash — homepage only */}
+      {/* Loading splash: homepage only */}
       {loader && !videoLoaded && (
         <div className="fixed inset-0 z-[200] bg-black flex items-center justify-center">
           <div className="flex flex-col items-center gap-6">
@@ -137,7 +162,7 @@ export default function SiteShell({
         </div>
       )}
 
-      {/* Background video — 720p H.264 for all devices */}
+      {/* Background video: 720p H.264 for all devices */}
       <video
         ref={videoRef}
         className="video-bg"
@@ -156,7 +181,7 @@ export default function SiteShell({
       {/* Navigation */}
       <nav className="nav-blur fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-2.5 md:px-6 md:py-1 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
             <Image
               src="/logo.png"
               alt="Magimatix"

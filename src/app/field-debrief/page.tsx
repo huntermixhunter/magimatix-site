@@ -7,12 +7,12 @@ import FaqAccordion from "../_components/FaqAccordion";
 import { DEBRIEF_URL, debriefShots, faqFor } from "../_content";
 
 export const metadata: Metadata = {
-  title: "Field Debrief — An AI Diagnostic on Any Instagram or TikTok",
+  title: "Field Debrief: An AI Diagnostic on Any Instagram or TikTok",
   description:
     "Point our AI at any public Instagram or TikTok handle and get a six-page Field Debrief in about sixty seconds: benchmarked vitals, the posts that worked and why, the one root cause killing reach, and a 14-day fix. $5, no login.",
   alternates: { canonical: "/field-debrief" },
   openGraph: {
-    title: "Field Debrief — An AI Diagnostic on Any Instagram or TikTok",
+    title: "Field Debrief: An AI Diagnostic on Any Instagram or TikTok",
     description:
       "Six pages of HUD analysis on any public handle in about sixty seconds. $5, no login, no password.",
     url: "https://magimatix.com/field-debrief",
@@ -30,7 +30,7 @@ const pages = [
 ];
 
 const steps = [
-  { n: "1", title: "Type a handle", body: "Any public Instagram or TikTok account — yours, a competitor's, a client you want to pitch." },
+  { n: "1", title: "Type a handle", body: "Any public Instagram or TikTok account: yours, a competitor's, or a client you want to pitch." },
   { n: "2", title: "Pay $5", body: "Flat, one time, no subscription and no account to create." },
   { n: "3", title: "Get the PDF", body: "About sixty seconds later the finished six-page debrief lands, ready to read or send on." },
 ];
@@ -238,7 +238,7 @@ export default function FieldDebriefPage() {
               href="/data-daemon"
               className="text-base font-medium px-8 py-4 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors inline-block"
             >
-              Meet DATA DAEMON — free
+              Meet DATA DAEMON, free
             </Link>
           </div>
         </div>

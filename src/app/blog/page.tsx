@@ -6,12 +6,12 @@ import SiteNav from "../_components/SiteNav";
 import SiteFooter from "../_components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Blog — Web Design, SEO & AI Automations",
+  title: "Blog: Web Design, SEO & AI Automations",
   description:
     "Field notes from Magimatix on premium web design, modern SEO, and AI automations for small businesses.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Magimatix Blog — Web Design, SEO & AI Automations",
+    title: "Magimatix Blog: Web Design, SEO & AI Automations",
     description:
       "Field notes from Magimatix on premium web design, modern SEO, and AI automations for small businesses.",
     url: "https://magimatix.com/blog",
@@ -69,7 +69,7 @@ export default function BlogIndex() {
             </h1>
             <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
               Honest writing on web design, modern SEO, and AI automations for
-              small businesses. No fluff, no recycled listicles — just what is
+              small businesses. Practical advice on what is
               actually working in the field.
             </p>
           </header>

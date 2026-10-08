@@ -3,7 +3,7 @@
 // All values come from environment variables so no secrets live in the repo.
 // See .env.example for the full list. The client is constructed lazily on first
 // use (not at module import) so `next build` does not crash when the secret key
-// is absent — the SDK constructor throws on an empty key.
+// is absent: the SDK constructor throws on an empty key.
 import Stripe from "stripe";
 
 let _stripe: Stripe | null = null;
@@ -24,7 +24,7 @@ export const DATA_PRICE_ID = process.env.STRIPE_DATA_PRICE_ID ?? "";
 
 // Absolute URL to the purchasable download (Vercel Blob). The /api/download
 // route streams from here only after verifying the buyer's session is paid.
-// This is the cross-platform .zip — works on Windows, macOS, and Linux.
+// This is the cross-platform .zip: works on Windows, macOS, and Linux.
 export const DATA_DOWNLOAD_URL = process.env.DATA_DOWNLOAD_URL ?? "";
 
 // Absolute URL to the Windows one-click installer (.exe) on Vercel Blob.

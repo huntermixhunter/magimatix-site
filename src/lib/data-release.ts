@@ -1,11 +1,11 @@
 // DATA is free and open source (Apache-2.0). The installers are distributed as
-// GitHub Release assets — GitHub hosts the bandwidth for free, so the storefront
+// GitHub Release assets: GitHub hosts the bandwidth for free, so the storefront
 // links straight to them (no Vercel Blob, no paid gate). Payment is now purely a
 // "name your price" tip that supports development; the download never depends on it.
 //
 // New release checklist (keep this the ONLY place the versions live):
 //   1. gh release create vX.Y.Z <exe> <zip> [dmg]  on huntermixhunter/D.A.T.A
-//   2. bump DATA_VERSION below — and DATA_MAC_VERSION only if that cut
+//   2. bump DATA_VERSION below, and DATA_MAC_VERSION only if that cut
 //      actually shipped a .dmg (see the note on it).
 // That is the whole storefront-side change per release.
 

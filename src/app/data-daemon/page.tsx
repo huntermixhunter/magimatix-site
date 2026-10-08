@@ -14,14 +14,14 @@ import {
 import { DATA_REPO_URL } from "@/lib/data-release";
 
 export const metadata: Metadata = {
-  title: "DATA DAEMON — Your Self-Hosted AI Command Center",
+  title: "DATA DAEMON: Your Self-Hosted AI Command Center",
   description:
     "DATA DAEMON is a free, open-source AI command center you run on your own machine. A fleet of AI agents in one dashboard that read your files, run commands, browse the web, and remember everything across sessions. Windows, macOS, and Linux.",
   alternates: { canonical: "/data-daemon" },
   openGraph: {
-    title: "DATA DAEMON — Your Self-Hosted AI Command Center",
+    title: "DATA DAEMON: Your Self-Hosted AI Command Center",
     description:
-      "Free and open source. A fleet of AI agents in one local dashboard — reading your files, running commands, browsing the web, and remembering everything.",
+      "Free and open source. A fleet of AI agents in one local dashboard, reading your files, running commands, browsing the web, and remembering everything.",
     url: "https://magimatix.com/data-daemon",
     type: "website",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const whatItIs = [
   {
     title: "A daemon, not a chat window",
-    body: "DATA stands for Dashboard for Analytical Thought and Action. A daemon is a program that runs quietly in the background, so this is not a tab you visit — it is a system that sits on your machine and works.",
+    body: "DATA stands for Dashboard for Analytical Thought and Action. A daemon is a program that runs quietly in the background, so this is a system that sits on your machine and works.",
   },
   {
     title: "The dashboard we run the agency on",
@@ -64,7 +64,7 @@ export default function DataDaemonPage() {
             href={DATA_CHECKOUT_URL}
             className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
           >
-            Get DATA DAEMON — free →
+            Get DATA DAEMON, free →
           </Link>
           <a
             href={DATA_REPO_URL}
@@ -91,7 +91,7 @@ export default function DataDaemonPage() {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src={`https://www.youtube.com/embed/${DATA_VIDEO_ID}`}
-                title="DATA DAEMON — Demo"
+                title="DATA DAEMON: Demo"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -211,7 +211,7 @@ export default function DataDaemonPage() {
               <svg className="w-3.5 h-3.5 text-aurora-green" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M3 5.7 10.5 4.6v7.1H3V5.7Zm0 12.6 7.5 1.1v-7H3v5.9Zm8.5 1.2L21 21V12.7h-9.5v6.8Zm0-15.4v6.9H21V3l-9.5 1.1Z" />
               </svg>
-              Windows · macOS · Linux — one-click installer for Windows and Mac
+              Windows · macOS · Linux. One-click installer for Windows and Mac
             </p>
           </div>
         </div>

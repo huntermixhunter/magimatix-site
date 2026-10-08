@@ -160,7 +160,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 Let&apos;s build something that actually converts.
               </h3>
               <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
-                Book a free 30-minute discovery call. We will learn your business, your goals, and your bottlenecks — then come back with a custom deck.
+                Book a free 30-minute discovery call. We will learn your business, your goals, and your bottlenecks, then come back with a custom deck.
               </p>
               <Link
                 href="/contact"

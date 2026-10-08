@@ -62,10 +62,10 @@ function capture(cmd, args) {
 
 // Step 1: image
 if (!skipImage) {
-  console.log(`\n▸ Step 1/4 — Generating hero image for "${slug}"…`);
+  console.log(`\n▸ Step 1/4: Generating hero image for "${slug}"…`);
   run("node", [join("scripts", "generate-post-image.mjs"), slug, ...imageFlags]);
 } else {
-  console.log(`\n▸ Step 1/4 — Skipping image generation (--skip-image)`);
+  console.log(`\n▸ Step 1/4: Skipping image generation (--skip-image)`);
 }
 
 // Step 2: read post metadata for a good commit message
@@ -74,23 +74,23 @@ const { data: frontmatter } = matter(raw);
 const title = frontmatter.title || slug;
 
 // Step 3: stage + commit
-console.log(`\n▸ Step 2/4 — Staging files…`);
+console.log(`\n▸ Step 2/4: Staging files…`);
 const filesToStage = [postPath];
 if (existsSync(imagePath)) filesToStage.push(imagePath);
 run("git", ["add", ...filesToStage]);
 
 const status = capture("git", ["status", "--porcelain", ...filesToStage]);
 if (!status) {
-  console.log(`▸ Nothing to commit for ${slug} — files are already up to date.`);
+  console.log(`▸ Nothing to commit for ${slug}. Files are already up to date.`);
   console.log(`  Pushing anyway in case earlier commits are unpushed…`);
 } else {
-  console.log(`\n▸ Step 3/4 — Committing…`);
+  console.log(`\n▸ Step 3/4: Committing…`);
   const message = `blog: ${title}`;
   run("git", ["commit", "-m", message]);
 }
 
 // Step 4: push
-console.log(`\n▸ Step 4/4 — Pushing to origin/main…`);
+console.log(`\n▸ Step 4/4: Pushing to origin/main…`);
 run("git", ["push", "origin", "main"]);
 
 console.log(`\n✓ Published. Vercel will deploy in ~30-60 seconds.`);

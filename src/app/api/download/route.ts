@@ -1,5 +1,5 @@
 // Download redirect for DATA. The product is free and open source, so there is no
-// payment gate anymore — this route simply forwards to the public GitHub Release
+// payment gate anymore: this route simply forwards to the public GitHub Release
 // asset for the requested format. It exists so older links (emails, the thank-you
 // page, anything using /api/download?format=...) keep resolving to the current
 // build without hard-coding version numbers at the call site.

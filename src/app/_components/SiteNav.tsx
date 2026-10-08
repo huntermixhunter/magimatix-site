@@ -1,7 +1,7 @@
 "use client";
 
 // Lightweight nav for the blog, which runs on a flat background instead of the
-// video shell. Link list is kept in sync with SiteShell's nav by hand — both
+// video shell. Link list is kept in sync with SiteShell's nav by hand: both
 // point at the same set of top-level pages.
 
 import Link from "next/link";

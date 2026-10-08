@@ -4,7 +4,7 @@
 // page is a straight, unguarded download from GitHub Releases. Payment is optional
 // and secondary: a "name your price" tip that supports development, rendered as an
 // embedded Stripe Checkout the visitor only sees after they choose an amount.
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -27,7 +27,7 @@ export default function DataGetPage() {
   const [custom, setCustom] = useState("");
   const [paying, setPaying] = useState(false);
   // The amount (in cents) locked in when the supporter proceeds to payment.
-  const amountRef = useRef<number>(0);
+  const [amount, setAmount] = useState(0);
 
   const customCents = Math.round(parseFloat(custom || "0") * 100);
   const chosenCents =
@@ -38,16 +38,16 @@ export default function DataGetPage() {
     const res = await fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: amountRef.current }),
+      body: JSON.stringify({ amount }),
     });
     if (!res.ok) throw new Error("Unable to start payment.");
     const data = await res.json();
     return data.clientSecret as string;
-  }, []);
+  }, [amount]);
 
   function proceed() {
     if (!canPay) return;
-    amountRef.current = chosenCents;
+    setAmount(chosenCents);
     setPaying(true);
   }
 
@@ -70,17 +70,17 @@ export default function DataGetPage() {
         </h1>
         <p className="text-zinc-400 mb-8 max-w-xl">
           Your own self-hosted AI command center. Free to download, free to run,
-          and the full source is public — read every line before you trust it on
+          and the full source is public. Read every line before you trust it on
           your machine.
         </p>
 
-        {/* Name your price — optional support, up top. */}
+        {/* Name your price: optional support, up top. */}
         <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent px-6 py-8 mb-10">
           <h2 className="text-xl font-semibold mb-1">Name your price</h2>
           <p className="text-sm text-zinc-400 mb-6 max-w-lg">
             DATA is free, always. If it saves you time or you just want to keep
             it getting better, you can chip in whatever it is worth to you. Zero
-            is a completely valid answer — the download below is yours either way.
+            is a completely valid answer. The download below is yours either way.
           </p>
 
           {!paying ? (
@@ -145,7 +145,7 @@ export default function DataGetPage() {
               <p className="text-sm text-zinc-300 mb-4">
                 Supporting DATA with{" "}
                 <span className="font-semibold text-white">
-                  ${(amountRef.current / 100).toFixed(0)}
+                  ${(amount / 100).toFixed(0)}
                 </span>
                 .{" "}
                 <button
@@ -168,7 +168,7 @@ export default function DataGetPage() {
           )}
         </div>
 
-        {/* Free download — no gate, always available. */}
+        {/* Free download: no gate, always available. */}
         <div className="rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-8 mt-10 mb-10">
           <DownloadPanel />
         </div>
@@ -186,9 +186,9 @@ export default function DataGetPage() {
             <span className="font-semibold text-white">
               Runs on Windows, macOS &amp; Linux.
             </span>{" "}
-            Windows gets a one-click installer; Mac and Linux use the .zip and a
-            one-line setup. You will need Python 3.10+ and a free AI provider CLI
-            (Claude, ChatGPT, Gemini, or Ollama) — full steps are in the included
+            Windows and Mac get one-click installers. Linux uses the .zip and a
+            one-line setup. Manual installs need Python 3.10+ and an AI provider CLI
+            (Claude, ChatGPT, Gemini, or Ollama). Full steps are in the included
             INSTALL.txt.
           </p>
         </div>

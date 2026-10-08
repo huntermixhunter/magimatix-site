@@ -15,9 +15,9 @@ import {
 } from "../_content";
 
 export const metadata: Metadata = {
-  title: "Websites & Web Design — Custom, Fast, Built to Convert",
+  title: "Websites & Web Design: Custom, Fast, Built to Convert",
   description:
-    "Custom websites with zero templates: conversion-focused design, copy, SEO and Core Web Vitals tuning, e-commerce, and lead capture wired to your inbox — with AI leverage built in. You own 100% of the code.",
+    "Custom websites with zero templates: conversion-focused design, copy, SEO and Core Web Vitals tuning, e-commerce, and lead capture wired to your inbox, with AI leverage built in. You own 100% of the code.",
   alternates: { canonical: "/websites" },
   openGraph: {
     title: "Websites & Web Design | Magimatix",

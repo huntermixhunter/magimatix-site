@@ -8,12 +8,12 @@
  * "MAGIMATIX" underneath. At favicon sizes (16x16, 32x32, 180x180) the
  * wordmark is illegible, so we extract only the monogram and use that.
  *
- * Outputs (Next.js app-router file conventions — see
+ * Outputs (Next.js app-router file conventions: see
  *   node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/01-metadata/app-icons.md):
  *
- *   src/app/favicon.ico    — multi-resolution ICO (16, 32, 48) — legacy fallback
- *   src/app/icon.png       — 512x512 PNG, modern browsers prefer this
- *   src/app/apple-icon.png — 180x180 PNG for iOS home screen
+ *   src/app/favicon.ico   : multi-resolution ICO (16, 32, 48): legacy fallback
+ *   src/app/icon.png      : 512x512 PNG, modern browsers prefer this
+ *   src/app/apple-icon.png: 180x180 PNG for iOS home screen
  *
  * Re-run with: node scripts/generate-favicons.mjs
  */
@@ -40,7 +40,7 @@ const MONO_TOP = 0;
 const MONO_WIDTH = 1050;
 const MONO_HEIGHT = 410;
 
-// Magimatix brand-dark — matches the site's bg-black palette so the favicon
+// Magimatix brand-dark: matches the site's bg-black palette so the favicon
 // reads as a square chip on light backgrounds (browser light mode) instead of
 // a ragged transparent silhouette.
 const BG = { r: 0, g: 0, b: 0, alpha: 1 };

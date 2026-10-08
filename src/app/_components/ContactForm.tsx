@@ -1,6 +1,6 @@
 "use client";
 
-// Contact form — posts to /api/contact, which emails us through Resend.
+// Contact form: posts to /api/contact, which emails us through Resend.
 // Lifted verbatim out of the old homepage so /contact owns it now.
 
 import { useState } from "react";
@@ -11,7 +11,7 @@ export default function ContactForm() {
     email: "",
     company: "",
     message: "",
-    website: "", // honeypot — hidden from real users
+    website: "", // honeypot: hidden from real users
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
@@ -56,7 +56,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={submit} className="space-y-5" noValidate>
-      {/* Honeypot — visually hidden, off-screen, ignored by humans */}
+      {/* Honeypot: visually hidden, off-screen, ignored by humans */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <label>
           Do not fill this out

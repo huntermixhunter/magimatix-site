@@ -28,7 +28,7 @@ export default function BookCallButton({
     if (window.Calendly) {
       window.Calendly.initPopupWidget({ url: CALENDLY_URL });
     } else {
-      // Widget script not ready yet — fall back to opening in a new tab.
+      // Widget script not ready yet: fall back to opening in a new tab.
       window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
     }
   };

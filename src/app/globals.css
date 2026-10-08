@@ -208,7 +208,7 @@ html {
   background: linear-gradient(90deg, transparent, rgba(91, 127, 255, 0.3), rgba(168, 85, 247, 0.3), transparent);
 }
 
-/* Blog post body — long-form prose styling */
+/* Blog post body: long-form prose styling */
 .post-body {
   color: #d4d4d8;
   font-size: 1.0625rem;

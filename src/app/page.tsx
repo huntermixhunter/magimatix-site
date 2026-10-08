@@ -194,7 +194,7 @@ export default function Home() {
             })}
           </div>
 
-          {/* Fifth option — the human path, given its own wide band */}
+          {/* Fifth option: the human path, given its own wide band */}
           <Link
             href="/contact"
             className="glass service-card rounded-2xl p-7 md:p-8 group mt-5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7 hover:border-aurora-pink/40 transition-colors animate-fade-in-up opacity-0 animate-delay-500"
@@ -228,7 +228,7 @@ export default function Home() {
           {/* Trust strip */}
           <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-xs md:text-sm text-zinc-400 mt-12 animate-fade-in-up opacity-0 animate-delay-600">
             {[
-              "Self-hosted — you own it",
+              "Self-hosted, you own it",
               "90-day money-back guarantee",
               "No long-term contract",
             ].map((claim) => (

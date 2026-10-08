@@ -58,7 +58,7 @@ export default async function ThankYouPage({
             <>
               Download{" "}
               <span className="gradient-text font-semibold">DATA DAEMON</span>{" "}
-              below — free and open source, yours to run on your own machine.
+              below. Free and open source, yours to run on your own machine.
             </>
           )}
         </p>

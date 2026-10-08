@@ -7,12 +7,12 @@ import CtaBand from "../_components/CtaBand";
 import { faqItems } from "../_content";
 
 export const metadata: Metadata = {
-  title: "FAQ — Straight Answers About How We Work",
+  title: "FAQ: Straight Answers About How We Work",
   description:
     "Straight answers on DATA DAEMON, done-for-you AI builds, websites, ownership, timelines, the 90-day money-back guarantee, and what actually happens after you say go.",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "Magimatix FAQ — Straight Answers About How We Work",
+    title: "Magimatix FAQ: Straight Answers About How We Work",
     description:
       "Ownership, timelines, pricing, the guarantee, and what happens after you say go. No fluff, no fine print.",
     url: "https://magimatix.com/faq",

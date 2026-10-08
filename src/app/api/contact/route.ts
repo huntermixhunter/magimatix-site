@@ -16,7 +16,7 @@ type ContactBody = {
   message?: string;
   company?: string;
   phone?: string;
-  website?: string; // honeypot — real users never fill this
+  website?: string; // honeypot: real users never fill this
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

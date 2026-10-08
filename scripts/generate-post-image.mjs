@@ -95,7 +95,7 @@ const publicImageUrl = `/blog/${slug}.jpg`;
 
 // ----- Prompt construction ----------------------------------------------
 
-// IMPORTANT — FLUX behavior note:
+// IMPORTANT: FLUX behavior note:
 // FLUX (via fal.ai) does NOT have a separate negative-prompt field on this endpoint
 // and tends to LATCH ONTO whatever concrete nouns appear in the positive prompt,
 // even when those nouns are preceded by "no" or "avoid". Writing "no robots" reliably
@@ -103,7 +103,7 @@ const publicImageUrl = `/blog/${slug}.jpg`;
 // describe a concrete physical scene we *do* want.
 //
 // Relevance strategy:
-//   1. If the post frontmatter has a `scene` field, use it verbatim — the author chose it.
+//   1. If the post frontmatter has a `scene` field, use it verbatim: the author chose it.
 //   2. If not, derive a concrete physical scene from the post's title, description, and tags
 //      so every image is topically connected to the article rather than a generic placeholder.
 function buildPhotographyDirection(aspectRatio = "16:9") {
@@ -152,7 +152,7 @@ console.log(`[generate-post-image] model: ${modelChoice} (${endpoint})`);
 console.log(`[generate-post-image] prompt:\n${prompt}\n`);
 
 if (dryRun) {
-  console.log("[generate-post-image] --dry-run — skipping FAL call.");
+  console.log("[generate-post-image] --dry-run: skipping FAL call.");
   process.exit(0);
 }
 
@@ -182,7 +182,7 @@ if (!FAL_KEY) {
 console.log(`[generate-post-image] calling FAL...`);
 const startedAt = Date.now();
 
-// Build request body — ultra uses aspect_ratio and manages inference internally;
+// Build request body: ultra uses aspect_ratio and manages inference internally;
 // schnell/dev/pro use image_size + explicit inference/guidance params.
 const requestBody =
   modelChoice === "ultra"
@@ -224,7 +224,7 @@ if (!firstImage?.url) {
   process.exit(1);
 }
 const elapsedMs = Date.now() - startedAt;
-console.log(`[generate-post-image] FAL returned in ${(elapsedMs / 1000).toFixed(1)}s — downloading ${firstImage.url}`);
+console.log(`[generate-post-image] FAL returned in ${(elapsedMs / 1000).toFixed(1)}s. Downloading ${firstImage.url}`);
 
 // ----- Download image ---------------------------------------------------
 

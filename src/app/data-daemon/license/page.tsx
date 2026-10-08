@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { DATA_REPO_URL } from "@/lib/data-release";
 
 export const metadata: Metadata = {
-  title: "DATA DAEMON — License (Apache-2.0)",
+  title: "DATA DAEMON: License (Apache-2.0)",
   description:
     "DATA DAEMON is free and open-source software licensed under Apache-2.0. Use it, modify it, redistribute it. Provided as is, with an important note on running an autonomous AI agent.",
 };
@@ -28,7 +28,7 @@ export default function DataLicensePage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-          License — <span className="gradient-text">DATA DAEMON</span>
+          License: <span className="gradient-text">DATA DAEMON</span>
         </h1>
         <p className="text-zinc-400 mb-10">
           DATA DAEMON is free and open-source software, released under the{" "}
@@ -75,7 +75,7 @@ export default function DataLicensePage() {
 
           <section>
             <h2 className="text-lg font-semibold text-white mb-2">
-              3. Experimental software — assumption of risk
+              3. Experimental software: assumption of risk
             </h2>
             <p>
               The Software is experimental and is an autonomous AI agent that can
@@ -93,8 +93,8 @@ export default function DataLicensePage() {
               4. Not professional advice
             </h2>
             <p>
-              Any output — financial, investment, legal, tax, medical, health, or
-              business — is for general information only, may be inaccurate, and
+              Any output (financial, investment, legal, tax, medical, health, or
+              business) is for general information only, may be inaccurate, and
               is not professional advice.
             </p>
           </section>
@@ -117,7 +117,7 @@ export default function DataLicensePage() {
               6. Supporting the project
             </h2>
             <p>
-              DATA is free — there is nothing to buy. If you want to support
+              DATA is free. There is nothing to buy. If you want to support
               continued development, contributions are pay-what-you-want and
               entirely optional; they grant no additional license or warranty.
             </p>
@@ -135,7 +135,7 @@ export default function DataLicensePage() {
             href="/data-daemon/checkout"
             className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-zinc-200 transition-colors"
           >
-            Get DATA — free →
+            Get DATA for free →
           </Link>
           <a
             href={DATA_REPO_URL}

@@ -1,5 +1,5 @@
 // Creates an embedded Stripe Checkout Session for a "name your price" tip that
-// supports DATA development. The product itself is free and open source — this
+// supports DATA development. The product itself is free and open source: this
 // endpoint never gates a download; it only charges the amount the supporter chose.
 // Returns the session client_secret, which the on-page <EmbeddedCheckout/> mounts.
 import { NextResponse } from "next/server";
