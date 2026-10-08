@@ -16,7 +16,7 @@ export const DATA_LATEST_URL = `${DATA_REPO_URL}/releases/latest`;
 // The current release for the Windows installer and the cross-platform zip.
 // Both are built on Windows (tools\build_installer.ps1, tools\release.ps1), so
 // they ship together on every cut.
-export const DATA_VERSION = "v1.0.55";
+export const DATA_VERSION = "v1.0.56";
 
 // The .dmg has to be built on a Mac, so it does NOT ship on every cut. Pinning
 // it separately keeps the Mac button pointing at the newest release that
