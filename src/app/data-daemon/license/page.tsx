@@ -17,7 +17,7 @@ export default function DataLicensePage() {
     <main className="min-h-screen bg-[#0a0a0f] text-white">
       <div className="max-w-3xl mx-auto px-6 py-16">
         <Link
-          href="/#data"
+          href="/data-daemon"
           className="text-sm text-zinc-400 hover:text-white transition-colors"
         >
           ← Back to DATA DAEMON

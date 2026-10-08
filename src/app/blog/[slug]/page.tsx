@@ -163,7 +163,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 Book a free 30-minute discovery call. We will learn your business, your goals, and your bottlenecks — then come back with a custom deck.
               </p>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="btn-glow inline-flex items-center justify-center px-7 py-3 rounded-full text-sm font-semibold text-white"
               >
                 Book Discovery Call
