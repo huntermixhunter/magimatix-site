@@ -137,7 +137,7 @@ export default function DataDaemonPage() {
               Inside the Dashboard
             </p>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Four screens that do the <span className="gradient-text">heavy lifting</span>
+              The screens you will <span className="gradient-text">work in</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6 reveal">
