@@ -90,7 +90,7 @@ export default function DownloadPanel() {
           </div>
           <p className="text-xs text-zinc-500 mt-3">
             {DATA_MAC_SPLIT_DOWNLOADS
-              ? "Find your chip under Apple menu > About This Mac. Open the .dmg, copy the DATA folder into Downloads, then open Start DATA.command. Python is included."
+              ? "Find your chip under Apple menu > About This Mac. Copy DATA from the .dmg into Downloads, then paste the Terminal command from the setup guide."
               : "Open the .dmg and follow the downloadable Mac setup instructions."}{" "}
             <button
               type="button"
@@ -102,10 +102,8 @@ export default function DownloadPanel() {
           </p>
           {DATA_MAC_SPLIT_DOWNLOADS ? (
             <p className="text-xs text-zinc-500 mt-3">
-              Unsigned download. macOS may ask you to allow the launcher in
-              Privacy &amp; Security. The guide includes step-by-step help and a
-              copy-and-paste Terminal fix. Optional voice and desktop-control
-              packages are installed separately.
+              DATA is unsigned. The guide includes the command to clear the
+              download block and start DATA. Python is included.
             </p>
           ) : null}
         </>
