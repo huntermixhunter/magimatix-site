@@ -7,6 +7,7 @@
 //   1. gh release create vX.Y.Z <exe> <zip> [dmg]  on huntermixhunter/D.A.T.A
 //   2. bump DATA_VERSION for Windows/ZIP. For Mac, run
 //      node scripts/update-data-mac.mjs vX.Y.Z after publishing both DMGs.
+//   3. Review public/downloads/DATA-Mac-Setup.txt against the published Mac build.
 // That is the whole storefront-side change per release.
 
 export const DATA_REPO_URL = "https://github.com/huntermixhunter/D.A.T.A";
@@ -20,8 +21,9 @@ export const DATA_VERSION = "v1.0.56";
 
 // Mac builds run on GitHub's native Mac runners and can ship independently.
 // Keep the existing download until the asset-checking helper verifies a new pair.
-export const DATA_MAC_VERSION = "v1.0.51";
-export const DATA_MAC_SPLIT_DOWNLOADS = false;
+export const DATA_MAC_VERSION = "v1.0.57";
+export const DATA_MAC_SPLIT_DOWNLOADS = true;
+export const DATA_MAC_INSTRUCTIONS_URL = "/downloads/DATA-Mac-Setup.txt";
 
 const releaseBase = (version: string) =>
   `${DATA_REPO_URL}/releases/download/${version}`;

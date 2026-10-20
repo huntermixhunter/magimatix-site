@@ -40,6 +40,23 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/downloads/DATA-Mac-Setup.txt",
+        headers: [
+          {
+            key: "Content-Disposition",
+            value: 'attachment; filename="DATA-Mac-Setup.txt"',
+          },
+          {
+            key: "Content-Type",
+            value: "text/plain; charset=utf-8",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+        ],
+      },
+      {
         // Apply to all routes: reinforces canonical and prevents
         // Vercel alias domains (*.vercel.app) from being indexed
         source: "/:path*",

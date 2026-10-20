@@ -9,6 +9,7 @@ import { useState, useSyncExternalStore } from "react";
 import {
   DATA_EXE_URL,
   DATA_MAC_DOWNLOADS,
+  DATA_MAC_INSTRUCTIONS_URL,
   DATA_MAC_SPLIT_DOWNLOADS,
   DATA_ZIP_URL,
   DATA_REPO_URL,
@@ -68,20 +69,29 @@ export default function DownloadPanel() {
       ) : isMac ? (
         <>
           <div className="flex flex-col gap-3 items-center">
-            {DATA_MAC_DOWNLOADS.map((download) => (
-              <a
-                key={download.url}
-                href={download.url}
-                className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block w-full sm:w-auto"
-              >
-                {download.label} ↓
-              </a>
-            ))}
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center w-full">
+              {DATA_MAC_DOWNLOADS.map((download) => (
+                <a
+                  key={download.url}
+                  href={download.url}
+                  className="btn-glow text-base font-medium px-6 py-4 rounded-full text-white inline-block w-full sm:w-auto"
+                >
+                  {download.label} ↓
+                </a>
+              ))}
+            </div>
+            <a
+              href={DATA_MAC_INSTRUCTIONS_URL}
+              download="DATA-Mac-Setup.txt"
+              className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Download Mac setup instructions (.txt) ↓
+            </a>
           </div>
           <p className="text-xs text-zinc-500 mt-3">
             {DATA_MAC_SPLIT_DOWNLOADS
-              ? "Find your chip under Apple menu > About This Mac. Copy the DATA folder to your home folder, then open Start DATA.command. Python is included."
-              : "Open the .dmg, copy the DATA folder to your home folder, and follow READ-ME-FIRST-MAC.txt."}{" "}
+              ? "Find your chip under Apple menu > About This Mac. Open the .dmg, copy the DATA folder into Downloads, then open Start DATA.command. Python is included."
+              : "Open the .dmg and follow the downloadable Mac setup instructions."}{" "}
             <button
               type="button"
               onClick={() => setShowAll((v) => !v)}
@@ -93,8 +103,9 @@ export default function DownloadPanel() {
           {DATA_MAC_SPLIT_DOWNLOADS ? (
             <p className="text-xs text-zinc-500 mt-3">
               Unsigned download. macOS may ask you to allow the launcher in
-              Privacy &amp; Security. Optional voice and desktop-control packages
-              are installed separately.
+              Privacy &amp; Security. The guide includes step-by-step help and a
+              copy-and-paste Terminal fix. Optional voice and desktop-control
+              packages are installed separately.
             </p>
           ) : null}
         </>
@@ -139,6 +150,15 @@ export default function DownloadPanel() {
               {download.label}
             </a>
           ))}
+          {!isMac ? (
+            <a
+              href={DATA_MAC_INSTRUCTIONS_URL}
+              download="DATA-Mac-Setup.txt"
+              className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              Mac setup instructions (.txt) ↓
+            </a>
+          ) : null}
           <a
             href={DATA_ZIP_URL}
             className="text-sm font-medium px-5 py-3 rounded-full border border-white/15 text-zinc-200 hover:bg-white/5 transition-colors"

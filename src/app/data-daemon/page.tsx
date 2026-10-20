@@ -211,7 +211,7 @@ export default function DataDaemonPage() {
               <svg className="w-3.5 h-3.5 text-aurora-green" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M3 5.7 10.5 4.6v7.1H3V5.7Zm0 12.6 7.5 1.1v-7H3v5.9Zm8.5 1.2L21 21V12.7h-9.5v6.8Zm0-15.4v6.9H21V3l-9.5 1.1Z" />
               </svg>
-              Windows · macOS · Linux. One-click installer for Windows and Mac
+              Windows · macOS · Linux. Downloads and setup guides available
             </p>
           </div>
         </div>

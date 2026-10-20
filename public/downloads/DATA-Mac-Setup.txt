@@ -1,0 +1,165 @@
+DATA for Mac: setup instructions
+===============================
+For DATA v1.0.57 (Apple Silicon and Intel DMG downloads)
+
+This guide assumes your download is in Downloads. No coding experience is
+needed. Python is included in these DMGs. You do not need to install Python
+or Homebrew to open the dashboard.
+
+DATA is not signed with an Apple Developer ID or notarized by Apple. Only
+approve a copy you obtained from the official DATA download on Magimatix
+or its linked GitHub release.
+
+1. CHOOSE YOUR DOWNLOAD
+----------------------
+Click the Apple menu at the top left, then About This Mac.
+  "Chip" with an Apple M-series name: choose Apple Silicon / arm64.
+  "Processor" with an Intel name: choose Intel / x86_64.
+
+Download the matching .dmg and this instructions file. Your browser normally
+saves both in Downloads. A .dmg is a disk image, not a ZIP: double-clicking
+it opens a temporary disk window.
+
+2. COPY DATA INTO DOWNLOADS
+--------------------------
+  a. Open Finder (the smiling face in the Dock), then click Downloads.
+  b. Double-click your DATA .dmg.
+  c. In the disk window, select the DATA folder and press Command+C.
+  d. In Finder, choose Go > Downloads, then press Command+V.
+  e. Wait for copying to finish, then open Downloads > DATA.
+
+You should see Start DATA.command and the install and dashboard folders.
+Run the copied folder, not the copy inside the disk window. That temporary
+disk is read-only, and DATA needs to save your settings and conversations.
+
+If Downloads already contains a DATA folder, stop rather than replacing or
+merging it. Copy the new one to a separate location. Use the alternate-path
+instructions below when needed.
+
+3. OPEN DATA
+------------
+Double-click Start DATA.command in Downloads > DATA.
+
+If macOS says the developer cannot be verified or Apple cannot check it:
+  a. Close the warning.
+  b. Open Apple menu > System Settings > Privacy & Security.
+  c. Scroll to Security and find the warning for the file you just opened.
+  d. Click Open Anyway, then confirm Open. Authenticate if macOS asks.
+
+Recent macOS versions require this Settings approval instead of the older
+right-click > Open shortcut. If Open Anyway is missing, another included
+file is blocked, or DATA still does not open, use step 4.
+
+The launcher opens Terminal and starts the dashboard in your browser. Keep
+that Terminal window open while using DATA. If no browser tab opens, visit:
+http://localhost:7777
+
+4. COPY-AND-PASTE FIX FOR THE UNSIGNED-DOWNLOAD BLOCK
+---------------------------------------------------
+Use this only for the official download you trust.
+
+  a. Press Command+Space, type Terminal, then press Return.
+  b. Copy the ENTIRE line below, paste into Terminal, and press Return:
+
+     xattr -dr com.apple.quarantine "$HOME/Downloads/DATA" && bash "$HOME/Downloads/DATA/Start DATA.command"
+
+  c. If Terminal asks to access Downloads, choose Allow.
+  d. Leave Terminal open. DATA starts when setup succeeds.
+
+Keep $HOME and the quotes exactly as shown. $HOME means your own Mac user
+folder, so you do not have to type your username.
+
+This removes the downloaded-file quarantine flag from your copied DATA
+folder only, then starts the bundled launcher. It does not switch off
+Gatekeeper for your Mac or require sudo. Clearing quarantine is not a
+malware scan or proof that software is safe.
+
+The second command runs only if the first succeeds. The launcher uses
+bundled Python and offline setup. It does not install optional voice or
+desktop-control packages.
+
+DIFFERENT FOLDER NAME OR LOCATION?
+  In Terminal, type this followed by one space:
+    xattr -dr com.apple.quarantine
+  Drag your copied DATA FOLDER from Finder into Terminal. Press Return.
+  If that command finishes without an error, type bash followed by a space.
+  Open your copied DATA folder in Finder and drag Start DATA.command into
+  Terminal. Press Return. Drag from the copied folder, not the disk image.
+
+5. CONNECT CHAT AND OPEN DATA AGAIN LATER
+---------------------------------------
+The dashboard can open before an AI provider is connected. To use chat,
+connect a supported provider with your own account or a local model.
+See CONNECT YOUR AI in the included INSTALL.txt for provider setup.
+
+Next time, double-click Start DATA.command in the same DATA folder.
+Keep that folder: it holds your settings and conversations. You may eject
+the temporary disk in Finder and delete the downloaded .dmg after setup.
+Do not delete your working DATA folder when cleaning Downloads.
+
+For a permanent location, stop DATA, move the entire DATA folder into your
+home folder (Finder > Go > Home), then open Start DATA.command there.
+Use Control+C in DATA's Terminal window to stop the running dashboard.
+
+TROUBLESHOOTING
+---------------
+"No such file or directory":
+  DATA is still inside the .dmg, the copy has a different name (such as
+  DATA 2), or it is somewhere other than Downloads. Use step 2 or the
+  alternate-path instructions to point at the actual copied folder.
+
+"Operation not permitted" or Downloads access was denied:
+  Open System Settings > Privacy & Security > Files & Folders > Terminal.
+  Allow Downloads Folder if listed, then try again. You can instead copy
+  DATA into your home folder and use the alternate-path instructions.
+  DATA setup does not require Full Disk Access. On a managed Mac, ask your
+  administrator if these settings are unavailable.
+
+"Permission denied" or "Read-only file system":
+  Copy the whole DATA folder out of the mounted disk into a folder you own.
+  The bash command in step 4 avoids needing to change launcher permissions
+  by hand. Read any Terminal error before retrying.
+
+"Damaged", "will damage your computer", or a malware warning:
+  This is different from the ordinary unidentified-developer warning.
+  Stop and get a fresh copy from the official download. If it persists,
+  contact support with the exact warning before overriding it.
+
+"Different Mac processor" or "Bad CPU type":
+  Check About This Mac and download the matching Apple Silicon or Intel
+  version. Choose the build for your Mac's actual chip.
+
+Mouse control or screenshots do not work:
+  Desktop control is optional and its packages are separate from the DMG.
+  Once installed, macOS may ask you to allow Accessibility for control and
+  Screen & System Audio Recording (or Screen Recording) for screenshots.
+  Allow the app identified by macOS, then restart it. These permissions
+  are separate from approving the unsigned download.
+
+UPDATES
+-------
+The dashboard checks for updates and offers Update now / Not now.
+Automatic nightly updates are disabled by default. Dashboard updates do
+not replace bundled Python or the launcher. A new DMG is needed for those
+components. Keep the old DATA folder and its users directory until you
+have verified migration to a fresh download. A new download may need
+macOS approval again.
+
+OLDER DOWNLOADS
+---------------
+If your disk window shows DATA.app instead of a DATA folder, you have an
+older installer. Download the current Mac version from the page below and
+follow this guide. Keep your existing app and data until migration is
+verified. These instructions are for the Mac DMG, not the source ZIP.
+
+Official downloads:
+https://magimatix.com/data-daemon/checkout
+
+Setup help:
+https://magimatix.com/contact
+
+Apple's instructions for approving downloaded software:
+https://support.apple.com/en-us/102445
+
+Apple's explanation of the change to right-click approval:
+https://developer.apple.com/news/?id=saqachfa

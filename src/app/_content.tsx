@@ -313,7 +313,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "What computers does DATA DAEMON run on?",
-    a: "Windows, macOS, and Linux. Windows and Mac both come with a native one-click installer (.exe for Windows, .dmg for Mac); Linux uses the included zip and a one-line setup. All you need is Python 3.10+ and a free AI provider CLI (Claude, ChatGPT, Gemini, or Ollama). The included INSTALL.txt walks you through it.",
+    a: "Windows, macOS, and Linux. Windows has an .exe installer. Mac has separate .dmg downloads for Apple Silicon and Intel, with Python included. Copy the DATA folder out of the disk image and follow the downloadable Mac setup guide, which covers unsigned-app approval. Linux and source ZIP installs need Python 3.10+. Chat requires a supported AI provider, using your own account or a local model.",
     topics: ["data"],
   },
   {
