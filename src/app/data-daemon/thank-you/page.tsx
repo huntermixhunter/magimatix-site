@@ -66,7 +66,7 @@ export default async function ThankYouPage({
         <DownloadPanel />
 
         <p className="text-xs text-zinc-500 mt-8 leading-relaxed">
-          Unzip and open{" "}
+          For setup help, open{" "}
           <span className="font-mono text-zinc-300">INSTALL.txt</span> to get
           started. Prefer the source? Everything is on{" "}
           <Link

@@ -5,8 +5,8 @@
 //
 // New release checklist (keep this the ONLY place the versions live):
 //   1. gh release create vX.Y.Z <exe> <zip> [dmg]  on huntermixhunter/D.A.T.A
-//   2. bump DATA_VERSION below, and DATA_MAC_VERSION only if that cut
-//      actually shipped a .dmg (see the note on it).
+//   2. bump DATA_VERSION for Windows/ZIP. For Mac, run
+//      node scripts/update-data-mac.mjs vX.Y.Z after publishing both DMGs.
 // That is the whole storefront-side change per release.
 
 export const DATA_REPO_URL = "https://github.com/huntermixhunter/D.A.T.A";
@@ -18,11 +18,10 @@ export const DATA_LATEST_URL = `${DATA_REPO_URL}/releases/latest`;
 // they ship together on every cut.
 export const DATA_VERSION = "v1.0.56";
 
-// The .dmg has to be built on a Mac, so it does NOT ship on every cut. Pinning
-// it separately keeps the Mac button pointing at the newest release that
-// actually has a .dmg asset instead of 404-ing on a Windows-only version.
-// Bump this to match DATA_VERSION the next time a cut includes a .dmg.
+// Mac builds run on GitHub's native Mac runners and can ship independently.
+// Keep the existing download until the asset-checking helper verifies a new pair.
 export const DATA_MAC_VERSION = "v1.0.51";
+export const DATA_MAC_SPLIT_DOWNLOADS = false;
 
 const releaseBase = (version: string) =>
   `${DATA_REPO_URL}/releases/download/${version}`;
@@ -33,3 +32,9 @@ const releaseBase = (version: string) =>
 export const DATA_EXE_URL = `${releaseBase(DATA_VERSION)}/DATA-Setup-${DATA_VERSION}.exe`;
 export const DATA_ZIP_URL = `${releaseBase(DATA_VERSION)}/DATA-${DATA_VERSION}.zip`;
 export const DATA_DMG_URL = `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}.dmg`;
+export const DATA_MAC_DOWNLOADS = DATA_MAC_SPLIT_DOWNLOADS
+  ? [
+      { label: "Mac: Apple Silicon (.dmg)", url: `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}-arm64.dmg` },
+      { label: "Mac: Intel (.dmg)", url: `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}-x86_64.dmg` },
+    ]
+  : [{ label: "Download for Mac (.dmg)", url: DATA_DMG_URL }];
