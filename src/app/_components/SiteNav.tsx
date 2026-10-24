@@ -13,7 +13,6 @@ const links = [
   { href: "/services", label: "AI Services" },
   { href: "/websites", label: "Websites" },
   { href: "/data-daemon", label: "DATA DAEMON" },
-  { href: "/field-debrief", label: "Field Debrief" },
   { href: "/blog", label: "Blog" },
 ];
 

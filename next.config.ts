@@ -25,6 +25,19 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        // The $5 Field Debrief was removed from the site entirely (2026-10-23).
+        // Old inbound links and search results land on the homepage chooser
+        // instead of a 404.
+        source: "/field-debrief",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/field-debrief/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/daita",
         destination: "/data-daemon",
         permanent: true,

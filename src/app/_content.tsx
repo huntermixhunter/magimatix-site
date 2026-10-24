@@ -1,8 +1,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared site content.
 //
-// Every page (home chooser, /services, /websites, /data-daemon, /field-debrief,
-// /contact, /faq) reads from this one file so copy only ever lives in one place.
+// Every page (home chooser, /services, /websites, /data-daemon, /contact,
+// /faq) reads from this one file so copy only ever lives in one place.
 // Pulled out of the old monolithic HomeClient when the site was split from a
 // single long scroll into a "what are you looking for?" router.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -17,7 +17,6 @@ export const CALENDLY_URL = `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_
 // ── Product links ────────────────────────────────────────────────────────────
 export const DATA_CHECKOUT_URL = "/data-daemon/checkout";
 export const DATA_VIDEO_ID = "uQjrYX_nB7I";
-export const DEBRIEF_URL = "https://debrief.magimatix.com";
 
 // ── DATA DAEMON ──────────────────────────────────────────────────────────────
 export const dataShots = [
@@ -54,31 +53,6 @@ export const dataFeatures = [
   "Persistent memory across every session",
   "Cloud or fully-local models, your choice",
   "Self-hosted on your machine, you own it all",
-];
-
-// ── Field Debrief ────────────────────────────────────────────────────────────
-export const debriefShots = [
-  {
-    src: "/debrief/debrief-vitals.png",
-    tag: "PAGE 02 · VITALS",
-    title: "Account vitals, benchmarked",
-    caption:
-      "Reach, engagement rate, follower velocity and posting cadence, read against where they should be (not just listed).",
-  },
-  {
-    src: "/debrief/debrief-diagnosis.png",
-    tag: "PAGE 04 · DIAGNOSIS",
-    title: "The one root cause",
-    caption:
-      "The single biggest thing suppressing the account's reach, named plainly, with the winning pattern your top posts already share.",
-  },
-  {
-    src: "/debrief/debrief-protocol.png",
-    tag: "PAGE 05 · PROTOCOL",
-    title: "A six-directive fix",
-    caption:
-      "Specific, ordered moves to correct the diagnosis, plus a day-by-day 14-day plan. Written to be done, not admired.",
-  },
 ];
 
 // ── Done-for-you capabilities ────────────────────────────────────────────────
@@ -315,16 +289,6 @@ export const faqItems: FaqItem[] = [
     q: "What computers does DATA DAEMON run on?",
     a: "Windows, macOS, and Linux. Windows has an .exe installer. Mac has separate .dmg downloads for Apple Silicon and Intel, with Python included. Copy the DATA folder out of the disk image and follow the downloadable Mac setup guide, which covers unsigned-app approval. Linux and source ZIP installs need Python 3.10+. Chat requires a supported AI provider, using your own account or a local model.",
     topics: ["data"],
-  },
-  {
-    q: "What is a Field Debrief and what do I get?",
-    a: "A Field Debrief is a six-page PDF diagnostic on any public Instagram or TikTok account. Point it at a handle and about sixty seconds later you get the account vitals benchmarked against where they should be, a signal map of the posts that actually worked and why, the single root cause suppressing reach, a six-directive fix protocol, and a day-by-day 14-day plan. It costs $5, needs no login, and never asks for your password.",
-    topics: ["debrief"],
-  },
-  {
-    q: "Is the Field Debrief safe, and do you need my login?",
-    a: "No login, ever. The debrief reads only what is already public on the account, which is why it works on any handle, including a competitor's. You pay $5, type a handle, and get a PDF about a minute later. Nothing is posted, nothing is changed, and no password is requested at any point.",
-    topics: ["debrief"],
   },
   {
     q: "Do you work with clients outside of Idaho?",

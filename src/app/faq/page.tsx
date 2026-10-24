@@ -67,10 +67,6 @@ export default function FaqPage() {
             <Link href="/websites" className="text-aurora-cyan hover:text-white transition-colors">
               Websites
             </Link>
-            {" · "}
-            <Link href="/field-debrief" className="text-aurora-blue hover:text-white transition-colors">
-              Field Debrief
-            </Link>
           </p>
         </div>
       </section>

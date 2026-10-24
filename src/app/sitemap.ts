@@ -9,7 +9,6 @@ const staticPages: { path: string; priority: number }[] = [
   { path: "/services", priority: 0.9 },
   { path: "/websites", priority: 0.9 },
   { path: "/data-daemon", priority: 0.9 },
-  { path: "/field-debrief", priority: 0.8 },
   { path: "/contact", priority: 0.7 },
   { path: "/faq", priority: 0.6 },
 ];

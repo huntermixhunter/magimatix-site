@@ -92,19 +92,6 @@ const choices: Choice[] = [
       </svg>
     ),
   },
-  {
-    href: "/field-debrief",
-    kicker: "Field Debrief",
-    title: "Improve my social media",
-    body: "Get a six-page Instagram or TikTok analysis with clear priorities and a 14-day plan.",
-    badge: "$5 · about 60 seconds",
-    accent: "blue",
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v4.5m3-6.75v6.75" />
-      </svg>
-    ),
-  },
 ];
 
 export default function Home() {
@@ -128,7 +115,7 @@ export default function Home() {
       {/* ── The chooser ────────────────────────────────────────────────────── */}
       <section id="chooser" aria-label="Choose a service or product" className="pb-12 relative scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-5 animate-fade-in-up opacity-0 animate-delay-400">
+          <div className="grid md:grid-cols-3 gap-5 animate-fade-in-up opacity-0 animate-delay-400">
             {choices.map((choice) => {
               const a = accents[choice.accent];
               return (
