@@ -1,6 +1,6 @@
 DATA for Mac: quick setup
 ========================
-For DATA v1.0.57 (Apple Silicon and Intel DMG downloads)
+For DATA v1.0.60 (Apple Silicon and Intel DMG downloads)
 
 1. COPY DATA INTO DOWNLOADS
 
