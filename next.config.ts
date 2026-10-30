@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/forum",
+        destination: "https://forum.magimatix.com/",
+        permanent: false,
+      },
+      {
         source: "/data",
         destination: "/data-daemon",
         permanent: true,

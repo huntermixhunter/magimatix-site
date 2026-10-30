@@ -5,6 +5,7 @@ const links = [
   { href: "/services", label: "AI Services" },
   { href: "/websites", label: "Websites" },
   { href: "/data-daemon", label: "DATA DAEMON" },
+  { href: "https://forum.magimatix.com", label: "Forum" },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
