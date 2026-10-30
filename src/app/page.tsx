@@ -56,6 +56,19 @@ const accents = {
 
 const choices: Choice[] = [
   {
+    href: "/data-daemon",
+    kicker: "DATA DAEMON",
+    title: "Run my own AI workspace",
+    body: "A free, open-source dashboard for AI agents, files, tools, and persistent memory.",
+    badge: "Free · open source",
+    accent: "green",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
+      </svg>
+    ),
+  },
+  {
     href: "/services",
     kicker: "AI Services",
     title: "Put AI to work for me",
@@ -76,19 +89,6 @@ const choices: Choice[] = [
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" />
-      </svg>
-    ),
-  },
-  {
-    href: "/data-daemon",
-    kicker: "DATA DAEMON",
-    title: "Run my own AI workspace",
-    body: "A free, open-source dashboard for AI agents, files, tools, and persistent memory.",
-    badge: "Free · open source",
-    accent: "green",
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z" />
       </svg>
     ),
   },
@@ -203,7 +203,6 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-xs md:text-sm text-zinc-400 mt-12 animate-fade-in-up opacity-0 animate-delay-600">
             {[
               "Self-hosted, you own it",
-              "90-day money-back guarantee",
               "No long-term contract",
             ].map((claim) => (
               <span key={claim} className="inline-flex items-center gap-1.5">

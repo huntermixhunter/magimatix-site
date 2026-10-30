@@ -36,7 +36,7 @@ export default function ServicesPage() {
       >
         <BookCallButton>Book Your Free Discovery Call →</BookCallButton>
         <p className="text-xs text-zinc-500 mt-5 font-mono tracking-wide">
-          30 minutes · No pressure · 90-day money-back guarantee
+          30 minutes · No pressure
         </p>
       </PageHero>
 

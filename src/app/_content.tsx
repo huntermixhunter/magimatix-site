@@ -271,11 +271,6 @@ export const faqItems: FaqItem[] = [
     topics: ["websites", "services", "data"],
   },
   {
-    q: "What is the 90-day money-back guarantee?",
-    a: "On a done-for-you build: if you are not happy within 90 days of launch, ask for a refund and we give it back. The only condition is that the refund unwinds the deal. We take the work down and you return the deliverables, since we host and manage it. You are never stuck paying for work you do not love, and we are never out the hours for work someone keeps for free.",
-    topics: ["services", "websites"],
-  },
-  {
     q: "How long does a done-for-you build take?",
     a: "Most builds launch in 2–4 weeks from kickoff. A focused automation or a simple site can go live in 7–14 days; larger systems with e-commerce or deep AI integration run 4–6 weeks depending on the wiring. We do not draw out timelines to look busy. Once you say go, we move.",
     topics: ["services", "websites"],

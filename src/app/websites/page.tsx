@@ -42,7 +42,7 @@ export default function WebsitesPage() {
       >
         <BookCallButton>Book Your Free Discovery Call →</BookCallButton>
         <p className="text-xs text-zinc-500 mt-5 font-mono tracking-wide">
-          Most sites launch in 7–14 days · 90-day money-back guarantee
+          Most sites launch in 7–14 days
         </p>
       </PageHero>
 
