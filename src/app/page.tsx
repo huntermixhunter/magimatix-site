@@ -58,7 +58,7 @@ const choices: Choice[] = [
   {
     href: "/data-daemon",
     kicker: "DATA DAEMON",
-    title: "Run my own AI workspace",
+    title: "Run our one-size-fits-all multi-model agentic harness",
     body: "A free, open-source dashboard for AI agents, files, tools, and persistent memory.",
     badge: "Free · open source",
     accent: "green",
