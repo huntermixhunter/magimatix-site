@@ -16,7 +16,7 @@ export const CALENDLY_URL = `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_
 
 // ── Product links ────────────────────────────────────────────────────────────
 export const DATA_CHECKOUT_URL = "/data-daemon/checkout";
-export const DATA_VIDEO_ID = "uQjrYX_nB7I";
+export const DATA_VIDEO_ID = "LzzKZVD_axY";
 
 // ── DATA DAEMON ──────────────────────────────────────────────────────────────
 export const dataShots = [

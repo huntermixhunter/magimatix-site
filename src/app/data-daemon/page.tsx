@@ -91,7 +91,7 @@ export default function DataDaemonPage() {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src={`https://www.youtube.com/embed/${DATA_VIDEO_ID}`}
-                title="DATA DAEMON: Demo"
+                title="DATA DAEMON: Full Dashboard Tour"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
