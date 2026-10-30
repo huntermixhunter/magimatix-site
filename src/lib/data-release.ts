@@ -21,7 +21,7 @@ export const DATA_VERSION = "v1.0.58";
 
 // Mac builds run on GitHub's native Mac runners and can ship independently.
 // Keep the existing download until the asset-checking helper verifies a new pair.
-export const DATA_MAC_VERSION = "v1.0.57";
+export const DATA_MAC_VERSION = "v1.0.58";
 export const DATA_MAC_SPLIT_DOWNLOADS = true;
 export const DATA_MAC_INSTRUCTIONS_URL = "/downloads/DATA-Mac-Setup.txt";
 
