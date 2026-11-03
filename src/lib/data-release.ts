@@ -8,6 +8,9 @@
 //   2. bump DATA_VERSION for Windows/ZIP. For Mac, run
 //      node scripts/update-data-mac.mjs vX.Y.Z after publishing both DMGs.
 //   3. Review public/downloads/DATA-Mac-Setup.txt against the published Mac build.
+//      Its Terminal command must stay identical to DATA_MAC_TERMINAL_COMMAND below,
+//      which the Mac tab of the download page shows. Check with:
+//      node --test scripts/mac-setup-command.test.mjs
 // That is the whole storefront-side change per release.
 
 export const DATA_REPO_URL = "https://github.com/huntermixhunter/D.A.T.A";
@@ -25,6 +28,17 @@ export const DATA_MAC_VERSION = "v1.0.64";
 export const DATA_MAC_SPLIT_DOWNLOADS = true;
 export const DATA_MAC_INSTRUCTIONS_URL = "/downloads/DATA-Mac-Setup.txt";
 
+// The one Terminal command on the Mac download tab. The Mac builds are unsigned and
+// not notarized, so macOS quarantines the download and blocks the launcher. This
+// clears the quarantine flag on the copied DATA folder only (no sudo, Gatekeeper
+// stays on for everything else), then starts DATA. Keep it identical to the command
+// in public/downloads/DATA-Mac-Setup.txt.
+export const DATA_MAC_TERMINAL_COMMAND =
+  'xattr -dr com.apple.quarantine "$HOME/Downloads/DATA" && bash "$HOME/Downloads/DATA/Start DATA.command"';
+
+// The full install guide. Every download also ships it as INSTALL.txt.
+export const DATA_INSTALL_GUIDE_URL = `${DATA_REPO_URL}/blob/main/INSTALL.txt`;
+
 const releaseBase = (version: string) =>
   `${DATA_REPO_URL}/releases/download/${version}`;
 
@@ -34,9 +48,10 @@ const releaseBase = (version: string) =>
 export const DATA_EXE_URL = `${releaseBase(DATA_VERSION)}/DATA-Setup-${DATA_VERSION}.exe`;
 export const DATA_ZIP_URL = `${releaseBase(DATA_VERSION)}/DATA-${DATA_VERSION}.zip`;
 export const DATA_DMG_URL = `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}.dmg`;
+// Labels are the chip names shown on the Mac tab's download buttons.
 export const DATA_MAC_DOWNLOADS = DATA_MAC_SPLIT_DOWNLOADS
   ? [
-      { label: "Mac: Apple Silicon (.dmg)", url: `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}-arm64.dmg` },
-      { label: "Mac: Intel (.dmg)", url: `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}-x86_64.dmg` },
+      { label: "Apple Silicon", url: `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}-arm64.dmg` },
+      { label: "Intel", url: `${releaseBase(DATA_MAC_VERSION)}/DATA-${DATA_MAC_VERSION}-x86_64.dmg` },
     ]
-  : [{ label: "Download for Mac (.dmg)", url: DATA_DMG_URL }];
+  : [{ label: "Mac", url: DATA_DMG_URL }];

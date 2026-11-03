@@ -34,12 +34,12 @@ export default async function ThankYouPage({
 
   return (
     <main className="min-h-screen bg-[#0a0a0f] text-white flex items-center justify-center px-6 py-16">
-      <div className="max-w-lg w-full text-center">
+      <div className="max-w-2xl w-full text-center">
         <div className="text-5xl mb-6">{paid ? "🙏" : "⬇️"}</div>
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
           {paid ? "Thank you for supporting DATA!" : "Get DATA"}
         </h1>
-        <p className="text-zinc-400 mb-8">
+        <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
           {paid ? (
             <>
               Your {amount ? `${amount} ` : ""}contribution keeps{" "}
@@ -63,7 +63,9 @@ export default async function ThankYouPage({
           )}
         </p>
 
-        <DownloadPanel />
+        <div className="rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-8">
+          <DownloadPanel />
+        </div>
 
         <p className="text-xs text-zinc-500 mt-8 leading-relaxed">
           For setup help, open{" "}
