@@ -6,10 +6,13 @@
 // machine they'll install on. Same security model as everything else: we
 // re-verify the Stripe session is genuinely paid before sending, and we only
 // ever send to the email Stripe has on that session (never a caller-supplied
-// address), so this can't be abused to spam arbitrary inboxes.
+// address), so this can't be abused to spam arbitrary inboxes. The session must
+// also be a DATA checkout: the Stripe account is shared with Auramaxxing, and
+// their buyers must never be sent a DATA email (see src/lib/stripe-product.ts).
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { sendDownloadEmail } from "@/lib/email";
+import { isDataCheckout } from "@/lib/stripe-product";
 
 export const runtime = "nodejs";
 
@@ -28,6 +31,14 @@ export async function POST(request: Request) {
 
   try {
     const session = await getStripe().checkout.sessions.retrieve(sessionId);
+    // Checked before the payment status, so another product's session gets the
+    // same answer whether or not it was paid.
+    if (!isDataCheckout(session)) {
+      return NextResponse.json(
+        { error: "This purchase is not for DATA DAEMON." },
+        { status: 403 },
+      );
+    }
     if (session.payment_status !== "paid") {
       return NextResponse.json(
         { error: "Payment not completed for this session." },

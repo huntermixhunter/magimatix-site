@@ -4,6 +4,7 @@
 // Returns the session client_secret, which the on-page <EmbeddedCheckout/> mounts.
 import { NextResponse } from "next/server";
 import { getStripe, AUTOMATIC_TAX } from "@/lib/stripe";
+import { DATA_PRODUCT } from "@/lib/stripe-product";
 
 export const runtime = "nodejs";
 
@@ -54,6 +55,9 @@ export async function POST(request: Request) {
       automatic_tax: { enabled: AUTOMATIC_TAX },
       allow_promotion_codes: true,
       submit_type: "donate",
+      // The webhook, the thank-you page, and the email route act only on
+      // sessions carrying this tag (see src/lib/stripe-product.ts).
+      metadata: { product: DATA_PRODUCT },
     });
 
     return NextResponse.json({ clientSecret: session.client_secret });

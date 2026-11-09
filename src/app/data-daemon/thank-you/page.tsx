@@ -4,6 +4,7 @@
 // open source, so nothing is gated behind payment).
 import Link from "next/link";
 import { getStripe } from "@/lib/stripe";
+import { isDataCheckout } from "@/lib/stripe-product";
 import DownloadPanel from "./DownloadPanel";
 
 export const runtime = "nodejs";
@@ -22,10 +23,15 @@ export default async function ThankYouPage({
   if (sessionId) {
     try {
       const session = await getStripe().checkout.sessions.retrieve(sessionId);
-      paid = session.payment_status === "paid";
-      email = session.customer_details?.email ?? null;
-      if (session.amount_total != null) {
-        amount = `$${(session.amount_total / 100).toFixed(0)}`;
+      // Personalize only for DATA checkouts. The Stripe account is shared with
+      // Auramaxxing, so another product's session id gets the plain download
+      // page and never shows that buyer's email (see src/lib/stripe-product.ts).
+      if (isDataCheckout(session)) {
+        paid = session.payment_status === "paid";
+        email = session.customer_details?.email ?? null;
+        if (session.amount_total != null) {
+          amount = `$${(session.amount_total / 100).toFixed(0)}`;
+        }
       }
     } catch {
       paid = false;

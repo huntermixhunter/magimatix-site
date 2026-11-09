@@ -5,9 +5,14 @@
 // webhook timing. This endpoint exists for durable record-keeping and as the
 // hook point for future automation (e.g. emailing the download link, syncing a
 // customer list). It verifies the Stripe signature before trusting anything.
+//
+// The Stripe account is shared with Auramaxxing, so this endpoint also receives
+// their checkouts. It acts only on DATA checkouts (see src/lib/stripe-product.ts)
+// and acknowledges the rest without sending anything.
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
 import { sendDownloadEmail, sendSaleNotification } from "@/lib/email";
+import { isDataCheckout } from "@/lib/stripe-product";
 
 export const runtime = "nodejs";
 
@@ -35,6 +40,16 @@ export async function POST(request: Request) {
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
+      // Another product's sale: answer 200 so Stripe does not retry, and send
+      // nothing. Its buyer must never get a DATA email, and it is not a DATA sale.
+      if (!isDataCheckout(session)) {
+        console.log(
+          "[webhook] not a DATA checkout, ignored:",
+          session.id,
+          `product=${session.metadata?.product ?? "-"}`,
+        );
+        break;
+      }
       const email = session.customer_details?.email ?? null;
       console.log(
         "[webhook] DATA purchase completed:",
