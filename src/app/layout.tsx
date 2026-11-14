@@ -17,12 +17,16 @@ const siteUrl = "https://magimatix.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Magimatix | AI Automations & Web Design",
+    default: "Magimatix | Custom Dashboards, AI & Websites",
     template: "%s | Magimatix",
   },
   description:
-    "Magimatix builds AI automations and premium websites that transform businesses. Workflow automation, AI chatbots, data analytics, custom web design, e-commerce, and UI/UX, all crafted with precision.",
+    "Custom dashboards, AI automations, and websites for businesses and individuals. Magimatix brings your projects, data, and tools into systems built around you.",
   keywords: [
+    "custom dashboards",
+    "business dashboards",
+    "personal dashboards",
+    "custom client portals",
     "AI automation agency",
     "workflow automation",
     "AI chatbots for business",
@@ -71,15 +75,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Magimatix",
-    title: "Magimatix | AI Automations & Web Design",
+    title: "Magimatix | Custom Dashboards, AI & Websites",
     description:
-      "AI automations and premium websites that transform your business. Modern, high-performance digital experiences crafted with precision.",
+      "Custom dashboards, AI automations, and websites for businesses and individuals. Your projects, data, and tools, brought together around you.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Magimatix | AI Automations & Web Design",
+    title: "Magimatix | Custom Dashboards, AI & Websites",
     description:
-      "AI automations and premium websites that transform your business.",
+      "Custom dashboards, AI automations, and websites for businesses and individuals. Built around how you work.",
     creator: "@magimatix",
   },
   alternates: {
@@ -99,7 +103,7 @@ const jsonLd = [
     "@type": "WebSite",
     name: "Magimatix",
     url: siteUrl,
-    description: "Premium AI automation and web design agency. Workflow automation, AI chatbots, custom websites, and e-commerce for businesses worldwide.",
+    description: "Custom dashboards, AI automation, and web design for businesses and individuals. Connected workspaces built around how you work.",
     potentialAction: {
       "@type": "SearchAction",
       target: `${siteUrl}/?q={search_term_string}`,
@@ -114,7 +118,7 @@ const jsonLd = [
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/opengraph-image`,
     description:
-      "Magimatix builds AI automations and premium websites that transform businesses. We specialize in workflow automation, AI chatbots, data analytics, custom web design, e-commerce, and UI/UX design for businesses worldwide.",
+      "Magimatix designs and builds custom dashboards, AI automations, and websites for businesses and individuals. Business operations, client portals, personal workspaces, and connected tools.",
     foundingDate: "2025",
     foundingLocation: {
       "@type": "Place",
@@ -122,6 +126,7 @@ const jsonLd = [
     },
     priceRange: "$$",
     serviceType: [
+      "Custom Dashboard Development",
       "AI Automation",
       "Workflow Automation",
       "AI Chatbots",
@@ -153,6 +158,7 @@ const jsonLd = [
       },
     ],
     knowsAbout: [
+      "Custom Dashboards",
       "AI Automation",
       "Machine Learning",
       "Business Automation",
@@ -196,8 +202,9 @@ const jsonLd = [
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Data & Analytics",
-            description: "AI-powered dashboards and predictive analytics that turn raw data into actionable insights.",
+            name: "Custom Dashboards",
+            description: "Custom dashboards for businesses and individuals, connecting projects, data, apps, and optional AI in one workspace.",
+            url: `${siteUrl}/dashboards`,
           },
         },
         {
@@ -251,7 +258,7 @@ const jsonLd = [
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/opengraph-image`,
     description:
-      "Magimatix is a web design and AI automation agency based in Sandpoint, Idaho. We build premium websites and AI-powered systems for small businesses across North Idaho, Bonner County, and beyond.",
+      "Magimatix builds custom dashboards, websites, and AI systems for businesses and individuals. Based in Sandpoint, Idaho, serving North Idaho and clients worldwide.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Sandpoint",
@@ -276,6 +283,7 @@ const jsonLd = [
       { "@type": "AdministrativeArea", name: "North Idaho" },
     ],
     serviceType: [
+      "Custom Dashboard Development",
       "AI Automation",
       "Workflow Automation",
       "AI Chatbots",

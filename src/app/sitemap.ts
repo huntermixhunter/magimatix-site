@@ -6,6 +6,7 @@ const siteUrl = "https://magimatix.com";
 // Top-level pages the chooser on the homepage routes into. `/data-daemon/*`
 // sub-routes (checkout, thank-you, license) are transactional and stay out.
 const staticPages: { path: string; priority: number }[] = [
+  { path: "/dashboards", priority: 0.9 },
   { path: "/services", priority: 0.9 },
   { path: "/websites", priority: 0.9 },
   { path: "/data-daemon", priority: 0.9 },

@@ -69,6 +69,21 @@ const choices: Choice[] = [
     ),
   },
   {
+    href: "/dashboards",
+    kicker: "Custom Dashboards",
+    title: "Build a dashboard around me",
+    body: "Your projects, data, and tools in one workspace. Built for your business or your personal workflow.",
+    accent: "blue",
+    icon: (
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+        <rect x="14" y="3" width="7" height="11" rx="1.5" />
+        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+        <rect x="14" y="18" width="7" height="3" rx="1.5" />
+      </svg>
+    ),
+  },
+  {
     href: "/services",
     kicker: "AI Services",
     title: "Put AI to work for me",
@@ -101,13 +116,13 @@ export default function Home() {
       <section className="pt-28 pb-8 md:pt-28 md:pb-10 relative">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="animate-fade-in-up opacity-0 text-xs md:text-sm font-mono text-aurora-cyan tracking-widest uppercase mb-4">
-            AI tools &amp; websites for your business
+            Custom dashboards, AI tools &amp; websites
           </p>
           <h1 className="animate-fade-in-up opacity-0 animate-delay-200 text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
             What are you <span className="gradient-text">looking for?</span>
           </h1>
           <p className="animate-fade-in-up opacity-0 animate-delay-200 text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Choose where to start. We will take you straight to what you need.
+            Built for businesses and individuals. Choose where to start.
           </p>
         </div>
       </section>
@@ -115,7 +130,7 @@ export default function Home() {
       {/* ── The chooser ────────────────────────────────────────────────────── */}
       <section id="chooser" aria-label="Choose a service or product" className="pb-12 relative scroll-mt-24">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-5 animate-fade-in-up opacity-0 animate-delay-400">
+          <div className="grid md:grid-cols-2 gap-5 animate-fade-in-up opacity-0 animate-delay-400">
             {choices.map((choice) => {
               const a = accents[choice.accent];
               return (
@@ -188,7 +203,7 @@ export default function Home() {
                 Talk it through with us
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed">
-                A free 30-minute call to find the right next step for your business.
+                A free 30-minute call to find the right next step for your business or personal project.
               </p>
             </div>
             <span className="inline-flex items-center gap-2 text-sm font-medium text-aurora-pink flex-shrink-0">

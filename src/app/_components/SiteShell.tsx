@@ -18,6 +18,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const navLinks = [
+  { href: "/dashboards", label: "Dashboards" },
   { href: "/services", label: "AI Services" },
   { href: "/websites", label: "Websites" },
   { href: "/data-daemon", label: "DATA DAEMON" },
@@ -26,6 +27,7 @@ const navLinks = [
 ];
 
 const footerLinks = [
+  { href: "/dashboards", label: "Dashboards" },
   { href: "/services", label: "AI Services" },
   { href: "/websites", label: "Websites" },
   { href: "/data-daemon", label: "DATA DAEMON" },

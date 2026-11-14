@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared site content.
 //
-// Every page (home chooser, /services, /websites, /data-daemon, /contact,
+// Every page (home chooser, /dashboards, /services, /websites, /data-daemon, /contact,
 // /faq) reads from this one file so copy only ever lives in one place.
 // Pulled out of the old monolithic HomeClient when the site was split from a
 // single long scroll into a "what are you looking for?" router.
@@ -60,6 +60,7 @@ export type Service = {
   id: string;
   title: string;
   description: string;
+  href?: string;
   items: string[];
   icon: ReactNode;
 };
@@ -105,16 +106,17 @@ export const aiServices: Service[] = [
   },
   {
     id: "analytics",
-    title: "Data & Analytics",
+    title: "Custom Dashboards",
     description:
-      "Transform raw data into actionable insights with AI-powered dashboards, reporting, and predictive analytics.",
+      "A workspace built around your business or personal workflow. Bring projects, data, and everyday tools together, with AI where it helps.",
+    href: "/dashboards",
     items: [
-      "Data source connections",
-      "Custom live dashboard",
-      "Automated reporting",
-      "KPI tracking + alerts",
-      "Predictive insights",
-      "Exportable reports",
+      "Business + personal workspaces",
+      "Client portals + project tracking",
+      "Connected apps + data sources",
+      "Reports, metrics + alerts",
+      "Optional AI + automations",
+      "Custom design + code ownership",
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -251,13 +253,33 @@ export type FaqItem = { q: string; a: string; topics: string[] };
 // still renders the whole set.
 export const faqItems: FaqItem[] = [
   {
+    q: "Do you build custom dashboards for businesses and individuals?",
+    a: "Yes. We design and build dashboards around how you work. That could be a business operations dashboard, a client portal, a workspace for a solo business, or a personal hub for projects, goals, and everyday tools. We start with what you need to see and do, then build the interface and connections around it.",
+    topics: ["dashboards", "services"],
+  },
+  {
+    q: "What can my dashboard bring together?",
+    a: "Projects, tasks, calendars, customer records, sales figures, content plans, reports, and AI tools can share one workspace. We review the tools and data you already use, confirm which connections are possible, and agree how often information needs to update before building.",
+    topics: ["dashboards"],
+  },
+  {
+    q: "Does a custom dashboard have to use AI?",
+    a: "No. A clear view of your projects and information can be valuable on its own. AI summaries, search, assistants, and automations are optional features we can add when they serve a useful purpose in your workflow.",
+    topics: ["dashboards"],
+  },
+  {
+    q: "How much does a custom dashboard cost?",
+    a: "Each build is quoted to its scope: the screens you need, the tools it connects to, who will use it, and any AI or automation features. Start with a free 30-minute discovery call. You receive a proposed scope and price before committing, including any hosting, support, or third-party running costs.",
+    topics: ["dashboards"],
+  },
+  {
     q: "What exactly is DATA DAEMON, and is it really free?",
     a: "Yes. It is free and open source under Apache-2.0. DATA DAEMON is our own AI command center, the same self-hosted dashboard we run the agency on, packaged so you can run it yourself: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. Download it, read every line of the source, and run it on your own machine at no cost. If it earns a place in your workflow you can name your price to support development, but that is entirely optional. If you want a whole system built for you instead, that is done-for-you.",
     topics: ["data"],
   },
   {
     q: "What is the difference between DATA DAEMON and done-for-you?",
-    a: "DATA DAEMON is the free, open-source tool, run by you. You install it on your own machine and drive it yourself. Done-for-you is the full build: we design and ship the whole AI system end to end (automations, agents, integrations, and the website that fronts it), scoped and priced to your business. If you want the tool installed and wired up for you somewhere in between, mention it on the call and we will scope a paid setup for you.",
+    a: "DATA DAEMON is the free, open-source tool, run by you. You install it on your own machine and drive it yourself. Done-for-you is a paid custom build: a dashboard, automations, agents, integrations, or a website designed around your business or personal workflow. If you want DATA DAEMON installed and wired up for you, mention it on the call and we will scope a paid setup for you.",
     topics: ["data", "services"],
   },
   {
@@ -268,7 +290,7 @@ export const faqItems: FaqItem[] = [
   {
     q: "Do I own everything?",
     a: "Yes. DATA DAEMON is open source and self-hosted on your machine. The code is yours to run, modify, and share under Apache-2.0. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
-    topics: ["websites", "services", "data"],
+    topics: ["websites", "services", "data", "dashboards"],
   },
   {
     q: "How long does a done-for-you build take?",
@@ -292,7 +314,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "What happens on the free discovery call?",
-    a: "30 minutes to learn your business, your goals, and your bottlenecks. A few days later we come back with a custom deck mapping the recommended build and the price. You decide from there. No pressure, no templated pitch.",
+    a: "30 minutes to learn about your business or personal project, your goals, and what is getting in the way. A few days later we come back with a custom deck mapping the recommended build and the price. You decide from there. No pressure, no templated pitch.",
     topics: ["services", "websites", "contact"],
   },
 ];

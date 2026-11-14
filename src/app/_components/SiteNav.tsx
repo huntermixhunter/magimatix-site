@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
+  { href: "/dashboards", label: "Dashboards" },
   { href: "/services", label: "AI Services" },
   { href: "/websites", label: "Websites" },
   { href: "/data-daemon", label: "DATA DAEMON" },

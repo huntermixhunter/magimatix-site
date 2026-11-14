@@ -9,12 +9,12 @@ import { DATA_CHECKOUT_URL } from "../_content";
 export const metadata: Metadata = {
   title: "Contact: Book a Free Discovery Call",
   description:
-    "Book a free 30-minute discovery call with Magimatix, or send a message. We learn your business, find the bottleneck, and map the right AI build. No pressure, no templated pitch.",
+    "Discuss a custom dashboard, website, or AI build for your business or personal workflow. Book a free 30-minute discovery call with Magimatix or send a message.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact Magimatix: Book a Free Discovery Call",
     description:
-      "A free 30-minute call. We learn the business, find the bottleneck, and tell you what we would build.",
+      "A free 30-minute call to map a custom dashboard, website, or AI build around your business or personal workflow.",
     url: "https://magimatix.com/contact",
     type: "website",
   },
@@ -28,10 +28,10 @@ export default function ContactPage() {
         eyebrowClass="text-aurora-pink"
         title={
           <>
-            Ready to Put AI to <span className="gradient-text">Work</span>?
+            What Would You Like to <span className="gradient-text">Build</span>?
           </>
         }
-        lede="Pick a time for a free 30-minute call and we will map the right build for your business. No pressure, and no templated pitch."
+        lede="A custom dashboard, a website, or AI that makes your day easier. Tell us about your business or personal project on a free 30-minute call."
       />
 
       <section className="pb-16 md:pb-20 relative">
@@ -63,7 +63,7 @@ export default function ContactPage() {
               Prefer to Write?
             </p>
             <p className="text-zinc-400 text-base mb-6 leading-relaxed">
-              Tell us a little about your business and what you want to build. We
+              Tell us a little about your business or personal project and what you want to build. We
               read every message and reply personally.
             </p>
             <ContactForm />

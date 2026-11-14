@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Magimatix | Web Design & AI Automations";
+export const alt = "Magimatix | Custom Dashboards, AI & Websites";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -76,7 +76,7 @@ export default function Image() {
               textTransform: "uppercase",
             }}
           >
-            Web Design · AI Automations
+            Custom Dashboards · AI · Websites
           </div>
           <div
             style={{
@@ -88,8 +88,8 @@ export default function Image() {
               lineHeight: 1.5,
             }}
           >
-            Premium digital experiences and intelligent automations that elevate
-            your brand.
+            Workspaces, automations, and websites built around you.
+            For businesses and individuals.
           </div>
         </div>
 
