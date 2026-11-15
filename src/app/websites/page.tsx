@@ -107,14 +107,14 @@ export default function WebsitesPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 reveal">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
             {portfolio.map((project) => (
               <a
                 key={project.title}
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass service-card rounded-2xl overflow-hidden group block"
+                className="glass service-card rounded-2xl overflow-hidden group block md:max-lg:last:odd:col-span-2 md:max-lg:last:odd:justify-self-center md:max-lg:last:odd:w-[calc(50%-1rem)]"
               >
                 <div className="relative overflow-hidden">
                   <Image
@@ -123,7 +123,7 @@ export default function WebsitesPage() {
                     width={800}
                     height={450}
                     className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>

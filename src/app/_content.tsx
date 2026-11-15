@@ -201,14 +201,6 @@ export const portfolio = [
     tags: ["Web Design", "SaaS"],
   },
   {
-    title: "Elixir Keys",
-    description:
-      "Premium wholesale botanicals brand. Rich, organic aesthetic with a luxurious dark-green palette.",
-    image: "/portfolio-elixirkeys.jpg",
-    url: "https://elixirkeys.com/",
-    tags: ["Web Design", "E-Commerce"],
-  },
-  {
     title: "Selkirk Sprinklers",
     description:
       "Irrigation and sprinkler services company in northern Idaho. Clean, conversion-focused design built to drive local leads.",
