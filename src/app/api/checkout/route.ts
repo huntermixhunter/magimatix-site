@@ -42,9 +42,9 @@ export async function POST(request: Request) {
             currency: "usd",
             unit_amount: amount,
             product_data: {
-              name: "Support DATA development",
+              name: "Support D.A.T.A development",
               description:
-                "A pay-what-you-want contribution to DATA DAEMON, the free and open-source AI command center.",
+                "A pay-what-you-want contribution to D.A.T.A, the free and open-source AI command center.",
             },
           },
         },

@@ -177,7 +177,7 @@ export default function DashboardsPage() {
             <p className="text-sm text-zinc-400 leading-relaxed">
               Want to see a workspace we build and use ourselves?{" "}
               <Link href="/data-daemon" className="text-aurora-green hover:text-white transition-colors">
-                Explore DATA DAEMON →
+                Explore D.A.T.A →
               </Link>
             </p>
           </div>

@@ -1,4 +1,4 @@
-// On-demand re-send of the DATA Daemon download link.
+// On-demand re-send of the D.A.T.A download link.
 //
 // The webhook already emails the link automatically after purchase. This route
 // backs the "email me the link" button on the thank-you page for buyers who
@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     // same answer whether or not it was paid.
     if (!isDataCheckout(session)) {
       return NextResponse.json(
-        { error: "This purchase is not for DATA DAEMON." },
+        { error: "This purchase is not for D.A.T.A." },
         { status: 403 },
       );
     }

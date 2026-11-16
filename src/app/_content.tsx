@@ -18,7 +18,7 @@ export const CALENDLY_URL = `${CALENDLY_BASE_URL}?hide_gdpr_banner=1&background_
 export const DATA_CHECKOUT_URL = "/data-daemon/checkout";
 export const DATA_VIDEO_ID = "LzzKZVD_axY";
 
-// ── DATA DAEMON ──────────────────────────────────────────────────────────────
+// ── D.A.T.A ──────────────────────────────────────────────────────────────
 export const dataShots = [
   {
     src: "/data/data-bridge.png",
@@ -265,13 +265,13 @@ export const faqItems: FaqItem[] = [
     topics: ["dashboards"],
   },
   {
-    q: "What exactly is DATA DAEMON, and is it really free?",
-    a: "Yes. It is free and open source under Apache-2.0. DATA DAEMON is our own AI command center, the same self-hosted dashboard we run the agency on, packaged so you can run it yourself: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. Download it, read every line of the source, and run it on your own machine at no cost. If it earns a place in your workflow you can name your price to support development, but that is entirely optional. If you want a whole system built for you instead, that is done-for-you.",
+    q: "What exactly is D.A.T.A, and is it really free?",
+    a: "Yes. It is free and open source under Apache-2.0. D.A.T.A is our own AI command center, the same self-hosted dashboard we run the agency on, packaged so you can run it yourself: many agents in one screen, reading your files, running commands, browsing the web, and remembering everything across sessions. Download it, read every line of the source, and run it on your own machine at no cost. If it earns a place in your workflow you can name your price to support development, but that is entirely optional. If you want a whole system built for you instead, that is done-for-you.",
     topics: ["data"],
   },
   {
-    q: "What is the difference between DATA DAEMON and done-for-you?",
-    a: "DATA DAEMON is the free, open-source tool, run by you. You install it on your own machine and drive it yourself. Done-for-you is a paid custom build: a dashboard, automations, agents, integrations, or a website designed around your business or personal workflow. If you want DATA DAEMON installed and wired up for you, mention it on the call and we will scope a paid setup for you.",
+    q: "What is the difference between D.A.T.A and done-for-you?",
+    a: "D.A.T.A is the free, open-source tool, run by you. You install it on your own machine and drive it yourself. Done-for-you is a paid custom build: a dashboard, automations, agents, integrations, or a website designed around your business or personal workflow. If you want D.A.T.A installed and wired up for you, mention it on the call and we will scope a paid setup for you.",
     topics: ["data", "services"],
   },
   {
@@ -281,7 +281,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "Do I own everything?",
-    a: "Yes. DATA DAEMON is open source and self-hosted on your machine. The code is yours to run, modify, and share under Apache-2.0. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
+    a: "Yes. D.A.T.A is open source and self-hosted on your machine. The code is yours to run, modify, and share under Apache-2.0. On done-for-you builds you own the code, the domain, the content, and the brand assets, full stop. No hostage situations, no proprietary builder you cannot escape.",
     topics: ["websites", "services", "data", "dashboards"],
   },
   {
@@ -291,17 +291,17 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "What does a monthly fee cover, if any?",
-    a: "DATA DAEMON has none. It is free and open source, self-hosted by you. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope: automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
+    a: "D.A.T.A has none. It is free and open source, self-hosted by you. Done-for-you builds can carry an optional monthly that covers hosting, SSL, security patches, uptime monitoring, backups, small updates, plus whatever we scope: automation upkeep, SEO reporting, agent retraining. Think of it as the team that keeps the asset working, not just a hosting bill.",
     topics: ["services", "websites"],
   },
   {
-    q: "What computers does DATA DAEMON run on?",
+    q: "What computers does D.A.T.A run on?",
     a: "Windows, macOS, and Linux. Windows has an .exe installer. Mac has separate .dmg downloads for Apple Silicon and Intel, with Python included. Copy the DATA folder out of the disk image and follow the downloadable Mac setup guide, which covers unsigned-app approval. Linux and source ZIP installs need Python 3.10+. Chat requires a supported AI provider, using your own account or a local model.",
     topics: ["data"],
   },
   {
     q: "Do you work with clients outside of Idaho?",
-    a: "Absolutely. We are based in Idaho but our clients are everywhere: local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design, and DATA DAEMON is a download anyone can run.",
+    a: "Absolutely. We are based in Idaho but our clients are everywhere: local landscape lighting in Sandpoint, wholesale botanicals shipping nationwide, bookkeeping services. The work is remote-friendly by design, and D.A.T.A is a download anyone can run.",
     topics: ["services", "websites"],
   },
   {

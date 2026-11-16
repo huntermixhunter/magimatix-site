@@ -58,7 +58,7 @@ export default function DataGetPage() {
           href="/data-daemon"
           className="text-sm text-zinc-400 hover:text-white transition-colors"
         >
-          ← Back to DATA DAEMON
+          ← Back to D.A.T.A
         </Link>
 
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/5 px-3 py-1 text-xs font-medium text-emerald-300 mt-6 mb-4">
@@ -66,7 +66,7 @@ export default function DataGetPage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-          Get <span className="gradient-text">DATA DAEMON</span>
+          Get <span className="gradient-text">D.A.T.A</span>
         </h1>
         <p className="text-zinc-400 mb-8 max-w-xl">
           Your own self-hosted AI command center. Free to download, free to run,
@@ -78,7 +78,7 @@ export default function DataGetPage() {
         <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent px-6 py-8 mb-10">
           <h2 className="text-xl font-semibold mb-1">Name your price</h2>
           <p className="text-sm text-zinc-400 mb-6 max-w-lg">
-            DATA is free, always. If it saves you time or you just want to keep
+            D.A.T.A is free, always. If it saves you time or you just want to keep
             it getting better, you can chip in whatever it is worth to you. Zero
             is a completely valid answer. The download below is yours either way.
           </p>
@@ -143,7 +143,7 @@ export default function DataGetPage() {
           ) : (
             <>
               <p className="text-sm text-zinc-300 mb-4">
-                Supporting DATA with{" "}
+                Supporting D.A.T.A with{" "}
                 <span className="font-semibold text-white">
                   ${(amount / 100).toFixed(0)}
                 </span>
@@ -176,7 +176,7 @@ export default function DataGetPage() {
         </div>
 
         <p className="text-xs text-zinc-500 mt-8 leading-relaxed">
-          DATA is experimental, autonomous software provided &ldquo;as is&rdquo;
+          D.A.T.A is experimental, autonomous software provided &ldquo;as is&rdquo;
           under the{" "}
           <Link
             href="/data-daemon/license"

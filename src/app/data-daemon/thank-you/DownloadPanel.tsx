@@ -113,7 +113,7 @@ export default function DownloadPanel() {
 
   return (
     <div ref={rootRef} id="download" className="w-full text-left">
-      <h2 className="text-xl font-semibold text-white">Download DATA</h2>
+      <h2 className="text-xl font-semibold text-white">Download D.A.T.A</h2>
       <p className="mt-1 text-sm text-zinc-400">
         Free, with no account needed. Choose your system for the download and the
         setup steps.
@@ -253,12 +253,12 @@ function WindowsSteps() {
             from your Downloads. If Windows shows &ldquo;Windows protected your PC,&rdquo;
             click{" "}
             <Ui>More info</Ui>, then <Ui>Run anyway</Ui>. That screen appears because
-            DATA is not code-signed.
+            D.A.T.A is not code-signed.
           </p>
         </Step>
-        <Step number={3} title="Launch DATA">
+        <Step number={3} title="Launch D.A.T.A">
           <p>
-            Finish the setup with <Ui>Launch DATA Daemon now</Ui> checked. DATA opens
+            Finish the setup with the <Ui>Launch</Ui> box checked. D.A.T.A opens
             in your browser at <LocalLink />. Next time, start it from the Start menu
             or your desktop shortcut.
           </p>
@@ -320,7 +320,7 @@ function MacSteps() {
           <CommandBlock command={DATA_MAC_TERMINAL_COMMAND} />
           <p>
             Paste the whole line exactly as shown. If Terminal asks to access your
-            Downloads folder, click <Ui>Allow</Ui>. DATA then starts and opens in your
+            Downloads folder, click <Ui>Allow</Ui>. D.A.T.A then starts and opens in your
             browser at <LocalLink />. Keep Terminal open while you use it.
           </p>
           <WhyTerminal />
@@ -356,11 +356,11 @@ function LinuxSteps() {
           <Code>sudo apt install python3 python3-pip unzip</Code>
         </p>
       </Step>
-      <Step number={2} title="Install and start DATA">
+      <Step number={2} title="Install and start D.A.T.A">
         <p>Open a terminal and run:</p>
         <CommandBlock command={LINUX_COMMAND} />
         <p>
-          DATA opens in your browser at <LocalLink />. Keep the terminal open while you
+          D.A.T.A opens in your browser at <LocalLink />. Keep the terminal open while you
           use it. Next time, open DATA from your app menu or run{" "}
           <Code>~/Downloads/DATA/start_data.sh</Code>.
         </p>
@@ -379,7 +379,7 @@ function ConnectAiStep({ number }: { number: number }) {
   return (
     <Step number={number} title="Connect your AI">
       <p>
-        DATA chats through an AI tool you already use, signed in with your own
+        D.A.T.A chats through an AI tool you already use, signed in with your own
         account. Install one and sign in once: <Ui>Claude Code</Ui>, <Ui>Codex</Ui>{" "}
         (with ChatGPT), <Ui>Gemini CLI</Ui>, or <Ui>Ollama</Ui> (free and fully
         local). No API keys needed.
@@ -416,13 +416,13 @@ function WhyTerminal() {
       <div className="space-y-2 text-sm leading-relaxed text-zinc-300">
         <p className="font-semibold text-white">Why the Terminal step?</p>
         <p>
-          DATA is free and open source, but it is not signed or notarized by Apple.
+          D.A.T.A is free and open source, but it is not signed or notarized by Apple.
           So the first time it runs, macOS blocks it with a warning that Apple could
           not verify it, or that it comes from an unidentified developer.
         </p>
         <p>
           This command clears that download block for your DATA folder only, then
-          starts DATA. It does not turn off your Mac&rsquo;s security settings and does
+          starts D.A.T.A. It does not turn off your Mac&rsquo;s security settings and does
           not need your password. Only run it on a copy you downloaded from this page.
         </p>
       </div>

@@ -14,12 +14,12 @@ import {
 import { DATA_REPO_URL } from "@/lib/data-release";
 
 export const metadata: Metadata = {
-  title: "DATA DAEMON: Your Self-Hosted AI Command Center",
+  title: "D.A.T.A: Your Self-Hosted AI Command Center",
   description:
-    "DATA DAEMON is a free, open-source AI command center you run on your own machine. A fleet of AI agents in one dashboard that read your files, run commands, browse the web, and remember everything across sessions. Windows, macOS, and Linux.",
+    "D.A.T.A is a free, open-source AI command center you run on your own machine. A fleet of AI agents in one dashboard that read your files, run commands, browse the web, and remember everything across sessions. Windows, macOS, and Linux.",
   alternates: { canonical: "/data-daemon" },
   openGraph: {
-    title: "DATA DAEMON: Your Self-Hosted AI Command Center",
+    title: "D.A.T.A: Your Self-Hosted AI Command Center",
     description:
       "Free and open source. A fleet of AI agents in one local dashboard, reading your files, running commands, browsing the web, and remembering everything.",
     url: "https://magimatix.com/data-daemon",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
 
 const whatItIs = [
   {
-    title: "A daemon, not a chat window",
-    body: "DATA stands for Dashboard for Analytical Thought and Action. A daemon is a program that runs quietly in the background, so this is a system that sits on your machine and works.",
+    title: "An agent harness, not a chat window",
+    body: "D.A.T.A stands for Dashboard for Agentic Thought and Action. It is one screen where AI agents think through your work and then act on it, right on your own machine: reading files, running commands, and getting real tasks done.",
   },
   {
     title: "The dashboard we run the agency on",
@@ -54,7 +54,7 @@ export default function DataDaemonPage() {
         eyebrowClass="text-aurora-green"
         title={
           <>
-            Meet <span className="gradient-text">DATA DAEMON</span>
+            Meet <span className="gradient-text">D.A.T.A</span>
           </>
         }
         lede="A fleet of AI agents from one local, self-hosted screen. They chat, write code, run commands, browse the web, control your screen, and remember everything across sessions. Free, open source, and yours outright."
@@ -64,7 +64,7 @@ export default function DataDaemonPage() {
             href={DATA_CHECKOUT_URL}
             className="btn-glow text-base font-medium px-8 py-4 rounded-full text-white inline-block"
           >
-            Get DATA DAEMON, free →
+            Get D.A.T.A, free →
           </Link>
           <a
             href={DATA_REPO_URL}
@@ -91,7 +91,7 @@ export default function DataDaemonPage() {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src={`https://www.youtube.com/embed/${DATA_VIDEO_ID}`}
-                title="DATA DAEMON: Full Dashboard Tour"
+                title="D.A.T.A: Full Dashboard Tour"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -251,7 +251,7 @@ export default function DataDaemonPage() {
             Want the result without running the tool?
           </h2>
           <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-9">
-            DATA DAEMON is for people who want to drive it themselves. If you
+            D.A.T.A is for people who want to drive it themselves. If you
             would rather we design, build, and run the whole AI system for your
             business, that is the done-for-you side of the house.
           </p>

@@ -43,13 +43,13 @@ export default async function ThankYouPage({
       <div className="max-w-2xl w-full text-center">
         <div className="text-5xl mb-6">{paid ? "🙏" : "⬇️"}</div>
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-          {paid ? "Thank you for supporting DATA!" : "Get DATA"}
+          {paid ? "Thank you for supporting D.A.T.A!" : "Get D.A.T.A"}
         </h1>
         <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
           {paid ? (
             <>
               Your {amount ? `${amount} ` : ""}contribution keeps{" "}
-              <span className="gradient-text font-semibold">DATA DAEMON</span>{" "}
+              <span className="gradient-text font-semibold">D.A.T.A</span>{" "}
               free and getting better.
               {email ? (
                 <>
@@ -63,7 +63,7 @@ export default async function ThankYouPage({
           ) : (
             <>
               Download{" "}
-              <span className="gradient-text font-semibold">DATA DAEMON</span>{" "}
+              <span className="gradient-text font-semibold">D.A.T.A</span>{" "}
               below. Free and open source, yours to run on your own machine.
             </>
           )}

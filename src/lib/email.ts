@@ -1,6 +1,6 @@
 // Transactional email via Resend (HTTPS API, no SDK dependency).
 //
-// The DATA Daemon sends one kind of email today: the post-purchase download
+// The D.A.T.A sends one kind of email today: the post-purchase download
 // link. We deliberately do NOT email the raw Blob URL. Instead we email a link
 // back to the thank-you page (/data-daemon/thank-you?session_id=...), which
 // re-verifies the Stripe session on every load before revealing the download.
@@ -15,7 +15,7 @@ const RESEND_ENDPOINT = "https://api.resend.com/emails";
 
 // Default from-address uses the verified sending subdomain. Override with
 // RESEND_FROM if you want a different display name / mailbox.
-const DEFAULT_FROM = "DATA Daemon <daemon@send.magimatix.com>";
+const DEFAULT_FROM = '"D.A.T.A" <daemon@send.magimatix.com>';
 
 // Canonical site origin for building buyer-facing links. Overridable so preview
 // deployments can point links at themselves.
@@ -78,7 +78,7 @@ async function sendEmail(opts: {
 }
 
 /**
- * Send (or re-send) the DATA Daemon download link to a buyer.
+ * Send (or re-send) the D.A.T.A download link to a buyer.
  * `sessionId` is the paid Stripe Checkout session; the link routes back through
  * the session-gated thank-you page.
  */
@@ -90,12 +90,12 @@ export async function sendDownloadEmail(params: {
     params.sessionId,
   )}`;
 
-  const subject = "Thank you for supporting DATA DAEMON";
+  const subject = "Thank you for supporting D.A.T.A";
 
   const text = [
-    "Thank you for supporting DATA DAEMON. It means a lot.",
+    "Thank you for supporting D.A.T.A. It means a lot.",
     "",
-    "DATA is free and open source, so here is your download",
+    "D.A.T.A is free and open source, so here is your download",
     "(works on Windows, macOS, and Linux):",
     link,
     "",
@@ -114,13 +114,13 @@ export async function sendDownloadEmail(params: {
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#121218;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
           <tr><td style="padding:36px 36px 8px 36px;">
             <p style="margin:0 0 6px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9a;">Magimatix</p>
-            <h1 style="margin:0 0 16px 0;font-size:24px;line-height:1.25;color:#ffffff;">Thank you for supporting DATA&nbsp;DAEMON</h1>
+            <h1 style="margin:0 0 16px 0;font-size:24px;line-height:1.25;color:#ffffff;">Thank you for supporting D.A.T.A</h1>
             <p style="margin:0 0 24px 0;font-size:15px;line-height:1.6;color:#c4c4cf;">
-              DATA is free and open source. Here is your download. It works on Windows, macOS, and Linux.
+              D.A.T.A is free and open source. Here is your download. It works on Windows, macOS, and Linux.
             </p>
             <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px 0;">
               <tr><td style="border-radius:999px;background:linear-gradient(90deg,#7c3aed,#ec4899);">
-                <a href="${link}" style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:999px;">Download DATA&nbsp;DAEMON &darr;</a>
+                <a href="${link}" style="display:inline-block;padding:14px 32px;font-size:15px;font-weight:600;color:#ffffff;text-decoration:none;border-radius:999px;">Download D.A.T.A &darr;</a>
               </td></tr>
             </table>
             <p style="margin:0 0 24px 0;font-size:13px;line-height:1.6;color:#8b8b9a;">
@@ -165,10 +165,10 @@ export async function sendSaleNotification(params: {
   const buyer = params.buyerEmail || "(no email on session)";
   const dash = `https://dashboard.stripe.com/payments`;
 
-  const subject = `New DATA DAEMON sale: ${buyer}`;
+  const subject = `New D.A.T.A sale: ${buyer}`;
 
   const text = [
-    "New DATA DAEMON purchase.",
+    "New D.A.T.A purchase.",
     "",
     `Buyer:    ${buyer}`,
     `Amount:   ${amount}`,
@@ -186,7 +186,7 @@ export async function sendSaleNotification(params: {
       <tr><td align="center">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#121218;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
           <tr><td style="padding:32px 34px 8px 34px;">
-            <p style="margin:0 0 6px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9a;">DATA DAEMON &middot; New sale</p>
+            <p style="margin:0 0 6px 0;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9a;">D.A.T.A &middot; New sale</p>
             <h1 style="margin:0 0 18px 0;font-size:24px;line-height:1.25;color:#ffffff;">${amount}</h1>
             <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="font-size:14px;line-height:1.7;color:#c4c4cf;">
               <tr><td style="color:#8b8b9a;padding-right:12px;">Buyer</td><td style="color:#ffffff;">${buyer}</td></tr>

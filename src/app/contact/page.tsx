@@ -75,7 +75,7 @@ export default function ContactPage() {
               href={DATA_CHECKOUT_URL}
               className="text-aurora-green hover:text-white transition-colors font-medium"
             >
-              Get DATA DAEMON, free &amp; open source →
+              Get D.A.T.A, free &amp; open source →
             </Link>
           </p>
         </div>

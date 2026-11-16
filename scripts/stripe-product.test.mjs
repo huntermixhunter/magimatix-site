@@ -313,7 +313,7 @@ describe("email-download", () => {
     test(`refuses a ${name} checkout without sending anything`, async () => {
       const res = await postEmail({ session_id: SESSIONS[name].id });
       assert.equal(res.status, 403);
-      assert.deepEqual(await res.json(), { error: "This purchase is not for DATA DAEMON." });
+      assert.deepEqual(await res.json(), { error: "This purchase is not for D.A.T.A." });
       assert.equal(mailbox.download.length, 0);
     });
   }

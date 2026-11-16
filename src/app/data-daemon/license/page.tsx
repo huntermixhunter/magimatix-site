@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { DATA_REPO_URL } from "@/lib/data-release";
 
 export const metadata: Metadata = {
-  title: "DATA DAEMON: License (Apache-2.0)",
+  title: "D.A.T.A: License (Apache-2.0)",
   description:
-    "DATA DAEMON is free and open-source software licensed under Apache-2.0. Use it, modify it, redistribute it. Provided as is, with an important note on running an autonomous AI agent.",
+    "D.A.T.A is free and open-source software licensed under Apache-2.0. Use it, modify it, redistribute it. Provided as is, with an important note on running an autonomous AI agent.",
 };
 
 const LICENSE_URL = `${DATA_REPO_URL}/blob/main/LICENSE`;
@@ -20,7 +20,7 @@ export default function DataLicensePage() {
           href="/data-daemon"
           className="text-sm text-zinc-400 hover:text-white transition-colors"
         >
-          ← Back to DATA DAEMON
+          ← Back to D.A.T.A
         </Link>
 
         <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/5 px-3 py-1 text-xs font-medium text-emerald-300 mt-6 mb-4">
@@ -28,10 +28,10 @@ export default function DataLicensePage() {
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
-          License: <span className="gradient-text">DATA DAEMON</span>
+          License: <span className="gradient-text">D.A.T.A</span>
         </h1>
         <p className="text-zinc-400 mb-10">
-          DATA DAEMON is free and open-source software, released under the{" "}
+          D.A.T.A is free and open-source software, released under the{" "}
           <a
             href={LICENSE_URL}
             target="_blank"
@@ -68,7 +68,7 @@ export default function DataLicensePage() {
               copyright and license notices and the{" "}
               <code className="text-zinc-300">NOTICE</code> file, state any
               significant changes you made, and include a copy of the Apache-2.0
-              license. You may not use the DATA or Magimatix names or marks to
+              license. You may not use the D.A.T.A, DATA, or Magimatix names or marks to
               endorse or promote your derivative without permission.
             </p>
           </section>
@@ -117,7 +117,7 @@ export default function DataLicensePage() {
               6. Supporting the project
             </h2>
             <p>
-              DATA is free. There is nothing to buy. If you want to support
+              D.A.T.A is free. There is nothing to buy. If you want to support
               continued development, contributions are pay-what-you-want and
               entirely optional; they grant no additional license or warranty.
             </p>
@@ -125,7 +125,7 @@ export default function DataLicensePage() {
         </div>
 
         <p className="text-xs text-zinc-500 mt-12 leading-relaxed">
-          By downloading, installing, or using the DATA DAEMON Software, you
+          By downloading, installing, or using the D.A.T.A Software, you
           acknowledge the Apache-2.0 license and the risk notice above. This page
           is a summary, not legal advice to you.
         </p>
@@ -135,7 +135,7 @@ export default function DataLicensePage() {
             href="/data-daemon/checkout"
             className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-zinc-200 transition-colors"
           >
-            Get DATA for free →
+            Get D.A.T.A for free →
           </Link>
           <a
             href={DATA_REPO_URL}

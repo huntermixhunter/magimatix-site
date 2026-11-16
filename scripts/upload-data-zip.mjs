@@ -1,4 +1,4 @@
-// Uploads a DATA Daemon product file to Vercel Blob and prints the URL to put
+// Uploads a D.A.T.A product file to Vercel Blob and prints the URL to put
 // in the matching server-only env var. The blob URL is unguessable (random
 // suffix) and is never exposed to buyers: the /api/download route streams the
 // bytes after verifying a paid Stripe session.

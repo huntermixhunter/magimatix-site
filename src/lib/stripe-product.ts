@@ -1,4 +1,4 @@
-// Which Stripe Checkout sessions belong to DATA DAEMON.
+// Which Stripe Checkout sessions belong to D.A.T.A.
 //
 // The Stripe account is shared with Auramaxxing (auramaxxingacademy.com). Stripe
 // sends every checkout on the account to this site's webhook, and a session id

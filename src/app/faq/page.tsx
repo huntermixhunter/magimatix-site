@@ -9,7 +9,7 @@ import { faqItems } from "../_content";
 export const metadata: Metadata = {
   title: "FAQ: Straight Answers About How We Work",
   description:
-    "Straight answers on custom dashboards, DATA DAEMON, done-for-you AI builds, websites, ownership, timelines, pricing, and what happens after you say go.",
+    "Straight answers on custom dashboards, D.A.T.A, done-for-you AI builds, websites, ownership, timelines, pricing, and what happens after you say go.",
   alternates: { canonical: "/faq" },
   openGraph: {
     title: "Magimatix FAQ: Straight Answers About How We Work",
@@ -57,7 +57,7 @@ export default function FaqPage() {
           <p className="text-sm text-zinc-500">
             Looking for something specific?{" "}
             <Link href="/data-daemon" className="text-aurora-green hover:text-white transition-colors">
-              DATA DAEMON
+              D.A.T.A
             </Link>
             {" · "}
             <Link href="/dashboards" className="text-aurora-blue hover:text-white transition-colors">
